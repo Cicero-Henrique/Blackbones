@@ -1,5 +1,10 @@
 package blackbones;
 
+import java.io.IOException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Operacoes_Produtos 
 {
     public Estoque adicionar_produto(Estoque a, String nome, String tipo, double preco_custo, double preco_venda, double margem_lucro, int qtd, String tamanho)
@@ -23,14 +28,32 @@ public class Operacoes_Produtos
     
     public void vender(Estoque e, int id, int qtd)
     {
-        Financeiro f = new Financeiro();
-        f.getVendidos().get(id).setProduto(e.getProdutos().get(id));
-        
-        e.getProdutos().get(id).setQtd(e.getProdutos().get(id).getQtd() - qtd);
-        
-        
-        e.getProdutos().remove(id);
-        //somar os lucros e fazer as contas
+        try 
+        {
+            Armazenamento_File a = new Armazenamento_File();
+            Financeiro f = new Financeiro();
+            Venda v = new Venda();
+            Date d = new Date();
+
+            //adicionar ao histórico de vendas
+            v.setProduto(e.getProdutos().get(id));
+            v.setData_venda(d);
+            f.getVendidos().add(v);
+            a.salvarVendas(f);
+            
+            //reduzir do estoque
+            int nova_qtd = e.getProdutos().get(id).getQtd() - qtd;
+            if(nova_qtd > 0)
+                e.getProdutos().get(id).setQtd(e.getProdutos().get(id).getQtd() - qtd);
+            else
+                e.getProdutos().remove(id);
+            
+            
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(Operacoes_Produtos.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void listar(Estoque a)

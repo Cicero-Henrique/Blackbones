@@ -13,4 +13,6 @@ public class Venda
 
     public void setProduto(Produto produto) {this.produto = produto;}
     public void setData_venda(Date data_venda) {this.data_venda = data_venda;} 
+    
+    
 }

@@ -79,7 +79,7 @@ public class Receita
             }
             else
                 JOptionPane.showMessageDialog(null, "Data final menor que inicial");
-                
+            
             
         } catch (IOException ex) {
             Logger.getLogger(Receita.class.getName()).log(Level.SEVERE, null, ex);

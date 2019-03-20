@@ -339,9 +339,18 @@ public class Armazenamento_File
     }
     
     
-    public void salvarReceita(Receita r)
+    public void salvarVendas(Financeiro f) throws FileNotFoundException, IOException
     {
-        
-        
+        OutputStream os = new FileOutputStream("Vendidos.txt");
+        OutputStreamWriter osw = new OutputStreamWriter(os);
+        BufferedWriter bw = new BufferedWriter(osw);
+        for(int i = 0; i < f.getVendidos().size(); i++)
+        {
+            bw.write(f.getVendidos().get(i).getProduto().getNome() + "-" + f.getVendidos().get(i).getProduto().getTipo() + "-" + 
+                    f.getVendidos().get(i).getProduto().getTamanho() + "-" + f.getVendidos().get(i).getProduto().getPreco_venda() + "-" +
+                    f.getVendidos().get(i).getProduto().getQtd() + "-" + f.getVendidos().get(i).getData_venda()+ " \r\n");
+        }
+        bw.close();
+
     }
 }
