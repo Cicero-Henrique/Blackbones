@@ -45,7 +45,7 @@ public class Receita
             Financeiro fp = a.loadConta("pagar");
             Financeiro fr = a.loadConta("receber");
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            String data_inicial = "19/03/2019", data_final = "27/12/2019";
+            String data_inicial = "10/03/2019", data_final = "27/12/2019";
             double despesas = 0, lucros = 0, total;
             boolean x = Verificar_Datas(data_inicial, data_final);
             
@@ -63,15 +63,15 @@ public class Receita
                     }
                 }
                 
-                for(int i = 0; i < fp.getContas_receber().size(); i++)
+                for(int i = 0; i < fr.getContas_receber().size(); i++)
                 {    
-                    if((fp.getContas_receber().get(i).getData().after(formato.parse(data_inicial))) && 
-                            (fp.getContas_receber().get(i).getData().before(formato.parse(data_final))))
+                    if((fr.getContas_receber().get(i).getData().after(formato.parse(data_inicial))) && 
+                            (fr.getContas_receber().get(i).getData().before(formato.parse(data_final))))
                     {
-                        System.out.println(fp.getContas_receber().get(i).getNome() + " " + fp.getContas_receber().get(i).getTipo_pagamento()
-                            + " " + fp.getContas_receber().get(i).getValor());
+                        System.out.println(fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
+                            + " " + fr.getContas_receber().get(i).getValor());
                         
-                            lucros = lucros + fp.getContas_receber().get(i).getValor();
+                            lucros = lucros + fr.getContas_receber().get(i).getValor();
                     }
                 }
                 total = lucros -  despesas;
