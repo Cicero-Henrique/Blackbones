@@ -59,7 +59,7 @@ public class Receita
                         System.out.println(fp.getContas_pagar().get(i).getNome() + " " + fp.getContas_pagar().get(i).getTipo_pagamento()
                             + " " + fp.getContas_pagar().get(i).getValor());
                         
-                            despesas = despesas + fp.getContas_pagar().get(i).getValor();
+                        despesas = despesas + fp.getContas_pagar().get(i).getValor();
                     }
                 }
                 
@@ -71,7 +71,7 @@ public class Receita
                         System.out.println(fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
                             + " " + fr.getContas_receber().get(i).getValor());
                         
-                            lucros = lucros + fr.getContas_receber().get(i).getValor();
+                        lucros = lucros + fr.getContas_receber().get(i).getValor();
                     }
                 }
                 total = lucros -  despesas;

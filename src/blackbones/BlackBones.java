@@ -8,11 +8,11 @@ public class BlackBones
     public static void main(String[] args) 
     {
         
-        Estatisticas e = new Estatisticas();
-        e.setVisible(true);
+        /*Estatisticas e = new Estatisticas();
+        e.setVisible(true);*/
         
-        /*Receita r = new Receita();
-        r.main();*/
+        Receita r = new Receita();
+        r.main();
         
         
         

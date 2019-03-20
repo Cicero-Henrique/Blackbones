@@ -21,12 +21,15 @@ public class Operacoes_Produtos
         return a;
     }
     
-    public void vender(Estoque a, int id, int qtd)
+    public void vender(Estoque e, int id, int qtd)
     {
-        a.getProdutos().get(id).setQtd(a.getProdutos().get(id).getQtd() - qtd);
-        double receita  = a.getProdutos().get(id).getPreco_venda() * qtd;
+        Financeiro f = new Financeiro();
+        f.getVendidos().get(id).setProduto(e.getProdutos().get(id));
         
-        a.getProdutos().remove(id);
+        e.getProdutos().get(id).setQtd(e.getProdutos().get(id).getQtd() - qtd);
+        
+        
+        e.getProdutos().remove(id);
         //somar os lucros e fazer as contas
     }
     
@@ -35,7 +38,8 @@ public class Operacoes_Produtos
         int i = 0;
         for(i = 0; i < a.getProdutos().size(); i++)
         {
-            System.out.println(i + "-" + a.getProdutos().get(i).getNome() + " - " + a.getProdutos().get(i).getTipo() + " - Margem:" + a.getProdutos().get(i).getMargem_lucro());
+            System.out.println(i + "-" + a.getProdutos().get(i).getNome() + " - " + a.getProdutos().get(i).getTipo() +
+                    " - Margem:" + a.getProdutos().get(i).getMargem_lucro());
         }
     }
 }
