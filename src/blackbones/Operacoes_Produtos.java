@@ -44,11 +44,16 @@ public class Operacoes_Produtos
             //reduzir do estoque
             int nova_qtd = e.getProdutos().get(id).getQtd() - qtd;
             if(nova_qtd > 0)
+            {
                 e.getProdutos().get(id).setQtd(e.getProdutos().get(id).getQtd() - qtd);
+                System.out.println(e.getProdutos().get(id).getQtd());
+            }
             else
                 e.getProdutos().remove(id);
             
-            
+            System.out.println("VENDIDOS");
+            for(int i = 0; i < f.getVendidos().size(); i++)
+                System.out.println(f.getVendidos().get(i).getProduto().getNome());
         } 
         catch (IOException ex) 
         {
