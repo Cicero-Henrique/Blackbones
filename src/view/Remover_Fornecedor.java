@@ -5,6 +5,14 @@
  */
 package view;
 
+import blackbones.Armazenamento_File;
+import blackbones.Operacoes_Fornecedores;
+import blackbones.Registro;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cícero
@@ -29,18 +37,18 @@ public class Remover_Fornecedor extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        clientes_list = new javax.swing.JList<>();
+        fornecedores_list = new javax.swing.JList<>();
         remover_button = new javax.swing.JButton();
         voltar_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        clientes_list.setModel(new javax.swing.AbstractListModel<String>() {
+        fornecedores_list.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(clientes_list);
+        jScrollPane1.setViewportView(fornecedores_list);
 
         remover_button.setText("Remover");
         remover_button.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +110,9 @@ public class Remover_Fornecedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void remover_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_buttonActionPerformed
-        if(!clientes_list.isSelectionEmpty())
+        if(!fornecedores_list.isSelectionEmpty())
         {
-            String item = clientes_list.getSelectedValue();
+            String item = fornecedores_list.getSelectedValue();
             int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
 
             if(x == 0)
@@ -112,7 +120,7 @@ public class Remover_Fornecedor extends javax.swing.JFrame {
                 try {
                     Remover();
                 } catch (IOException ex) {
-                    Logger.getLogger(Remover_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Remover_Fornecedor.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
@@ -159,10 +167,34 @@ public class Remover_Fornecedor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> clientes_list;
+    private javax.swing.JList<String> fornecedores_list;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton remover_button;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
+
+    public void Remover() throws IOException
+    {
+        Armazenamento_File a = new Armazenamento_File();
+        Registro r = a.loadFornecedor();
+        Operacoes_Fornecedores of = new Operacoes_Fornecedores();
+        
+        int id = fornecedores_list.getSelectedIndex();
+        of.remover(r, id);
+        
+        a.salvarFornecedor(r);
+
+        dispose();
+        new Remover_Cliente();
+    }
+
+
+
+
+
+
+
+
+
 }
