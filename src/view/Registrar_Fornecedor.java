@@ -303,7 +303,7 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         {
             r = a.loadFornecedor();
             r = of.adicionar(r, nome, cnpj, telefone, email, tipo);
-            a.salvarCliente(r);
+            a.salvarFornecedor(r);
             
             return true;
         }

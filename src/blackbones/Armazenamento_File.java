@@ -84,12 +84,12 @@ public class Armazenamento_File
         }
         else
         {
-            if(tipo.equals("produto"))
+            if(tipo.equals("fornecedor"))
             {
                 try 
                 {
                     InputStream is;
-                    is = new FileInputStream("Estoque.txt");
+                    is = new FileInputStream("Fornecedores.txt");
                     InputStreamReader isr = new InputStreamReader(is);
                     BufferedReader br = new BufferedReader(isr);
                     String s  = br.readLine();
@@ -105,12 +105,12 @@ public class Armazenamento_File
             }
             else
             {
-                if(tipo.equals("pagar"))
+                if(tipo.equals("produto"))
                 {
                     try 
                     {
                         InputStream is;
-                        is = new FileInputStream("contaspagar.txt");
+                        is = new FileInputStream("Estoque.txt");
                         InputStreamReader isr = new InputStreamReader(is);
                         BufferedReader br = new BufferedReader(isr);
                         String s  = br.readLine();
@@ -120,29 +120,51 @@ public class Armazenamento_File
                             s  = br.readLine();
                         }
                         br.close();
-                    } 
-                    catch (IOException ex) {
+                    } catch (IOException ex) {
                         Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
                 else
                 {
-                    try 
+                    if(tipo.equals("pagar"))
                     {
-                        InputStream is;
-                        is = new FileInputStream("contasreceber.txt");
-                        InputStreamReader isr = new InputStreamReader(is);
-                        BufferedReader br = new BufferedReader(isr);
-                        String s  = br.readLine();
-                        while(s != null)
+                        try 
                         {
-                            list.addElement(s);
-                            s  = br.readLine();
+                            InputStream is;
+                            is = new FileInputStream("contaspagar.txt");
+                            InputStreamReader isr = new InputStreamReader(is);
+                            BufferedReader br = new BufferedReader(isr);
+                            String s  = br.readLine();
+                            while(s != null)
+                            {
+                                list.addElement(s);
+                                s  = br.readLine();
+                            }
+                            br.close();
+                        } 
+                        catch (IOException ex) {
+                            Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        br.close();
-                    } 
-                    catch (IOException ex) {
-                        Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    else
+                    {
+                        try 
+                        {
+                            InputStream is;
+                            is = new FileInputStream("contasreceber.txt");
+                            InputStreamReader isr = new InputStreamReader(is);
+                            BufferedReader br = new BufferedReader(isr);
+                            String s  = br.readLine();
+                            while(s != null)
+                            {
+                                list.addElement(s);
+                                s  = br.readLine();
+                            }
+                            br.close();
+                        } 
+                        catch (IOException ex) {
+                            Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             }
@@ -371,9 +393,9 @@ public class Armazenamento_File
     
     /*ARMAZENAR FORNECEDORES*/
     
-    public void salvarFornecedores(Registro r) throws FileNotFoundException, IOException
+    public void salvarFornecedor(Registro r) throws FileNotFoundException, IOException
     {
-        OutputStream os = new FileOutputStream("Registro.txt");
+        OutputStream os = new FileOutputStream("Fornecedores.txt");
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
         for(int i = 0; i < r.getFornecedores().size(); i++)
@@ -389,7 +411,7 @@ public class Armazenamento_File
     public Registro loadFornecedor() throws FileNotFoundException, IOException
     {
         Registro r = new Registro();
-        InputStream is = new FileInputStream("Registro.txt");
+        InputStream is = new FileInputStream("Fornecedores.txt");
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
         String s  = br.readLine();

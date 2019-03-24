@@ -13,6 +13,7 @@ import blackbones.Validator;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -23,8 +24,14 @@ public class Editar_Fornecedor extends javax.swing.JFrame {
     /**
      * Creates new form Editar_Fornecedor
      */
-    public Editar_Fornecedor() {
+    public Editar_Fornecedor() 
+    {
         initComponents();
+        setVisible(true);
+        Armazenamento_File a = new Armazenamento_File();
+        DefaultListModel listModel = new DefaultListModel();
+        listModel = a.loadListModel("fornecedor");
+        jList1.setModel(listModel);
     }
 
     /**
