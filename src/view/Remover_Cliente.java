@@ -30,7 +30,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         clientes_list = new javax.swing.JList<>();
         voltar_button = new javax.swing.JButton();
-        demitir_button = new javax.swing.JButton();
+        remover_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +48,10 @@ public class Remover_Cliente extends javax.swing.JFrame {
             }
         });
 
-        demitir_button.setText("Demitir");
-        demitir_button.addActionListener(new java.awt.event.ActionListener() {
+        remover_button.setText("Remover");
+        remover_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                demitir_buttonActionPerformed(evt);
+                remover_buttonActionPerformed(evt);
             }
         });
 
@@ -70,7 +70,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(382, 382, 382)
-                        .addComponent(demitir_button, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(remover_button, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -79,7 +79,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
                 .addGap(150, 150, 150)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(demitir_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(remover_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
@@ -99,7 +99,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void demitir_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demitir_buttonActionPerformed
+    private void remover_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_buttonActionPerformed
         if(!clientes_list.isSelectionEmpty())
         {
             String item = clientes_list.getSelectedValue();
@@ -114,7 +114,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
                 }
             }
         }
-    }//GEN-LAST:event_demitir_buttonActionPerformed
+    }//GEN-LAST:event_remover_buttonActionPerformed
 
     private void voltar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_buttonActionPerformed
         dispose();
@@ -132,9 +132,9 @@ public class Remover_Cliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> clientes_list;
-    private javax.swing.JButton demitir_button;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton remover_button;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     

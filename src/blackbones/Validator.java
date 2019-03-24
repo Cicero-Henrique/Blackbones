@@ -43,7 +43,7 @@ public class Validator
             return false;
         }
         if (!isValidTelefone(telefone)) {
-            JOptionPane.showMessageDialog(null, "O telefone de cargo nao pode ter mais que 20 caracteres e nao deve ter caracteres especiais ou letras.",
+            JOptionPane.showMessageDialog(null, "O telefone nao pode ter mais que 20 caracteres e nao deve ter caracteres especiais ou letras.",
                     "Erro no telefone", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -68,6 +68,37 @@ public class Validator
 		"Erro no CPF", JOptionPane.ERROR_MESSAGE);
             return false;
 	}
+        return true;
+    }
+    
+    public static boolean isValidFornecedor(String nome, String cnpj, String telefone, String email, String tipo)
+    {
+        if (!isValidNome(nome)) {
+            JOptionPane.showMessageDialog(null, "O nome do fornecedor nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
+                    "Erro no nome", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidCnpj(cnpj)) 
+	{
+            JOptionPane.showMessageDialog(null, "O CNPJ deve conter 14 dígitos.",
+		"Erro no CNPJ", JOptionPane.ERROR_MESSAGE);
+            return false;
+	}
+        if (!isValidTelefone(telefone)) {
+            JOptionPane.showMessageDialog(null, "O telefone nao pode ter mais que 20 caracteres e nao deve ter caracteres especiais ou letras.",
+                    "Erro no telefone", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(null, "O email deve conter pelo menos um @",
+                    "Erro no email", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidCargo(tipo)) {
+            JOptionPane.showMessageDialog(null, "A indicação só pode conter letras.",
+                    "Erro na indicação", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         return true;
     }
     
@@ -183,6 +214,13 @@ public class Validator
         return (!hasSpecialCharacters(salario) && !hasLetters(salario));
     }
 
+    public static boolean isValidCnpj(String cnpj) {
+        if (cnpj.length() != 14) {
+            return false;
+        }
+        return (!hasLetters(cnpj) && !hasSpecialCharacters(cnpj));
+    }
+    
     public static boolean isValidCpf(String cpf) {
         if (cpf.length() != 11) {
             return false;

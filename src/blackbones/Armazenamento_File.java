@@ -39,11 +39,20 @@ public class Armazenamento_File
             else
             {
                 if(tipo == 2)
-            {
-                String linha[] = new String[6];
-                linha = line.split("-");
-                return linha = line.split("-");
-            }
+                {
+                    String linha[] = new String[6];
+                    linha = line.split("-");
+                    return linha = line.split("-");
+                }
+                else
+                {
+                    if(tipo == 3)
+                    {
+                        String linha[] = new String[4];
+                        linha = line.split("-");
+                        return linha = line.split("-");
+                    }
+                }
             }
         }
         String s[] = null;
@@ -189,6 +198,8 @@ public class Armazenamento_File
         JOptionPane.showMessageDialog(null, "CLIENTE SALVO");
     }
     
+    
+    
     /*ARMAZENAR CONTAS*/
     
     public void salvarConta(Financeiro f, String tipo) throws FileNotFoundException, IOException 
@@ -290,6 +301,8 @@ public class Armazenamento_File
         return f;
     }
     
+    
+    
     /*ARMAZENAR PRODUTOS*/
     
     public Produto gerarProduto(String s)                                   // Transform one line saved in a file in an Object of type Product 
@@ -352,5 +365,54 @@ public class Armazenamento_File
         }
         bw.close();
 
+    }
+    
+    
+    
+    /*ARMAZENAR FORNECEDORES*/
+    
+    public void salvarFornecedores(Registro r) throws FileNotFoundException, IOException
+    {
+        OutputStream os = new FileOutputStream("Registro.txt");
+        OutputStreamWriter osw = new OutputStreamWriter(os);
+        BufferedWriter bw = new BufferedWriter(osw);
+        for(int i = 0; i < r.getFornecedores().size(); i++)
+        {
+            bw.write(r.getFornecedores().get(i).getNome() + "-" + r.getFornecedores().get(i).getCnpj() + "-" + r.getFornecedores().get(i).getTelefone()
+                    + "-" + r.getFornecedores().get(i).getEmail() + "-" + r.getFornecedores().get(i).getTipo() + " \r\n");
+        }
+        bw.close();
+        
+        JOptionPane.showMessageDialog(null, "FORNECEDOR SALVO");
+    }
+    
+    public Registro loadFornecedor() throws FileNotFoundException, IOException
+    {
+        Registro r = new Registro();
+        InputStream is = new FileInputStream("Registro.txt");
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String s  = br.readLine();
+        
+        while(s != null)
+        {
+            Fornecedor f = gerarFornecedor(s);
+            r.getFornecedores().add(f);
+            s  = br.readLine();
+        }
+        br.close();
+        
+        return r;
+    }
+    
+    public Fornecedor gerarFornecedor(String s)                                 // Transform one line saved in a file in an Object of type Product 
+    {
+        String atributos[];
+        
+        atributos = cortarString(s, 3);
+        
+        Fornecedor fornecedor = new Fornecedor(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4]);
+        
+        return fornecedor; 
     }
 }

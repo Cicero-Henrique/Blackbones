@@ -127,7 +127,8 @@ public class Vender_Produtos extends javax.swing.JFrame {
             
             if(x == 0)
             {
-                try {
+                try 
+                {
                     Remover();
                 } catch (IOException ex) {
                     Logger.getLogger(Vender_Produtos.class.getName()).log(Level.SEVERE, null, ex);
@@ -190,7 +191,7 @@ public class Vender_Produtos extends javax.swing.JFrame {
             Logger.getLogger(Remover_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
-        new Remover_Cliente();
+        new Vender_Produtos();
     }
 
     public boolean temEmEstoque(int qtd, int id, Estoque e)

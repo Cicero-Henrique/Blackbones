@@ -51,7 +51,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="382" max="-2" attributes="0"/>
-                          <Component id="demitir_button" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="remover_button" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="181" max="32767" attributes="0"/>
@@ -64,7 +64,7 @@
                   <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="313" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="demitir_button" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="remover_button" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Component id="voltar_button" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -106,12 +106,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltar_buttonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="demitir_button">
+        <Component class="javax.swing.JButton" name="remover_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Demitir"/>
+            <Property name="text" type="java.lang.String" value="Remover"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="demitir_buttonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remover_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
