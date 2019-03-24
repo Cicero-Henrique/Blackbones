@@ -12,7 +12,7 @@ public class BlackBones
         e.setVisible(true);
         
         /*Receita r = new Receita();
-        r.main();*/
+        r.main();
         
         
         

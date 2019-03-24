@@ -1,5 +1,8 @@
-aa-aa-1.0-1.0-0.0-1-/PP/P/M/G/GG/GGG      
-WoWzinho-moletom-50.0-120.0-0.9166666666666666-5-/P/M/G/GG     
-WoWzinho-camisa-50.0-120.0-0.9166666666666666-5-/P/M/G/GG    
-asdafsaknfsba-camisa-50.0-200.0-0.95-5-/P/M/G/GG 
-asdafsaknfsba-camisa-50.0-120.0-0.9166666666666666-5-/P/M/G/GG  
+aa-aa-1.0-1.0-0.0-1-/PP/P/M/G/GG/GGG                   
+WoWzinho-moletom-50.0-120.0-0.9166666666666666-5-/P/M/G/GG                  
+WoWzinho-camisa-50.0-120.0-0.9583333333333334-10-/P/M/G/GG 
+asdafsaknfsba-camisa-50.0-200.0-0.95-5-/P/M/G/GG              
+asdafsaknfsba-camisa-50.0-120.0-0.9166666666666666-5-/P/M/G/GG               
+TESTE-camisa-20.0-40.0-0.9928571428571429-5-/P/M/G/GG        
+TESTE-camisa-20.0-40.0-0.9928571428571429-70-/M/G/GG      
+teste-camisa-20.0-40.0-0.9928571428571429-10-/M     

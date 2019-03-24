@@ -38,6 +38,7 @@ public class Operacoes_Produtos
             //adicionar ao histórico de vendas
             v.setProduto(e.getProdutos().get(id));
             v.setData_venda(d);
+            f = a.loadVendas();
             f.getVendidos().add(v);
             a.salvarVendas(f);
             
@@ -51,9 +52,6 @@ public class Operacoes_Produtos
             else
                 e.getProdutos().remove(id);
             
-            System.out.println("VENDIDOS");
-            for(int i = 0; i < f.getVendidos().size(); i++)
-                System.out.println(f.getVendidos().get(i).getProduto().getNome());
         } 
         catch (IOException ex) 
         {

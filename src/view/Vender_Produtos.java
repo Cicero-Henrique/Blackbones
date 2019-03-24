@@ -122,18 +122,25 @@ public class Vender_Produtos extends javax.swing.JFrame {
     private void vender_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vender_buttonActionPerformed
         if(!produtos_list.isSelectionEmpty())
         {
-            String item = produtos_list.getSelectedValue();
-            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
-            
-            if(x == 0)
+            if(qtd_text.getText().length() == 0)
             {
-                try 
-                {
-                    Remover();
-                } catch (IOException ex) {
-                    Logger.getLogger(Vender_Produtos.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                JOptionPane.showMessageDialog(null, "Insira a quantidade a ser removida");
+            }
+            else
+            {
+                String item = produtos_list.getSelectedValue();
+                int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
 
+                if(x == 0)
+                {
+                    try 
+                    {
+                        Remover();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Vender_Produtos.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
             }
         }
     }//GEN-LAST:event_vender_buttonActionPerformed
@@ -175,7 +182,8 @@ public class Vender_Produtos extends javax.swing.JFrame {
         int id = produtos_list.getSelectedIndex();
         try 
         {
-            if((!Validator.isValidQuantidade(qtd_text.getText())))
+            
+            if((Validator.isValidQuantidade(qtd_text.getText())))
             {
                 int quantidade = Integer.parseInt(qtd_text.getText());
                 if(temEmEstoque(quantidade, id, e))

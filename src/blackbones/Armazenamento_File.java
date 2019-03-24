@@ -181,6 +181,7 @@ public class Armazenamento_File
         return list;
     }
     
+    
     /* ARMAZENAR CLIENTES*/
     
     public Cliente gerarCliente(String s)                                   // Transform one line saved in a file in an Object of type Product 
@@ -228,7 +229,6 @@ public class Armazenamento_File
         
         JOptionPane.showMessageDialog(null, "CLIENTE SALVO");
     }
-    
     
     
     /*ARMAZENAR CONTAS*/
@@ -333,7 +333,6 @@ public class Armazenamento_File
     }
     
     
-    
     /*ARMAZENAR PRODUTOS*/
     
     public Produto gerarProduto(String s)                                   // Transform one line saved in a file in an Object of type Product 
@@ -390,12 +389,16 @@ public class Armazenamento_File
         OutputStream os = new FileOutputStream("Vendidos.txt");
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        
+        
         for(int i = 0; i < f.getVendidos().size(); i++)
         {
             bw.write(f.getVendidos().get(i).getProduto().getNome() + "-" + f.getVendidos().get(i).getProduto().getTipo() 
                     + "-" + f.getVendidos().get(i).getProduto().getPreco_custo() + "-" + f.getVendidos().get(i).getProduto().getPreco_venda() 
                     + "-" + f.getVendidos().get(i).getProduto().getMargem_lucro() + "-" + f.getVendidos().get(i).getProduto().getQtd() 
-                    + "-" + f.getVendidos().get(i).getProduto().getTamanho() + "-" + f.getVendidos().get(i).getData_venda()+ " \r\n");
+                    + "-" + f.getVendidos().get(i).getProduto().getTamanho() + "-" + formato.format(f.getVendidos().get(i).getData_venda()).trim()
+                    + " \r\n");
         }
         bw.close();
 
@@ -422,26 +425,23 @@ public class Armazenamento_File
     
     public Venda gerarVenda(String s)                                   // Transform one line saved in a file in an Object of type Product 
     {
-        try {
-            String atributos[];
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date data_i;
-
+        String atributos[];
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date data;
+        try 
+        {
             atributos = cortarString(s, 4);
-
-            Produto p = new Produto(atributos[0], atributos[1], Double.parseDouble(atributos[2]), Double.parseDouble(atributos[3]), 
+            Produto p = new Produto(atributos[0], atributos[1], Double.parseDouble(atributos[2]), Double.parseDouble(atributos[3]),
                     Double.parseDouble(atributos[4]), Integer.parseInt(atributos[5].trim()), atributos[6]);
             Venda v = new Venda();
-
             v.setProduto(p);
-            data_i = formato.parse(atributos[7]);
-            v.setData_venda(data_i);
-
+            data = formato.parse(atributos[7].trim());
+            v.setData_venda(data);
             return v;
+        
         } catch (ParseException ex) {
             Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return null;
     }
     
