@@ -43,6 +43,7 @@ public class Receita {
         {
             Financeiro fp = a.loadConta("pagar");
             Financeiro fr = a.loadConta("receber");
+            Financeiro v = a.loadVendas();
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             String data_inicial = "10/03/2019", data_final = "27/12/2019";
             double despesas = 0, lucros = 0, total;
@@ -55,7 +56,7 @@ public class Receita {
                     if ((fp.getContas_pagar().get(i).getData().after(formato.parse(data_inicial)))
                             && (fp.getContas_pagar().get(i).getData().before(formato.parse(data_final)))) 
                     {
-                        System.out.println(fp.getContas_pagar().get(i).getNome() + " " + fp.getContas_pagar().get(i).getTipo_pagamento()
+                        System.out.println( "- " + fp.getContas_pagar().get(i).getNome() + " " + fp.getContas_pagar().get(i).getTipo_pagamento()
                                 + " " + fp.getContas_pagar().get(i).getValor());
 
                         despesas = despesas + fp.getContas_pagar().get(i).getValor();
@@ -67,21 +68,22 @@ public class Receita {
                     if ((fr.getContas_receber().get(i).getData().after(formato.parse(data_inicial)))
                             && (fr.getContas_receber().get(i).getData().before(formato.parse(data_final)))) 
                     {
-                        System.out.println(fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
+                        System.out.println("+ " + fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
                                 + " " + fr.getContas_receber().get(i).getValor());
 
                         lucros = lucros + fr.getContas_receber().get(i).getValor();
                     }
                 }
 
-                for (int i = 0; i < fr.getVendidos().size(); i++) {
-                    if ((fr.getVendidos().get(i).getData_venda().after(formato.parse(data_inicial)))
-                            && (fr.getVendidos().get(i).getData_venda().before(formato.parse(data_final)))) {
-                        System.out.println(fr.getVendidos().get(i).getProduto().getNome()
-                                + " " + fr.getVendidos().get(i).getProduto().getTipo() + " " + fr.getVendidos().get(i).getProduto().getQtd()
-                                + " " + fr.getVendidos().get(i).getProduto().getTamanho() + " " + fr.getVendidos().get(i).getData_venda());
+                for (int i = 0; i < v.getVendidos().size(); i++) {
+                    if ((v.getVendidos().get(i).getData_venda().after(formato.parse(data_inicial)))
+                            && (v.getVendidos().get(i).getData_venda().before(formato.parse(data_final)))) {
+                        System.out.println("+ " + v.getVendidos().get(i).getProduto().getNome()
+                                + " " + v.getVendidos().get(i).getProduto().getTipo() + " " + v.getVendidos().get(i).getProduto().getQtd()
+                                + " " + formato.format(v.getVendidos().get(i).getData_venda())
+                                + " " + v.getVendidos().get(i).getProduto().getPreco_venda());
 
-                        lucros = lucros + fr.getVendidos().get(i).getProduto().getPreco_venda();
+                        lucros = lucros + v.getVendidos().get(i).getProduto().getPreco_venda();
                     }
                 }
 
