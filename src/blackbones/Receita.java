@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Receita {
@@ -34,7 +35,7 @@ public class Receita {
         return false;
     }
 
-    public void main() 
+    public DefaultListModel main(String data_inicial, String data_final) 
     {
         Armazenamento_File a = new Armazenamento_File();
         ArrayList<Produto> vendidos = new ArrayList<>();
@@ -45,9 +46,11 @@ public class Receita {
             Financeiro fr = a.loadConta("receber");
             Financeiro v = a.loadVendas();
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            String data_inicial = "10/03/2019", data_final = "27/12/2019";
+            String elemento;
             double despesas = 0, lucros = 0, total;
             boolean x = Verificar_Datas(data_inicial, data_final);
+            DefaultListModel<String> list = new DefaultListModel();
+            String[] strings = null;
 
             if (x) 
             {
@@ -56,8 +59,9 @@ public class Receita {
                     if ((fp.getContas_pagar().get(i).getData().after(formato.parse(data_inicial)))
                             && (fp.getContas_pagar().get(i).getData().before(formato.parse(data_final)))) 
                     {
-                        System.out.println( "- " + fp.getContas_pagar().get(i).getNome() + " " + fp.getContas_pagar().get(i).getTipo_pagamento()
+                        elemento = ( "- " + fp.getContas_pagar().get(i).getNome() + " " + fp.getContas_pagar().get(i).getTipo_pagamento()
                                 + " " + fp.getContas_pagar().get(i).getValor());
+                        list.addElement(elemento);
 
                         despesas = despesas + fp.getContas_pagar().get(i).getValor();
                     }
@@ -68,9 +72,10 @@ public class Receita {
                     if ((fr.getContas_receber().get(i).getData().after(formato.parse(data_inicial)))
                             && (fr.getContas_receber().get(i).getData().before(formato.parse(data_final)))) 
                     {
-                        System.out.println("+ " + fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
+                        elemento = ("+ " + fr.getContas_receber().get(i).getNome() + " " + fr.getContas_receber().get(i).getTipo_pagamento()
                                 + " " + fr.getContas_receber().get(i).getValor());
-
+                        list.addElement(elemento);
+                        
                         lucros = lucros + fr.getContas_receber().get(i).getValor();
                     }
                 }
@@ -78,17 +83,20 @@ public class Receita {
                 for (int i = 0; i < v.getVendidos().size(); i++) {
                     if ((v.getVendidos().get(i).getData_venda().after(formato.parse(data_inicial)))
                             && (v.getVendidos().get(i).getData_venda().before(formato.parse(data_final)))) {
-                        System.out.println("+ " + v.getVendidos().get(i).getProduto().getNome()
+                        elemento = ("+ " + v.getVendidos().get(i).getProduto().getNome()
                                 + " " + v.getVendidos().get(i).getProduto().getTipo() + " " + v.getVendidos().get(i).getProduto().getQtd()
                                 + " " + formato.format(v.getVendidos().get(i).getData_venda())
                                 + " " + v.getVendidos().get(i).getProduto().getPreco_venda());
-
+                        
+                        list.addElement(elemento);
                         lucros = lucros + v.getVendidos().get(i).getProduto().getPreco_venda();
                     }
                 }
 
                 total = lucros - despesas;
-                System.out.println("receita total = " + total);
+                
+                list.addElement(Double.toString(total));
+                return list;
 
             } else {
                 JOptionPane.showMessageDialog(null, "Data final menor que inicial");
@@ -99,6 +107,7 @@ public class Receita {
         } catch (ParseException ex) {
             Logger.getLogger(Receita.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
 
     }
 }

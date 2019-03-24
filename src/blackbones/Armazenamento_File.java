@@ -68,119 +68,6 @@ public class Armazenamento_File
         return s;
     }
     
-    public DefaultListModel loadListModel(String tipo)
-    {
-        DefaultListModel<String> list = new DefaultListModel();
-        String[] strings = null;
-        if(tipo.equals("cliente"))
-        {
-            try 
-            {
-                InputStream is;
-                is = new FileInputStream("Registro.txt");
-                InputStreamReader isr = new InputStreamReader(is);
-                BufferedReader br = new BufferedReader(isr);
-                String s  = br.readLine();
-                while(s != null)
-                {
-                    list.addElement(s);
-                    s  = br.readLine();
-                }
-                br.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        else
-        {
-            if(tipo.equals("fornecedor"))
-            {
-                try 
-                {
-                    InputStream is;
-                    is = new FileInputStream("Fornecedores.txt");
-                    InputStreamReader isr = new InputStreamReader(is);
-                    BufferedReader br = new BufferedReader(isr);
-                    String s  = br.readLine();
-                    while(s != null)
-                    {
-                        list.addElement(s);
-                        s  = br.readLine();
-                    }
-                    br.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else
-            {
-                if(tipo.equals("produto"))
-                {
-                    try 
-                    {
-                        InputStream is;
-                        is = new FileInputStream("Estoque.txt");
-                        InputStreamReader isr = new InputStreamReader(is);
-                        BufferedReader br = new BufferedReader(isr);
-                        String s  = br.readLine();
-                        while(s != null)
-                        {
-                            list.addElement(s);
-                            s  = br.readLine();
-                        }
-                        br.close();
-                    } catch (IOException ex) {
-                        Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                else
-                {
-                    if(tipo.equals("pagar"))
-                    {
-                        try 
-                        {
-                            InputStream is;
-                            is = new FileInputStream("contaspagar.txt");
-                            InputStreamReader isr = new InputStreamReader(is);
-                            BufferedReader br = new BufferedReader(isr);
-                            String s  = br.readLine();
-                            while(s != null)
-                            {
-                                list.addElement(s);
-                                s  = br.readLine();
-                            }
-                            br.close();
-                        } 
-                        catch (IOException ex) {
-                            Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                    else
-                    {
-                        try 
-                        {
-                            InputStream is;
-                            is = new FileInputStream("contasreceber.txt");
-                            InputStreamReader isr = new InputStreamReader(is);
-                            BufferedReader br = new BufferedReader(isr);
-                            String s  = br.readLine();
-                            while(s != null)
-                            {
-                                list.addElement(s);
-                                s  = br.readLine();
-                            }
-                            br.close();
-                        } 
-                        catch (IOException ex) {
-                            Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
-            }
-        }
-        return list;
-    }
-    
     
     /* ARMAZENAR CLIENTES*/
     
@@ -492,5 +379,122 @@ public class Armazenamento_File
         Fornecedor fornecedor = new Fornecedor(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4]);
         
         return fornecedor; 
+    }
+    
+    
+    public DefaultListModel loadListModel(String tipo)
+    {
+        DefaultListModel<String> list = new DefaultListModel();
+        String[] strings = null;
+        if(tipo.equals("cliente"))
+        {
+            try 
+            {
+                InputStream is;
+                is = new FileInputStream("Registro.txt");
+                InputStreamReader isr = new InputStreamReader(is);
+                BufferedReader br = new BufferedReader(isr);
+                String s  = br.readLine();
+                while(s != null)
+                {
+                    list.addElement(s);
+                    s  = br.readLine();
+                }
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else
+        {
+            if(tipo.equals("fornecedor"))
+            {
+                try 
+                {
+                    InputStream is;
+                    is = new FileInputStream("Fornecedores.txt");
+                    InputStreamReader isr = new InputStreamReader(is);
+                    BufferedReader br = new BufferedReader(isr);
+                    String s  = br.readLine();
+                    while(s != null)
+                    {
+                        list.addElement(s);
+                        s  = br.readLine();
+                    }
+                    br.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else
+            {
+                if(tipo.equals("produto"))
+                {
+                    try 
+                    {
+                        InputStream is;
+                        is = new FileInputStream("Estoque.txt");
+                        InputStreamReader isr = new InputStreamReader(is);
+                        BufferedReader br = new BufferedReader(isr);
+                        String s  = br.readLine();
+                        while(s != null)
+                        {
+                            list.addElement(s);
+                            s  = br.readLine();
+                        }
+                        br.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else
+                {
+                    if(tipo.equals("pagar"))
+                        {
+                            try 
+                            {
+                                InputStream is;
+                                is = new FileInputStream("contaspagar.txt");
+                                InputStreamReader isr = new InputStreamReader(is);
+                                BufferedReader br = new BufferedReader(isr);
+                                String s  = br.readLine();
+                                while(s != null)
+                                {
+                                    list.addElement(s);
+                                    s  = br.readLine();
+                                }
+                                br.close();
+                            } 
+                            catch (IOException ex) {
+                                Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        else
+                        {
+                            try 
+                            {
+                                InputStream is;
+                                is = new FileInputStream("contasreceber.txt");
+                                InputStreamReader isr = new InputStreamReader(is);
+                                BufferedReader br = new BufferedReader(isr);
+                                String s  = br.readLine();
+                                while(s != null)
+                                {
+                                    list.addElement(s);
+                                    s  = br.readLine();
+                                }
+                                br.close();
+                            } 
+                            catch (IOException ex) {
+                                Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    
+                }
+                
+            }
+        }
+        return list;
     }
 }
