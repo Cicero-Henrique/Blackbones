@@ -26,6 +26,11 @@ public class Estatisticas extends javax.swing.JFrame {
         clientes_label = new javax.swing.JLabel();
         fornecedores_button = new javax.swing.JButton();
         contas_button = new javax.swing.JButton();
+        fornecedores_label = new javax.swing.JLabel();
+        adicionarfornecedor_button = new javax.swing.JButton();
+        editarfornecedor_button = new javax.swing.JButton();
+        listarfornecedor_button = new javax.swing.JButton();
+        remover_fornecedor_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +83,7 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
-        demitir_button.setText("Demitir");
+        demitir_button.setText("Remover");
         demitir_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 demitir_buttonActionPerformed(evt);
@@ -98,6 +103,36 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        fornecedores_label.setText("Fornecedores");
+
+        adicionarfornecedor_button.setText("Adicionar");
+        adicionarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adicionarfornecedor_buttonActionPerformed(evt);
+            }
+        });
+
+        editarfornecedor_button.setText("Editar");
+        editarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarfornecedor_buttonActionPerformed(evt);
+            }
+        });
+
+        listarfornecedor_button.setText("Listar");
+        listarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarfornecedor_buttonActionPerformed(evt);
+            }
+        });
+
+        remover_fornecedor_button.setText("Remover");
+        remover_fornecedor_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remover_fornecedor_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -107,8 +142,11 @@ public class Estatisticas extends javax.swing.JFrame {
                 .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68)
                 .addComponent(fornecedores_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 425, Short.MAX_VALUE)
+                .addGap(425, 425, 425)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(listarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fornecedores_label)
                     .addComponent(clientes_label)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(demitir_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,7 +157,9 @@ public class Estatisticas extends javax.swing.JFrame {
                         .addComponent(editarproduto_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(estoque_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(adicionarproduto_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(produtos_label, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(produtos_label, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adicionarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -150,7 +190,17 @@ public class Estatisticas extends javax.swing.JFrame {
                 .addComponent(listar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(demitir_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(fornecedores_label)
+                .addGap(18, 18, 18)
+                .addComponent(adicionarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(listarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,6 +263,26 @@ public class Estatisticas extends javax.swing.JFrame {
         new Contas();
     }//GEN-LAST:event_contas_buttonActionPerformed
 
+    private void adicionarfornecedor_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarfornecedor_buttonActionPerformed
+        dispose();
+        new Registrar_Fornecedor();
+    }//GEN-LAST:event_adicionarfornecedor_buttonActionPerformed
+
+    private void editarfornecedor_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarfornecedor_buttonActionPerformed
+        dispose();
+        new Editar_Fornecedor();
+    }//GEN-LAST:event_editarfornecedor_buttonActionPerformed
+
+    private void listarfornecedor_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarfornecedor_buttonActionPerformed
+        dispose();
+        new Listar_Fornecedores();
+    }//GEN-LAST:event_listarfornecedor_buttonActionPerformed
+
+    private void remover_fornecedor_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_fornecedor_buttonActionPerformed
+        dispose();
+        new Remover_Fornecedor();
+    }//GEN-LAST:event_remover_fornecedor_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,18 +319,23 @@ public class Estatisticas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton adicionarfornecedor_button;
     private javax.swing.JButton adicionarfuncionario_button;
     private javax.swing.JButton adicionarproduto_button;
     private javax.swing.JLabel clientes_label;
     private javax.swing.JButton contas_button;
     private javax.swing.JButton demitir_button;
+    private javax.swing.JButton editarfornecedor_button;
     private javax.swing.JButton editarfuncionario_button;
     private javax.swing.JButton editarproduto_button;
     private javax.swing.JButton estoque_button;
     private javax.swing.JButton fornecedores_button;
+    private javax.swing.JLabel fornecedores_label;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listar_button;
+    private javax.swing.JButton listarfornecedor_button;
     private javax.swing.JLabel produtos_label;
+    private javax.swing.JButton remover_fornecedor_button;
     private javax.swing.JButton vender_button;
     // End of variables declaration//GEN-END:variables
 }

@@ -43,8 +43,11 @@
                   <Component id="contas_button" min="-2" pref="131" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   <Component id="fornecedores_button" min="-2" pref="131" max="-2" attributes="0"/>
-                  <EmptySpace pref="425" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="425" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="remover_fornecedor_button" alignment="0" max="32767" attributes="0"/>
+                      <Component id="listarfornecedor_button" alignment="0" max="32767" attributes="0"/>
+                      <Component id="fornecedores_label" min="-2" max="-2" attributes="0"/>
                       <Component id="clientes_label" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="demitir_button" max="32767" attributes="0"/>
@@ -57,6 +60,8 @@
                           <Component id="adicionarproduto_button" max="32767" attributes="0"/>
                           <Component id="produtos_label" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="adicionarfornecedor_button" alignment="0" max="32767" attributes="0"/>
+                      <Component id="editarfornecedor_button" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
@@ -93,7 +98,17 @@
                   <Component id="listar_button" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="demitir_button" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace pref="239" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="fornecedores_label" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="adicionarfornecedor_button" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="editarfornecedor_button" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="listarfornecedor_button" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="remover_fornecedor_button" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -157,7 +172,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="demitir_button">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Demitir"/>
+            <Property name="text" type="java.lang.String" value="Remover"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="demitir_buttonActionPerformed"/>
@@ -184,6 +199,43 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contas_buttonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="fornecedores_label">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fornecedores"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="adicionarfornecedor_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Adicionar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adicionarfornecedor_buttonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="editarfornecedor_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarfornecedor_buttonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="listarfornecedor_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Listar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarfornecedor_buttonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="remover_fornecedor_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remover"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remover_fornecedor_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
