@@ -11,6 +11,7 @@ import blackbones.Registro;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +23,14 @@ public class Remover_Fornecedor extends javax.swing.JFrame {
     /**
      * Creates new form Remover_Fornecedor
      */
-    public Remover_Fornecedor() {
+    public Remover_Fornecedor() 
+    {
         initComponents();
+        setVisible(true);
+        Armazenamento_File a = new Armazenamento_File();
+        DefaultListModel listModel = new DefaultListModel();
+        listModel = a.loadListModel("fornecedor");
+        fornecedores_list.setModel(listModel);
     }
 
     /**

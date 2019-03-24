@@ -239,7 +239,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame {
         
         try 
         {
-            r = a.loadCliente();
+            r = a.loadFornecedor();
             of.editar(id, r, nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText());
             a.salvarFornecedor(r);
             dispose();

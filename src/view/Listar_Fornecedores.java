@@ -26,7 +26,7 @@ public class Listar_Fornecedores extends javax.swing.JFrame
                 funcionarios_lista.append("CNPJ: " + r.getFornecedores().get(i).getCnpj()+ "\n");
                 funcionarios_lista.append("E-Mail: " + r.getFornecedores().get(i).getEmail()+ "\n");
                 funcionarios_lista.append("Tipo: " + r.getFornecedores().get(i).getTipo()+ "\n");
-                funcionarios_lista.append("Telefone: " + r.getRegistro().get(i).getTelefone()+ "\n");
+                funcionarios_lista.append("Telefone: " + r.getFornecedores().get(i).getTelefone()+ "\n");
                 funcionarios_lista.append(" \r\n\n\n");
                 funcionarios_lista.setEditable(false);
             }

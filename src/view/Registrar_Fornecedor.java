@@ -23,6 +23,7 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
      */
     public Registrar_Fornecedor() {
         initComponents();
+        setVisible(true);
     }
 
     /**
