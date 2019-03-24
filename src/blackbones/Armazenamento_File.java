@@ -52,6 +52,15 @@ public class Armazenamento_File
                         linha = line.split("-");
                         return linha = line.split("-");
                     }
+                    else
+                    {
+                        if(tipo == 4)
+                        {
+                            String linha[] = new String[7];
+                            linha = line.split("-");
+                            return linha = line.split("-");
+                        }
+                    }
                 }
             }
         }
@@ -374,6 +383,8 @@ public class Armazenamento_File
     }
     
     
+    /*ARMAZENAR VENDAS*/
+    
     public void salvarVendas(Financeiro f) throws FileNotFoundException, IOException
     {
         OutputStream os = new FileOutputStream("Vendidos.txt");
@@ -381,12 +392,57 @@ public class Armazenamento_File
         BufferedWriter bw = new BufferedWriter(osw);
         for(int i = 0; i < f.getVendidos().size(); i++)
         {
-            bw.write(f.getVendidos().get(i).getProduto().getNome() + "-" + f.getVendidos().get(i).getProduto().getTipo() + "-" + 
-                    f.getVendidos().get(i).getProduto().getTamanho() + "-" + f.getVendidos().get(i).getProduto().getPreco_venda() + "-" +
-                    f.getVendidos().get(i).getProduto().getQtd() + "-" + f.getVendidos().get(i).getData_venda()+ " \r\n");
+            bw.write(f.getVendidos().get(i).getProduto().getNome() + "-" + f.getVendidos().get(i).getProduto().getTipo() 
+                    + "-" + f.getVendidos().get(i).getProduto().getPreco_custo() + "-" + f.getVendidos().get(i).getProduto().getPreco_venda() 
+                    + "-" + f.getVendidos().get(i).getProduto().getMargem_lucro() + "-" + f.getVendidos().get(i).getProduto().getQtd() 
+                    + "-" + f.getVendidos().get(i).getProduto().getTamanho() + "-" + f.getVendidos().get(i).getData_venda()+ " \r\n");
         }
         bw.close();
 
+    }
+    
+    public Financeiro loadVendas() throws FileNotFoundException, IOException
+    {
+        Financeiro f = new Financeiro();
+        InputStream is = new FileInputStream("Vendidos.txt");
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String s  = br.readLine();
+        
+        while(s != null)
+        {
+            Venda v = gerarVenda(s);
+            f.getVendidos().add(v);
+            s  = br.readLine();
+        }
+        br.close();
+        
+        return f;
+    }
+    
+    public Venda gerarVenda(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    {
+        try {
+            String atributos[];
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date data_i;
+
+            atributos = cortarString(s, 4);
+
+            Produto p = new Produto(atributos[0], atributos[1], Double.parseDouble(atributos[2]), Double.parseDouble(atributos[3]), 
+                    Double.parseDouble(atributos[4]), Integer.parseInt(atributos[5].trim()), atributos[6]);
+            Venda v = new Venda();
+
+            v.setProduto(p);
+            data_i = formato.parse(atributos[7]);
+            v.setData_venda(data_i);
+
+            return v;
+        } catch (ParseException ex) {
+            Logger.getLogger(Armazenamento_File.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     

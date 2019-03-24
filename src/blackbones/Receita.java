@@ -39,7 +39,7 @@ public class Receita
     public void main() 
     {
         Armazenamento_File a = new Armazenamento_File();
-        ArrayList vendidos = new ArrayList<Produto>();
+        ArrayList<Produto> vendidos = new ArrayList<>();
         try 
         {
             Financeiro fp = a.loadConta("pagar");
@@ -76,6 +76,9 @@ public class Receita
                 }
                 total = lucros -  despesas;
                 System.out.println("receita total = " + total);
+                
+                
+                
             }
             else
                 JOptionPane.showMessageDialog(null, "Data final menor que inicial");

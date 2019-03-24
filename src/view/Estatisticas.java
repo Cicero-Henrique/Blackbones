@@ -24,7 +24,6 @@ public class Estatisticas extends javax.swing.JFrame {
         demitir_button = new javax.swing.JButton();
         produtos_label = new javax.swing.JLabel();
         clientes_label = new javax.swing.JLabel();
-        fornecedores_button = new javax.swing.JButton();
         contas_button = new javax.swing.JButton();
         fornecedores_label = new javax.swing.JLabel();
         adicionarfornecedor_button = new javax.swing.JButton();
@@ -94,8 +93,6 @@ public class Estatisticas extends javax.swing.JFrame {
 
         clientes_label.setText("Clientes");
 
-        fornecedores_button.setText("Fornecedores");
-
         contas_button.setText("Contas");
         contas_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,9 +137,7 @@ public class Estatisticas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(fornecedores_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(425, 425, 425)
+                .addGap(624, 624, 624)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -177,9 +172,7 @@ public class Estatisticas extends javax.swing.JFrame {
                         .addComponent(estoque_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(vender_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fornecedores_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(clientes_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -329,7 +322,6 @@ public class Estatisticas extends javax.swing.JFrame {
     private javax.swing.JButton editarfuncionario_button;
     private javax.swing.JButton editarproduto_button;
     private javax.swing.JButton estoque_button;
-    private javax.swing.JButton fornecedores_button;
     private javax.swing.JLabel fornecedores_label;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listar_button;

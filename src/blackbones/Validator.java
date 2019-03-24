@@ -95,7 +95,7 @@ public class Validator
             return false;
         }
         if (!isValidCargo(tipo)) {
-            JOptionPane.showMessageDialog(null, "A indicação só pode conter letras.",
+            JOptionPane.showMessageDialog(null, "O cargo não pode ter mais do que 20 caracteres.",
                     "Erro na indicação", JOptionPane.ERROR_MESSAGE);
             return false;
         }
