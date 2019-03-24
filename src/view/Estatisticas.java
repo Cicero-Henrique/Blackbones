@@ -30,6 +30,7 @@ public class Estatisticas extends javax.swing.JFrame {
         editarfornecedor_button = new javax.swing.JButton();
         listarfornecedor_button = new javax.swing.JButton();
         remover_fornecedor_button = new javax.swing.JButton();
+        receita_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,6 +131,13 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        receita_button.setText("Receita");
+        receita_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                receita_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -137,7 +145,9 @@ public class Estatisticas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(624, 624, 624)
+                .addGap(223, 223, 223)
+                .addComponent(receita_button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(291, 291, 291)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,8 +173,13 @@ public class Estatisticas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(produtos_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(produtos_label, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(receita_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7)))
                         .addComponent(adicionarproduto_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(editarproduto_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,7 +208,7 @@ public class Estatisticas extends javax.swing.JFrame {
                 .addComponent(listarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -276,6 +291,11 @@ public class Estatisticas extends javax.swing.JFrame {
         new Remover_Fornecedor();
     }//GEN-LAST:event_remover_fornecedor_buttonActionPerformed
 
+    private void receita_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receita_buttonActionPerformed
+        dispose();
+        new Receita_Frame();
+    }//GEN-LAST:event_receita_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,6 +347,7 @@ public class Estatisticas extends javax.swing.JFrame {
     private javax.swing.JButton listar_button;
     private javax.swing.JButton listarfornecedor_button;
     private javax.swing.JLabel produtos_label;
+    private javax.swing.JButton receita_button;
     private javax.swing.JButton remover_fornecedor_button;
     private javax.swing.JButton vender_button;
     // End of variables declaration//GEN-END:variables
