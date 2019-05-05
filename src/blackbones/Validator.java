@@ -35,7 +35,7 @@ public class Validator
         return true;
     }
     
-    public static boolean isValidFuncionario(String nome, String telefone, String endereco, String email, String indicacao, String cpf)
+    public static boolean isValidCliente(String nome, String telefone, String endereco, String email, String indicacao, String cpf)
     {
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",

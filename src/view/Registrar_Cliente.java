@@ -224,35 +224,8 @@ public class Registrar_Cliente extends javax.swing.JFrame
         new Estatisticas();
     }//GEN-LAST:event_voltar_buttonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registrar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registrar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registrar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registrar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+    public static void main(String args[]) 
+    {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Registrar_Cliente().setVisible(true);
@@ -282,8 +255,6 @@ public class Registrar_Cliente extends javax.swing.JFrame
     public boolean Dados() throws IOException
     {
         Operacoes_Clientes op = new Operacoes_Clientes();
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r = new Registro();
         
         String nome = nome_text.getText();
         String telefone = telefone_text.getText();
@@ -292,17 +263,14 @@ public class Registrar_Cliente extends javax.swing.JFrame
         String indicacao = indicacao_text.getText();
         String cpf = cpf_text.getText();
         
-        if(!Validator.isValidFuncionario(nome, telefone, endereco, email, indicacao, cpf))
+        if(!Validator.isValidCliente(nome, telefone, endereco, email, indicacao, cpf))
         {
             JOptionPane.showMessageDialog(null, "Corrija os dados informados");
             return false;
         }
         else
         {
-            r = a.loadCliente();
-            r = op.adicionar(r, nome, email, endereco, telefone, indicacao, cpf);
-            a.salvarCliente(r);
-            
+            op.adicionar(nome, email, endereco, telefone, indicacao, cpf);
             return true;
         }
         

@@ -6,11 +6,12 @@ import java.util.logging.Logger;
 
 public class Operacoes_Clientes 
 {
-    public Registro adicionar(Registro r, String nome, String email, String endereco, String telefone, String indicacao, String cpf)
+    public void adicionar(String nome, String email, String endereco, String telefone, String indicacao, String cpf)
     {
-        Cliente f = new Cliente(nome, email, endereco, telefone, indicacao, cpf);
-        r.getRegistro().add(f);
-        return r;
+        Banco_de_Dados bd = new Banco_de_Dados();
+        Cliente c = new Cliente(nome, email, endereco, telefone, indicacao, cpf);
+        bd.CadastrarCliente(c);
+        
     }
     
     public void editar(int id, Registro r, String nome, String email, String endereco, String telefone, String indicacao, String cpf)

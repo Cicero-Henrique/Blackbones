@@ -1,6 +1,11 @@
 package blackbones;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import view.*;
 
 public class BlackBones 
@@ -10,6 +15,24 @@ public class BlackBones
         
         Estatisticas e = new Estatisticas();
         e.setVisible(true);
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        
+        //Inserir cliente
+        //Cliente cliente = new Cliente("Cicero", "cicero@", "Tiradentes - 51", "33432536", "Zé da Venda", "1111");
+        //bd.CadastrarCliente(cliente);
+        
+        /*SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date data = formato.parse("25-05-2019");
+            Conta conta = new Conta(100, "aa", data, "boleto", "pagar", "pago");
+            bd.CadastrarConta(conta);
+        } catch (ParseException ex) {
+            Logger.getLogger(BlackBones.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        //Conta conta = new Conta(100, "aa", "25/05/2019", "boleto", "pagar", "pago");
+        
         
         /*Receita r = new Receita();
         r.main();*/

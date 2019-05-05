@@ -5,13 +5,12 @@ import java.util.Date;
 
 public class Operacoes_Contas 
 {
-    public void adicionar(Financeiro f, double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status)
+    public void adicionar(double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status)
     {
+        Banco_de_Dados bd = new Banco_de_Dados();
         Conta c = new Conta(valor, nome, data, tipo_pagamento, tipo_conta, status);
-        if(tipo_conta.equals("pagar"))
-            f.getContas_pagar().add(c);
-        else
-            f.getContas_receber().add(c);
+        bd.CadastrarConta(c);
+
     }
     
     public void editar(int id, Financeiro f, double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status)

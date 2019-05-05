@@ -228,18 +228,14 @@ public class Registrar_Conta_Pagar extends javax.swing.JFrame {
             try 
             {
                 Date data = formato.parse(dia + "/" + mes + "/" + ano);
-                f = a.loadConta("pagar");
-                op.adicionar(f, valor, nome, data, pagamento, tipo_conta, status);
-                a.salvarConta(f, "pagar");
+                op.adicionar(valor, nome, data, pagamento, tipo_conta, status);
+                
                 dispose();
                 new Registrar_Conta_Pagar();
                 
                 return true;
             } 
-            catch (IOException ex) 
-            {
-                Logger.getLogger(Registrar_Conta_Pagar.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParseException ex) {
+            catch (ParseException ex) {
                 Logger.getLogger(Registrar_Conta_Pagar.class.getName()).log(Level.SEVERE, null, ex);
             }
             return false;
