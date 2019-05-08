@@ -89,7 +89,7 @@ public class Banco_de_Dados
     
     public void CadastrarConta(Conta c)
     {
-        String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data_vencimento) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data) VALUES(?,?,?,?,?,?)";
         
         java.sql.Date data = new java.sql.Date(c.getData().getTime());
         try 
@@ -105,6 +105,27 @@ public class Banco_de_Dados
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {System.out.println(u);}
+    }
+    
+    public void CadastrarFornecedor(Fornecedor f)
+    {
+        String sql = "INSERT INTO fornecedor(nome, cnpj, telefone, email, tipo) VALUES(?,?,?,?,?)";
+
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, f.getNome());
+            stmt.setString(2, f.getCnpj());
+            stmt.setString(3, f.getTelefone());
+            stmt.setString(4, f.getEmail());
+            stmt.setString(5, f.getTipo());
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+        
     }
 //
 //    public boolean estaConectado() {
@@ -134,9 +155,14 @@ public class Banco_de_Dados
 //
 //    }
 //
-//    public void FecharBanco() throws SQLException {
-//        connection.close();
-//    }
+    public void FecharBanco()  
+    {
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 //
 //    public void EditarLogin(Usuario user) throws SQLException {
 //        String sql;

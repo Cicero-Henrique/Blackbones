@@ -204,18 +204,14 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         // TODO add your handling code here:
-        try
-        {
+        
             if(Dados())
             {
                 JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
                 setVisible(false);
                 new Registrar_Fornecedor().setVisible(true);
             }
-        } catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        
 
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
@@ -287,11 +283,9 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     
-    public boolean Dados() throws IOException
+    public boolean Dados() 
     {
         Operacoes_Fornecedores of = new Operacoes_Fornecedores();
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r = new Registro();
         
         String nome = nome_text.getText();
         String telefone = telefone_text.getText();
@@ -301,13 +295,13 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         
 
         if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo))
+        {
+            JOptionPane.showMessageDialog(null, "Corrija os dados informados");
             return false;
+        }
         else
         {
-            r = a.loadFornecedor();
-            r = of.adicionar(r, nome, cnpj, telefone, email, tipo);
-            a.salvarFornecedor(r);
-            
+            of.adicionar(nome, cnpj, telefone, email, tipo);
             return true;
         }
         

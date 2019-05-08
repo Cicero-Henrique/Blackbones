@@ -224,7 +224,7 @@ public class Validator
     public static boolean isValidCpf(String cpf) {
         if (cpf.length() != 11) {
             return false;
-        }
+        }        
         return (!hasLetters(cpf) && !hasSpecialCharacters(cpf));
     }
 

@@ -9,8 +9,10 @@ public class Operacoes_Clientes
     public void adicionar(String nome, String email, String endereco, String telefone, String indicacao, String cpf)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         Cliente c = new Cliente(nome, email, endereco, telefone, indicacao, cpf);
         bd.CadastrarCliente(c);
+        bd.FecharBanco();
         
     }
     

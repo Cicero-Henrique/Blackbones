@@ -348,7 +348,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame {
         else
         {
             r = a.loadFornecedor();
-            r = of.adicionar(r, nome, cnpj, telefone, email, tipo);
+            of.adicionar(nome, cnpj, telefone, email, tipo);
             a.salvarFornecedor(r);
             
             return true;

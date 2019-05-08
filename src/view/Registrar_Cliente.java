@@ -194,18 +194,14 @@ public class Registrar_Cliente extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         // TODO add your handling code here:
-                try 
-                {
+                
                     if(Dados())
                     {
                         JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
                         setVisible(false);
                         new Registrar_Cliente().setVisible(true);
                     }
-                } catch (Exception ex) 
-                {
-                    JOptionPane.showMessageDialog(null, ex.getMessage());
-                }
+               
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
@@ -252,7 +248,7 @@ public class Registrar_Cliente extends javax.swing.JFrame
     private javax.swing.JTextField telefone_text;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
-    public boolean Dados() throws IOException
+    public boolean Dados() 
     {
         Operacoes_Clientes op = new Operacoes_Clientes();
         

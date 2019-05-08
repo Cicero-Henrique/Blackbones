@@ -16,8 +16,8 @@ public class BlackBones
         Estatisticas e = new Estatisticas();
         e.setVisible(true);
         
-        Banco_de_Dados bd = new Banco_de_Dados();
-        bd.conectar("blackbones");
+        /*Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");*/
         
         //Inserir cliente
         //Cliente cliente = new Cliente("Cicero", "cicero@", "Tiradentes - 51", "33432536", "Zé da Venda", "1111");

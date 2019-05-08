@@ -175,16 +175,12 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
-        try
-        {
+        
             if(Dados() == false)
             JOptionPane.showMessageDialog(null, "Algum dado não foi digitado corretamente", "Dados incorretos", JOptionPane.ERROR_MESSAGE);
             else
             JOptionPane.showMessageDialog(null, "As informações foram salvas corretamente.", "Dados salvos", JOptionPane.WARNING_MESSAGE);
-        } catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
     private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed
@@ -284,12 +280,9 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame {
             {
                 Date data = formato.parse(dia + "/" + mes + "/" + ano);
                 op.adicionar(valor, nome, data, pagamento, tipo_conta, status);
-                
                 return true;
             } 
-            catch (ParseException ex) {
-                Logger.getLogger(Registrar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            catch (ParseException ex) {Logger.getLogger(Registrar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);}
             
             return false;
         }

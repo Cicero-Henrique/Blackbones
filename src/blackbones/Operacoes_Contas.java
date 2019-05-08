@@ -8,8 +8,10 @@ public class Operacoes_Contas
     public void adicionar(double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         Conta c = new Conta(valor, nome, data, tipo_pagamento, tipo_conta, status);
         bd.CadastrarConta(c);
+        bd.FecharBanco();
 
     }
     

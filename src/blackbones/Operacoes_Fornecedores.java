@@ -8,11 +8,14 @@ import java.util.logging.Logger;
 
 public class Operacoes_Fornecedores 
 {
-    public Registro adicionar(Registro r, String nome, String cnpj, String telefone, String email, String tipo)
+    public void adicionar(String nome, String cnpj, String telefone, String email, String tipo)
     {
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         Fornecedor f = new Fornecedor(nome, cnpj, telefone, email, tipo);
-        r.getFornecedores().add(f);
-        return r;
+        bd.CadastrarFornecedor(f);
+        bd.FecharBanco();
+        
     }
     
     public void editar(int id, Registro r, String nome, String cnpj, String telefone, String email, String tipo)
