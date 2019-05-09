@@ -77,7 +77,7 @@ public class Armazenamento_File
         
         atributos = cortarString(s, 0);
         
-        Cliente cliente = new Cliente(atributos[0], atributos[1], atributos[2], atributos[3], atributos[4], atributos[5]);
+        Cliente cliente = new Cliente(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6]);
         
         return cliente; 
     }

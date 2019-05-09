@@ -7,11 +7,13 @@ import java.util.logging.Logger;
 
 public class Operacoes_Produtos 
 {
-    public Estoque adicionar_produto(Estoque a, String nome, String tipo, double preco_custo, double preco_venda, double margem_lucro, int qtd, String tamanho)
+    public void adicionar_produto(String nome, String tipo, double preco_custo, double preco_venda, double margem_lucro, int qtd, String tamanho)
     {
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         Produto p = new Produto(nome, tipo, preco_custo, preco_venda, margem_lucro, qtd, tamanho);
-        a.getProdutos().add(p);
-        return a;
+        bd.CadastrarProduto(p);
+        bd.FecharBanco();
     }
     
     public Estoque editar(Estoque a, int id, String nome, String tipo, double custo, double venda, double margem, int qtd, String tamanho)

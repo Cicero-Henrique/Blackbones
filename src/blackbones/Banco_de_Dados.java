@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 public class Banco_de_Dados 
 {
@@ -65,28 +66,7 @@ public class Banco_de_Dados
         }
     }
     
-    public void CadastrarCliente(Cliente c)
-    {
-        String sql = "INSERT INTO cliente(nome, email, endereco, telefone, indicacao, cpf) VALUES(?,?,?,?,?,?)";
 
-        try 
-        {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-
-            stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getEmail());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getIndicacao());
-            stmt.setString(6, c.getCpf());
-            stmt.execute(); //executa comando     
-            stmt.close();
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
-        
-    }
-    
     public void CadastrarConta(Conta c)
     {
         String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data) VALUES(?,?,?,?,?,?)";
@@ -127,6 +107,103 @@ public class Banco_de_Dados
         }
         
     }
+    
+    public void CadastrarProduto(Produto p)
+    {
+        String sql = "INSERT INTO produto(nome, tipo, tamanho, qtd, preco_custo, preco_venda, margem_lucro) VALUES(?,?,?,?,?,?,?)";
+        
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);   
+            
+            stmt.setString(1, p.getNome());
+            stmt.setString(2, p.getTipo());
+            stmt.setString(3, p.getTamanho());
+            stmt.setInt(4, p.getQtd());
+            stmt.setDouble(5, p.getPreco_custo());
+            stmt.setDouble(6, p.getPreco_venda());
+            stmt.setDouble(7, p.getMargem_lucro());
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {System.out.println(u);}
+    }
+    
+    public void CadastrarCliente(Cliente c)
+    {
+        String sql = "INSERT INTO cliente(nome, email, endereco, telefone, indicacao, cpf) VALUES(?,?,?,?,?,?)";
+
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getEmail());
+            stmt.setString(3, c.getEndereco());
+            stmt.setString(4, c.getTelefone());
+            stmt.setString(5, c.getIndicacao());
+            stmt.setString(6, c.getCpf());
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+        
+    }
+    
+    public DefaultListModel carregarCliente()  
+    {
+        DefaultListModel<String> list = new DefaultListModel();
+        String sql = "select * from cliente order by 1";
+        PreparedStatement ps;
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) 
+        {
+            int id = (rs.getInt("idcliente"));
+            String nome = rs.getString("nome");
+            String email = rs.getString("email");
+            String telefone = rs.getString("telefone");
+            String cpf = rs.getString("cpf");
+            String endereco = rs.getString("endereco");
+            String indicacao = rs.getString("indicacao");
+            String cliente = (id+ "-" + nome + "-" + email + "-" + telefone + "-" + cpf + "-" + endereco + "-" + indicacao);
+            list.addElement(cliente);
+        }
+        return list;
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void EditarCliente(Cliente c, int id)
+    {
+        String sql = "UPDATE cliente SET nome = ?, email = ?, endereco = ?, telefone = ?, indicacao = ?, cpf = ? WHERE id = ?";
+
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, c.getNome());
+            ps.setString(2, c.getEmail());
+            ps.setString(3, c.getEndereco());
+            ps.setString(4, c.getTelefone());
+            ps.setString(5, c.getIndicacao());
+            ps.setString(6, c.getCpf());
+            ps.setInt(7, id);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
 //
 //    public boolean estaConectado() {
 //        if (connection != null) {
