@@ -16,20 +16,14 @@ public class Operacoes_Clientes
         
     }
     
-    public void editar(int id, Registro r, String nome, String email, String endereco, String telefone, String indicacao, String cpf)
+    public void editar(int id, String nome, String email, String endereco, String telefone, String indicacao, String cpf)
     {
-        Armazenamento_File a = new Armazenamento_File();
-        r.getRegistro().get(id).setNome(nome);
-        r.getRegistro().get(id).setEmail(email);
-        r.getRegistro().get(id).setEndereco(endereco);
-        r.getRegistro().get(id).setTelefone(telefone);
-        r.getRegistro().get(id).setIndicacao(indicacao);
-        r.getRegistro().get(id).setCpf(cpf);
-        try {
-            a.salvarCliente(r);
-        } catch (IOException ex) {
-            Logger.getLogger(Operacoes_Clientes.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        Cliente c = new Cliente(nome, email, endereco, telefone, indicacao, cpf);
+        bd.EditarCliente(c, id);
+        bd.FecharBanco();
+        
     }
     
     public void remover(Registro r, int id)
@@ -46,5 +40,31 @@ public class Operacoes_Clientes
                     + "- " +r.getRegistro().get(i).getEndereco() + "- " + r.getRegistro().get(i).getTelefone() 
                     + "- " +r.getRegistro().get(i).getIndicacao() + "- " + r.getRegistro().get(i).getCpf());
         }
+    }
+    
+    public String[] cortarString(String line)
+    {
+        String linha[] = new String[6];
+        linha = line.split("-");
+        return linha = line.split("-");   
+        
+    }
+    
+    public Cliente gerarCliente(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    {
+        String atributos[];
+        
+        atributos = cortarString(s);
+        
+        Cliente cliente = new Cliente(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6]);
+        
+        return cliente; 
+    }
+    
+    public int pegarID(String line)
+    {
+        String linha[] = new String[6];
+        linha = line.split("-");
+        return Integer.parseInt(linha[0]);
     }
 }

@@ -13,6 +13,7 @@ import javax.swing.JList;
 
 public class Editar_Cliente extends javax.swing.JFrame 
 {
+    int id = -1;
 
     public Editar_Cliente() 
     {
@@ -23,8 +24,8 @@ public class Editar_Cliente extends javax.swing.JFrame
         DefaultListModel listModel = new DefaultListModel();
         listModel = bd.carregarCliente();
         bd.FecharBanco();
-        jList1.setModel(listModel);
         int id = -1;
+        jList1.setModel(listModel);
     }
 
     @SuppressWarnings("unchecked")
@@ -224,9 +225,16 @@ public class Editar_Cliente extends javax.swing.JFrame
 
         if (!jList1.isSelectionEmpty()) 
         {
-            Armazenamento_File a = new Armazenamento_File();
+            Operacoes_Clientes op = new Operacoes_Clientes();
             String linha = jList1.getSelectedValue();
-            Cliente c = a.gerarCliente(linha);
+            id = op.pegarID(linha);
+            
+            Banco_de_Dados bd = new Banco_de_Dados();
+            bd.conectar("blackbones");
+            Cliente c = bd.PesquisarId(id);
+            bd.FecharBanco();
+        
+        
             nome_text.setText(c.getNome());
             indicacao_text.setText(c.getIndicacao());
             cpf_text.setText(c.getCpf());
@@ -247,20 +255,11 @@ public class Editar_Cliente extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Clientes oc = new Operacoes_Clientes();
-        int id = jList1.getSelectedIndex();
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r;
-        try 
-        {
-            r = a.loadCliente();
-            oc.editar(id, r, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
-            a.salvarCliente(r);
+        
+            oc.editar(id, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
+            
             dispose();
             new Editar_Cliente();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Editar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 

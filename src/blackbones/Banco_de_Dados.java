@@ -159,21 +159,21 @@ public class Banco_de_Dados
         {
             ps = connection.prepareStatement(sql);
         
-        ResultSet rs = ps.executeQuery();
-        
-        while (rs.next()) 
-        {
-            int id = (rs.getInt("idcliente"));
-            String nome = rs.getString("nome");
-            String email = rs.getString("email");
-            String telefone = rs.getString("telefone");
-            String cpf = rs.getString("cpf");
-            String endereco = rs.getString("endereco");
-            String indicacao = rs.getString("indicacao");
-            String cliente = (id+ "-" + nome + "-" + email + "-" + telefone + "-" + cpf + "-" + endereco + "-" + indicacao);
-            list.addElement(cliente);
-        }
-        return list;
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) 
+            {
+                int id = (rs.getInt("idcliente"));
+                String nome = rs.getString("nome");
+                String email = rs.getString("email");
+                String telefone = rs.getString("telefone");
+                String cpf = rs.getString("cpf");
+                String endereco = rs.getString("endereco");
+                String indicacao = rs.getString("indicacao");
+                String cliente = (id+ "-" + nome + "-" + email + "-" + telefone + "-" + cpf + "-" + endereco + "-" + indicacao);
+                list.addElement(cliente);
+            }
+            return list;
         } 
         catch (SQLException ex) 
         {
@@ -201,6 +201,38 @@ public class Banco_de_Dados
         } catch (SQLException ex) {
             Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+    
+    public Cliente PesquisarId(int id)
+    {
+        String sql = "select * from cliente WHERE id = ?";
+        Cliente cliente = new Cliente("", "", "", "", "", "");
+        
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+        
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) 
+            {
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setEndereco(rs.getString("endereco"));
+                cliente.setIndicacao(rs.getString("indicacao"));
+                return cliente;
+            }
+            
+        } catch (SQLException ex) {
+        Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cliente;
+        
 
     }
     
