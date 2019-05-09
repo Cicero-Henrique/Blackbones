@@ -1,6 +1,7 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;
 import blackbones.Registro;
@@ -17,10 +18,13 @@ public class Editar_Cliente extends javax.swing.JFrame
     {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         DefaultListModel listModel = new DefaultListModel();
-        listModel = a.loadListModel("cliente");
+        listModel = bd.carregarCliente();
+        bd.FecharBanco();
         jList1.setModel(listModel);
+        int id = -1;
     }
 
     @SuppressWarnings("unchecked")
@@ -222,7 +226,6 @@ public class Editar_Cliente extends javax.swing.JFrame
         {
             Armazenamento_File a = new Armazenamento_File();
             String linha = jList1.getSelectedValue();
-            System.out.println(linha);
             Cliente c = a.gerarCliente(linha);
             nome_text.setText(c.getNome());
             indicacao_text.setText(c.getIndicacao());

@@ -197,16 +197,12 @@ public class Registrar_Produto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
-        try 
-        {
+        
             if(Dados() == false)
                 JOptionPane.showMessageDialog(null, "Algum dado não foi digitado corretamente", "Dados incorretos", JOptionPane.ERROR_MESSAGE);
             else
                 JOptionPane.showMessageDialog(null, "As informações foram salvas corretamente.", "Dados salvos", JOptionPane.WARNING_MESSAGE);
-        } catch (Exception ex) 
-        {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
+        
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
     private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed
@@ -260,10 +256,9 @@ public class Registrar_Produto extends javax.swing.JFrame {
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
 
-    public boolean Dados() throws IOException
+    public boolean Dados() 
     {
         Operacoes_Produtos op = new Operacoes_Produtos();
-        Estoque e = new Estoque();
         
         String nome = nome_text.getText();
         String tipo = tipo_text.getText();        
@@ -274,9 +269,7 @@ public class Registrar_Produto extends javax.swing.JFrame {
             return false;
         }
         else
-        {            
-            Armazenamento_File a = new Armazenamento_File();
-            
+        {
             Double custo = Double.parseDouble(custo_text.getText());
             Double venda = Double.parseDouble(venda_text.getText());
             int qtd = Integer.parseInt(qtd_text.getText());
@@ -293,10 +286,8 @@ public class Registrar_Produto extends javax.swing.JFrame {
             if(tamanho.equals(""))
                 tamanho = "-Nenhum tamanho selecionado";
             
-            e = a.loadProduto();
-            op.adicionar_produto(e, nome, tipo, custo, venda, margem, qtd, tamanho);
-            a.salvarProduto(e);
-            
+
+            op.adicionar_produto(nome, tipo, custo, venda, margem, qtd, tamanho);            
             return true;
         }
     }
