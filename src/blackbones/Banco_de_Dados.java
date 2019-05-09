@@ -170,7 +170,8 @@ public class Banco_de_Dados
                 String cpf = rs.getString("cpf");
                 String endereco = rs.getString("endereco");
                 String indicacao = rs.getString("indicacao");
-                String cliente = (id+ "-" + nome + "-" + email + "-" + telefone + "-" + cpf + "-" + endereco + "-" + indicacao);
+                String cliente = ("Id: " + id+ "- Nome:" + nome + "- E-Mail: " + email + "- Telefone:" 
+                        + telefone + "- CPF:" + cpf + "- Endereço: " + endereco + "- Indicação:" + indicacao);
                 list.addElement(cliente);
             }
             return list;
@@ -184,7 +185,7 @@ public class Banco_de_Dados
     
     public void EditarCliente(Cliente c, int id)
     {
-        String sql = "UPDATE cliente SET nome = ?, email = ?, endereco = ?, telefone = ?, indicacao = ?, cpf = ? WHERE id = ?";
+        String sql = "UPDATE cliente SET nome = ?, email = ?, endereco = ?, telefone = ?, indicacao = ?, cpf = ? WHERE idcliente = ?";
 
         try 
         {
@@ -206,7 +207,7 @@ public class Banco_de_Dados
     
     public Cliente PesquisarId(int id)
     {
-        String sql = "select * from cliente WHERE id = ?";
+        String sql = "select * from cliente WHERE idcliente = ?";
         Cliente cliente = new Cliente("", "", "", "", "", "");
         
         try 

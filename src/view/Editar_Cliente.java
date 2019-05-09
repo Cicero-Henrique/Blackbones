@@ -255,11 +255,9 @@ public class Editar_Cliente extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Clientes oc = new Operacoes_Clientes();
-        
-            oc.editar(id, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
-            
-            dispose();
-            new Editar_Cliente();
+        oc.editar(id, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
+        dispose();
+        new Editar_Cliente();
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
