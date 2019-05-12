@@ -1,8 +1,6 @@
 package blackbones;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class Operacoes_Clientes 
 {
@@ -65,6 +63,7 @@ public class Operacoes_Clientes
     {
         String linha[] = new String[6];
         linha = line.split("-");
-        return Integer.parseInt(linha[0]);
+        String numero[] = linha[0].split(":");
+        return Integer.parseInt(numero[1].trim());
     }
 }

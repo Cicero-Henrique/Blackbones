@@ -231,7 +231,7 @@ public class Editar_Cliente extends javax.swing.JFrame
             
             Banco_de_Dados bd = new Banco_de_Dados();
             bd.conectar("blackbones");
-            Cliente c = bd.PesquisarId(id);
+            Cliente c = bd.PesquisarIdCliente(id);
             bd.FecharBanco();
         
         

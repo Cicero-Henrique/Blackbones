@@ -1,8 +1,11 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
+import blackbones.Cliente;
 import blackbones.Conta;
 import blackbones.Financeiro;
+import blackbones.Operacoes_Clientes;
 import blackbones.Operacoes_Contas;
 import java.io.IOException;
 import java.text.ParseException;
@@ -26,9 +29,11 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
     {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         DefaultListModel listModel = new DefaultListModel();
-        listModel = a.loadListModel("pagar");
+        listModel = bd.carregarConta("pagar");
+        bd.FecharBanco();
         jList1.setModel(listModel);
     }
 
@@ -202,20 +207,15 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
         String mes = ("" + data_text.getText().charAt(3) + data_text.getText().charAt(4));
         String ano = ("" + data_text.getText().charAt(6) + data_text.getText().charAt(7) + data_text.getText().charAt(8) + data_text.getText().charAt(9));
         Date data;
-        Armazenamento_File a = new Armazenamento_File();
-        Financeiro f = new Financeiro();
-        try {
+        try
+        {
             data = formato.parse(dia + "/" + mes + "/" + ano);
-            f = a.loadConta("pagar");
-            oc.editar(id, f, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "pagar", status_text.getText());
-            a.salvarConta(f, "pagar");
+            oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "pagar", status_text.getText());
             dispose();
             new Editar_Conta_Pagar();
         } catch (ParseException ex) {
             Logger.getLogger(Editar_Conta_Pagar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Editar_Conta_Pagar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
@@ -237,9 +237,15 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
 
         if (!jList1.isSelectionEmpty()) 
         {
-            Armazenamento_File a = new Armazenamento_File();
+            Operacoes_Contas oc = new Operacoes_Contas();
             String linha = jList1.getSelectedValue();
-            Conta c = a.gerarConta(linha, "pagar");
+            int id = oc.pegarID(linha);
+            
+            Banco_de_Dados bd = new Banco_de_Dados();
+            bd.conectar("blackbones");
+            Conta c = bd.pesquisarIdConta(id);
+            bd.FecharBanco();
+            
             nome_text.setText(c.getNome());
             valor_text.setText(Double.toString(c.getValor()));
             data_text.setText(formato.format(c.getData()));

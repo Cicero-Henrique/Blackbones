@@ -1,16 +1,22 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
+import blackbones.Cliente;
+import blackbones.Conta;
 import blackbones.Financeiro;
+import blackbones.Operacoes_Clientes;
 import blackbones.Operacoes_Contas;
 import blackbones.Registro;
 import blackbones.Validator;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -290,22 +296,27 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame {
     
     public void carregar_comboBox()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r = new Registro();
-        try 
-        {
-            r = a.loadCliente();
-            if(r.getRegistro().size() > 0)
+        Operacoes_Clientes oc = new Operacoes_Clientes();
+         Banco_de_Dados bd = new Banco_de_Dados();
+         bd.conectar("blackbones");
+         DefaultListModel<String> list = bd.carregarCliente();
+         bd.FecharBanco();
+         ArrayList<Cliente> listaClientes = new ArrayList<>();
+         for(int i  = 0; i < list.size(); i++)
+             listaClientes.add(oc.gerarCliente(list.get(i)));
+
+            if(listaClientes.size() > 0)
             {
-                for(int i =0; i < r.getRegistro().size(); i++)
-                    cliente_combo.addItem(r.getRegistro().get(i).getNome());
+                for(int i =0; i < listaClientes.size(); i++)
+                {
+                    String[] nome = listaClientes.get(i).getNome().split(":");
+                    cliente_combo.addItem(nome[1].trim());
+                }
             }
             else
                 cliente_combo.addItem("Nenhum cliente cadastrado");
             
-        } catch (IOException ex) {
-            Logger.getLogger(Registrar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }
 
 }

@@ -2,6 +2,7 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
 import blackbones.Conta;
 import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
@@ -17,17 +18,20 @@ import javax.swing.DefaultListModel;
  *
  * @author Cícero
  */
-public class Editar_Conta_Receber extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Editar_Conta_Receber
-     */
+public class Editar_Conta_Receber extends javax.swing.JFrame 
+{
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-    public Editar_Conta_Receber() {
+    public Editar_Conta_Receber() 
+    {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
-        DefaultListModel listModel = a.loadListModel("receber");
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel listModel = new DefaultListModel();
+        listModel = bd.carregarConta("receber");
+        bd.FecharBanco();
+        
         jList1.setModel(listModel);
     }
 
@@ -200,19 +204,16 @@ public class Editar_Conta_Receber extends javax.swing.JFrame {
         String dia = ("" + data_text.getText().charAt(0) + data_text.getText().charAt(1));
         String mes = ("" + data_text.getText().charAt(3) + data_text.getText().charAt(4));
         String ano = ("" + data_text.getText().charAt(6) + data_text.getText().charAt(7) + data_text.getText().charAt(8) + data_text.getText().charAt(9));
-        Armazenamento_File a = new Armazenamento_File();
-        Financeiro f = new Financeiro();
+        Date data;
         
-        try {
-            Date data = formato.parse(dia + "/" + mes + "/" + ano);
-            f = a.loadConta("receber");
-            oc.editar(id, f, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "receber", status_text.getText());
-            a.salvarConta(f, "receber");
+        try 
+        {
+            data = formato.parse(dia + "/" + mes + "/" + ano);
+            oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "receber", status_text.getText());
             dispose();
             new Editar_Conta_Receber();
-        } catch (IOException ex) {
-            Logger.getLogger(Editar_Conta_Pagar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
+        } 
+        catch (ParseException ex) {
             Logger.getLogger(Editar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_salvar_buttonActionPerformed
@@ -235,9 +236,15 @@ public class Editar_Conta_Receber extends javax.swing.JFrame {
 
         if (!jList1.isSelectionEmpty()) 
         {
-            Armazenamento_File a = new Armazenamento_File();
+            Operacoes_Contas oc = new Operacoes_Contas();
             String linha = jList1.getSelectedValue();
-            Conta c = a.gerarConta(linha, "receber");
+            int id = oc.pegarID(linha);
+            
+            Banco_de_Dados bd = new Banco_de_Dados();
+            bd.conectar("blackbones");
+            Conta c = bd.pesquisarIdConta(id);
+            bd.FecharBanco();
+            
             nome_text.setText(c.getNome());
             valor_text.setText(Double.toString(c.getValor()));
             data_text.setText(formato.format(c.getData()));

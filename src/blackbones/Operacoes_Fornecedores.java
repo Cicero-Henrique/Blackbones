@@ -18,27 +18,26 @@ public class Operacoes_Fornecedores
         
     }
     
-    public void editar(int id, Registro r, String nome, String cnpj, String telefone, String email, String tipo)
+    public void editar(int id, String nome, String cnpj, String telefone, String email, String tipo)
     {
-        Armazenamento_File a = new Armazenamento_File();
-        r.getFornecedores().get(id).setNome(nome);
-        r.getFornecedores().get(id).setCnpj(cnpj);
-        r.getFornecedores().get(id).setTelefone(telefone);
-        r.getFornecedores().get(id).setEmail(email);
-        r.getFornecedores().get(id).setTipo(tipo);
-        
-        try 
-        {
-            a.salvarCliente(r);
-        } catch (IOException ex) 
-        {
-            Logger.getLogger(Operacoes_Fornecedores.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        Fornecedor f = new Fornecedor(nome, cnpj, telefone, email, tipo);
+        bd.EditarFornecedor(f, id);
+        bd.FecharBanco();
     }
     
     public void remover(Registro r, int id)
     {
         r.getFornecedores().remove(id);
+    }
+    
+    public int pegarID(String line)
+    {
+        String linha[] = new String[6];
+        linha = line.split("-");
+        String numero[] = linha[0].split(":");
+        return Integer.parseInt(numero[1].trim());
     }
     
 }

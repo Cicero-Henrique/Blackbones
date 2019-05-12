@@ -2,6 +2,7 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
 import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
@@ -13,13 +14,19 @@ import javax.swing.DefaultListModel;
 public class Editar_Produto extends javax.swing.JFrame 
 {
 
+    int id = -1;
     public Editar_Produto() 
     {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         DefaultListModel listModel = new DefaultListModel();
-        listModel = a.loadListModel("produto");
+        listModel = bd.carregarProduto();
+        bd.FecharBanco();
+        
+        id = -1;
         jList1.setModel(listModel);
     }
 
@@ -238,41 +245,28 @@ public class Editar_Produto extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Produtos op = new Operacoes_Produtos();
-        int id = jList1.getSelectedIndex();
-        Armazenamento_File a = new Armazenamento_File();
-        Estoque e;
         
-        try 
+        Double custo = Double.parseDouble(custo_text.getText());
+        Double venda = Double.parseDouble(venda_text.getText());
+        int qtd = Integer.parseInt(qtd_text.getText());
+        double receita = venda * qtd;
+        double margem = (receita - custo)/receita;
+        String[] tamanhos = Tamanhos();
+        String tamanho = "";
+            
+        for(int i = 0; i <= 5; i++)
         {
-            e = a.loadProduto();
+            if(tamanhos[i] != null)
+                tamanho = (tamanho + "/" + tamanhos[i]);
+        }
+        if(tamanho.equals(""))
+            tamanho = "-Nenhum tamanho selecionado";
             
-            Double custo = Double.parseDouble(custo_text.getText());
-            Double venda = Double.parseDouble(venda_text.getText());
-            int qtd = Integer.parseInt(qtd_text.getText());
-            double receita = venda * qtd;
-            double margem = (receita - custo)/receita;
-            String[] tamanhos = Tamanhos();
-            String tamanho = "";
-            
-            for(int i = 0; i <= 5; i++)
-            {
-                if(tamanhos[i] != null)
-                    tamanho = (tamanho + "/" + tamanhos[i]);
-            }
-            if(tamanho.equals(""))
-                tamanho = "-Nenhum tamanho selecionado";
-            
-            op.editar(e, id, nome_text.getText(), tipo_text.getText(), Double.parseDouble(custo_text.getText()), 
+            op.editar(id, nome_text.getText(), tipo_text.getText(), Double.parseDouble(custo_text.getText()), 
                     Double.parseDouble(venda_text.getText()), margem, Integer.parseInt(qtd_text.getText()), tamanho);
         
-            a.salvarProduto(e);
-        } 
-        catch (IOException ex) {
-            Logger.getLogger(Editar_Produto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            dispose();
-            new Editar_Produto();
+        dispose();
+        new Editar_Produto();
             
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
@@ -289,9 +283,15 @@ public class Editar_Produto extends javax.swing.JFrame
 
         if (!jList1.isSelectionEmpty()) 
         {
-            Armazenamento_File a = new Armazenamento_File();
+            Operacoes_Produtos op = new Operacoes_Produtos();
             String linha = jList1.getSelectedValue();
-            Produto p = a.gerarProduto(linha);
+            id = op.pegarID(linha);
+            
+            Banco_de_Dados bd = new Banco_de_Dados();
+            bd.conectar("blackbones");
+            Produto p = bd.PesquisarIdProduto(id);
+            bd.FecharBanco();
+            
             nome_text.setText(p.getNome());
             tipo_text.setText(p.getTipo());
             custo_text.setText(Double.toString(p.getPreco_custo()));

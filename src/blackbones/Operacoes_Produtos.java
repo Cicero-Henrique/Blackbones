@@ -16,16 +16,13 @@ public class Operacoes_Produtos
         bd.FecharBanco();
     }
     
-    public Estoque editar(Estoque a, int id, String nome, String tipo, double custo, double venda, double margem, int qtd, String tamanho)
+    public void editar(int id, String nome, String tipo, double custo, double venda, double margem, int qtd, String tamanho)
     {
-        a.getProdutos().get(id).setNome(nome);
-        a.getProdutos().get(id).setTipo(tipo);
-        a.getProdutos().get(id).setPreco_custo(custo);
-        a.getProdutos().get(id).setPreco_venda(venda);
-        a.getProdutos().get(id).setMargem_lucro(margem);
-        a.getProdutos().get(id).setQtd(qtd);
-        a.getProdutos().get(id).setTamanho(tamanho);
-        return a;
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        Produto p = new Produto(nome, tipo, custo, venda, margem, qtd, tamanho);
+        bd.EditarProduto(p, id);
+        bd.FecharBanco();
     }
     
     public void vender(Estoque e, int id, int qtd)
@@ -70,4 +67,13 @@ public class Operacoes_Produtos
                     " - Margem:" + a.getProdutos().get(i).getMargem_lucro());
         }
     }
+    
+    public int pegarID(String line)
+    {
+        String linha[] = new String[7];
+        linha = line.split("-");
+        String numero[] = linha[0].split(":");
+        return Integer.parseInt(numero[1].trim());
+    }
+    
 }
