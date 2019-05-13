@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 public class Operacoes_Produtos 
 {
@@ -25,36 +26,22 @@ public class Operacoes_Produtos
         bd.FecharBanco();
     }
     
-    public void vender(Estoque e, int id, int qtd)
+    public void vender(int id, int qtd, Produto p)
     {
-        try 
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        bd.CadastrarVenda(p, id);
+        
+        if(qtd == p.getQtd())
         {
-            Armazenamento_File a = new Armazenamento_File();
-            Financeiro f = new Financeiro();
-            Venda v = new Venda();
-            Date d = new Date();
-
-            //adicionar ao histórico de vendas
-            v.setProduto(e.getProdutos().get(id));
-            v.setData_venda(d);
-            f = a.loadVendas();
-            f.getVendidos().add(v);
-            a.salvarVendas(f);
-            
-            //reduzir do estoque
-            int nova_qtd = e.getProdutos().get(id).getQtd() - qtd;
-            if(nova_qtd > 0)
-            {
-                e.getProdutos().get(id).setQtd(e.getProdutos().get(id).getQtd() - qtd);
-                System.out.println(e.getProdutos().get(id).getQtd());
-            }
-            else
-                e.getProdutos().remove(id);
-            
-        } 
-        catch (IOException ex) 
+            bd.RemoverProduto(id);
+            bd.FecharBanco();
+        }
+        else
         {
-            Logger.getLogger(Operacoes_Produtos.class.getName()).log(Level.SEVERE, null, ex);
+            p.setQtd(p.getQtd() - qtd);
+            bd.EditarProduto(p, id);
+            bd.FecharBanco();
         }
     }
     

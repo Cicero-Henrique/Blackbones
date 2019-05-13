@@ -1,8 +1,10 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
 import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
+import blackbones.Produto;
 import blackbones.Validator;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -11,16 +13,21 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-public class Vender_Produtos extends javax.swing.JFrame {
-
+public class Vender_Produtos extends javax.swing.JFrame 
+{
+    int id = -1;
     public Vender_Produtos() 
     {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
-        DefaultListModel listModel = new DefaultListModel();
-        listModel = a.loadListModel("produto");
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel listModel = bd.carregarProduto();
+        bd.FecharBanco();
+        
         produtos_list.setModel(listModel);
+        id = -1;
     }
 
     @SuppressWarnings("unchecked")
@@ -132,15 +139,8 @@ public class Vender_Produtos extends javax.swing.JFrame {
                 int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
 
                 if(x == 0)
-                {
-                    try 
-                    {
-                        Remover();
-                    } catch (IOException ex) {
-                        Logger.getLogger(Vender_Produtos.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                }
+                    Remover();
+                
             }
         }
     }//GEN-LAST:event_vender_buttonActionPerformed
@@ -173,38 +173,35 @@ public class Vender_Produtos extends javax.swing.JFrame {
     private javax.swing.JButton vender_button;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
-    public void Remover() throws IOException
+    public void Remover() 
     {
-        Armazenamento_File a = new Armazenamento_File();
-        Estoque e = a.loadProduto();
-        Operacoes_Produtos op = new Operacoes_Produtos();
-        
-        int id = produtos_list.getSelectedIndex();
-        try 
+        if (!produtos_list.isSelectionEmpty()) 
         {
+            Operacoes_Produtos op = new Operacoes_Produtos();
+            
+            String linha = produtos_list.getSelectedValue();
+            id = op.pegarID(linha);
+            Produto produto = op.gerarProduto(linha);
             
             if((Validator.isValidQuantidade(qtd_text.getText())))
             {
                 int quantidade = Integer.parseInt(qtd_text.getText());
-                if(temEmEstoque(quantidade, id, e))
+                if(temEmEstoque(quantidade, produto.getQtd()))
                 {
-                    op.vender(e, id, quantidade);
-                    a.salvarProduto(e);
+                    op.vender(id, quantidade, produto);
                 }
                 else
                     JOptionPane.showMessageDialog(null, "A quantidade a ser vendida deve ser menor ou igual que a quantiadde em estoque");
             }
-        } catch (IOException ex) 
-        {
-            Logger.getLogger(Remover_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         dispose();
         new Vender_Produtos();
     }
 
-    public boolean temEmEstoque(int qtd, int id, Estoque e)
+    public boolean temEmEstoque(int vendida, int estoque)
     {
-        if(qtd <= e.getProdutos().get(id).getQtd())
+        if(vendida <= estoque)
             return true;
         return false;
     }

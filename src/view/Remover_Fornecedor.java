@@ -176,7 +176,7 @@ public class Remover_Fornecedor extends javax.swing.JFrame
             of.remover(id);
         }
         dispose();
-        new Remover_Cliente();
+        new Remover_Fornecedor();
     }
 
 

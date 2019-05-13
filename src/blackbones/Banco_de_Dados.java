@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -122,6 +123,7 @@ public class Banco_de_Dados
         {
             PreparedStatement stmt = connection.prepareStatement(sql);
             
+            stmt.setInt(1, id);
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {
@@ -247,6 +249,7 @@ public class Banco_de_Dados
         {
             PreparedStatement stmt = connection.prepareStatement(sql);
             
+            stmt.setInt(1, id);
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {
@@ -363,14 +366,27 @@ public class Banco_de_Dados
     
     public void RemoverProduto(int id)
     {
+        String sql0 = "SET foreign_key_checks = 0;";
         String sql = "delete from produto where idproduto = ?;";
+        String sql1 = "SET foreign_key_checks = 1;";
         
         try 
         {
+            PreparedStatement stmt0 = connection.prepareStatement(sql0);
             PreparedStatement stmt = connection.prepareStatement(sql);
+            PreparedStatement stmt1 = connection.prepareStatement(sql1);
             
+            stmt0.execute(); //executa comando     
+            stmt0.close();
+            
+            stmt.setInt(1, id);
             stmt.execute(); //executa comando     
             stmt.close();
+            
+            
+            stmt1.execute(); //executa comando     
+            stmt1.close();
+            
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
@@ -530,6 +546,26 @@ public class Banco_de_Dados
         }
         return cliente;
     }
+    
+    public void CadastrarVenda(Produto p, int idproduto)
+    {
+        String sql = "INSERT INTO venda(data_venda, id_produto) VALUES(?,?)";
+        java.time.LocalDate data = LocalDate.now();
+        
+        //java.sql.Date data = new java.sql.Date();
+        
+        
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);   
+            
+            stmt.setDate(1, java.sql.Date.valueOf(data));
+            stmt.setInt(2, idproduto);
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {System.out.println(u);}
+    }
+    
     
     
 //

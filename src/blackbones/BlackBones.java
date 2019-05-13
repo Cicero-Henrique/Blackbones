@@ -1,23 +1,15 @@
 package blackbones;
 
-
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import view.*;
 
 public class BlackBones 
 {
     public static void main(String[] args) 
-    {
-        
-        
-        
+    {        
         Estatisticas e = new Estatisticas();
         e.setVisible(true);
+        
+        
         
         /*Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");*/
