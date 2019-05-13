@@ -2,35 +2,40 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
 import blackbones.Estoque;
+import blackbones.Operacoes_Produtos;
+import blackbones.Produto;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
 public class Listar_Produtos extends javax.swing.JFrame 
 {
     public void Listar()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        try 
+        
+        Operacoes_Produtos op = new Operacoes_Produtos();
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listModel = bd.carregarProduto();
+        bd.FecharBanco();
+        
+        for(int i = 0; i < listModel.size(); i++)
         {
-            Estoque e = a.loadProduto();
-            for(int i = 0; i < e.getProdutos().size(); i++)
-            {
-                produtos_list.append("Nome: " + e.getProdutos().get(i).getNome() + "\n");
-                produtos_list.append("Tipo: " + e.getProdutos().get(i).getTipo()+ "\n");
-                produtos_list.append("Preço de custo: " + e.getProdutos().get(i).getPreco_custo() + "\n");
-                produtos_list.append("Preço de venda: " + e.getProdutos().get(i).getPreco_venda() + "\n");
-                produtos_list.append("Margem de lucro: " + e.getProdutos().get(i).getMargem_lucro() + "\n");
-                produtos_list.append("Quantidade em estoque: " + e.getProdutos().get(i).getQtd() + "\n");
-                produtos_list.append(" \r\n\n\n");
-                produtos_list.setEditable(false);
-            }
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(Listar_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+            Produto p = op.gerarProduto(listModel.get(i));
+            
+            produtos_list.append("Nome: " + p.getNome() + "\n");
+            produtos_list.append("Tipo: " + p.getTipo()+ "\n");
+            produtos_list.append("Preço de custo: " + p.getPreco_custo() + "\n");
+            produtos_list.append("Preço de venda: " + p.getPreco_venda() + "\n");
+            produtos_list.append("Margem de lucro: " + p.getMargem_lucro() + "\n");
+            produtos_list.append("Quantidade em estoque: " + p.getQtd() + "\n");
+            produtos_list.append(" \r\n\n\n");
+            produtos_list.setEditable(false);
         }
     }
     

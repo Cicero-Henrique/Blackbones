@@ -1,7 +1,5 @@
 package blackbones;
 
-
-
 public class Operacoes_Clientes 
 {
     public void adicionar(String nome, String email, String endereco, String telefone, String indicacao, String cpf)
@@ -24,9 +22,12 @@ public class Operacoes_Clientes
         
     }
     
-    public void remover(Registro r, int id)
+    public void remover(int id)
     {
-        r.getRegistro().remove(id);
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        bd.RemoverCliente(id);
+        bd.FecharBanco();
     }
     
     public void listar(Registro r)
@@ -53,6 +54,14 @@ public class Operacoes_Clientes
         String atributos[];
         
         atributos = cortarString(s);
+        
+        atributos[1] = atributos[1].trim().split(":")[1];
+        System.out.println(atributos[2]);
+        atributos[2] = atributos[2].trim().split(":")[2];
+        atributos[3] = atributos[3].trim().split(":")[3];
+        atributos[4] = atributos[4].trim().split(":")[4];
+        atributos[5] = atributos[5].trim().split(":")[5];
+        atributos[6] = atributos[6].trim().split(":")[6];
         
         Cliente cliente = new Cliente(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5], atributos[6]);
         

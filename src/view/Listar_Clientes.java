@@ -1,35 +1,35 @@
 package view;
 
-import blackbones.Armazenamento_File;
-import blackbones.Registro;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import blackbones.Banco_de_Dados;
+import blackbones.Cliente;
+import blackbones.Operacoes_Clientes;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
-public class Listar_Clientes extends javax.swing.JFrame {
+public class Listar_Clientes extends javax.swing.JFrame 
+{
     
     public void Listar()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        try 
+        Operacoes_Clientes oc = new Operacoes_Clientes();
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listModel = bd.carregarCliente();
+        bd.FecharBanco();
+        
+        for(int i = 0; i < listModel.size(); i++)
         {
-            Registro r = a.loadCliente();
-            for(int i = 0; i < r.getRegistro().size(); i++)
-            {
-                funcionarios_lista.append("Nome: " + r.getRegistro().get(i).getNome() + "\n");
-                funcionarios_lista.append("CPF: " + r.getRegistro().get(i).getCpf()+ "\n");
-                funcionarios_lista.append("E-Mail: " + r.getRegistro().get(i).getEmail()+ "\n");
-                funcionarios_lista.append("Endereço: " + r.getRegistro().get(i).getEndereco()+ "\n");
-                funcionarios_lista.append("Indicação: " + r.getRegistro().get(i).getIndicacao()+ "\n");
-                funcionarios_lista.append("Telefone: " + r.getRegistro().get(i).getTelefone()+ "\n");
-                funcionarios_lista.append(" \r\n\n\n");
-                funcionarios_lista.setEditable(false);
-            }
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(Listar_Clientes.class.getName()).log(Level.SEVERE, null, ex);
+            Cliente c = oc.gerarCliente(listModel.get(i));
+            
+            funcionarios_lista.append("Nome: " + c.getNome() + "\n");
+            funcionarios_lista.append("CPF: " + c.getCpf()+ "\n");
+            funcionarios_lista.append("E-Mail: " + c.getEmail()+ "\n");
+            funcionarios_lista.append("Endereço: " + c.getEndereco()+ "\n");
+            funcionarios_lista.append("Indicação: " + c.getIndicacao()+ "\n");
+            funcionarios_lista.append("Telefone: " + c.getTelefone()+ "\n");
+            funcionarios_lista.append(" \r\n\n\n");
+            funcionarios_lista.setEditable(false);
         }
     }
     

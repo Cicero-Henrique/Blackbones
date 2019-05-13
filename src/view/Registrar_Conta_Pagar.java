@@ -200,8 +200,6 @@ public class Registrar_Conta_Pagar extends javax.swing.JFrame {
     public boolean Dados()
     {
         Operacoes_Contas op = new Operacoes_Contas();
-        Armazenamento_File a = new Armazenamento_File();
-        Financeiro f = new Financeiro();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         
         String tipo_conta = "pagar";

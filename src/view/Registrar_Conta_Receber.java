@@ -261,8 +261,6 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame {
     public boolean Dados()
     {
         Operacoes_Contas op = new Operacoes_Contas();
-        Armazenamento_File a = new Armazenamento_File();
-        Financeiro f = new Financeiro();
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         
         String tipo_conta = "receber";
@@ -315,8 +313,6 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame {
             }
             else
                 cliente_combo.addItem("Nenhum cliente cadastrado");
-            
-        
     }
 
 }

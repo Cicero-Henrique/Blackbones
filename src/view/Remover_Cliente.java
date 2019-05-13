@@ -2,6 +2,8 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
+import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;
 import blackbones.Registro;
 import java.io.IOException;
@@ -12,13 +14,18 @@ import javax.swing.JOptionPane;
 
 public class Remover_Cliente extends javax.swing.JFrame {
 
+    int id = -1;
     public Remover_Cliente() 
     {
         initComponents();
         setVisible(true);
-        Armazenamento_File a = new Armazenamento_File();
-        DefaultListModel listModel = new DefaultListModel();
-        listModel = a.loadListModel("cliente");
+        
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel listModel = bd.carregarCliente();
+        bd.FecharBanco();
+        
+        id = -1;
         clientes_list.setModel(listModel);
     }
 
@@ -106,13 +113,8 @@ public class Remover_Cliente extends javax.swing.JFrame {
             int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
             
             if(x == 0)
-            {
-                try {
-                    Remover();
-                } catch (IOException ex) {
-                    Logger.getLogger(Remover_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+                Remover();
+             
         }
     }//GEN-LAST:event_remover_buttonActionPerformed
 
@@ -138,21 +140,19 @@ public class Remover_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     
-    public void Remover() throws IOException
+    public void Remover()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r = a.loadCliente();
-        Operacoes_Clientes op = new Operacoes_Clientes();
+        Operacoes_Clientes oc = new Operacoes_Clientes();
         
-        int id = clientes_list.getSelectedIndex();
-        op.remover(r, id);
-        try 
+        if (!clientes_list.isSelectionEmpty()) 
         {
-            a.salvarCliente(r);
-        } catch (IOException ex) 
-        {
-            Logger.getLogger(Remover_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Operacoes_Clientes op = new Operacoes_Clientes();
+            String linha = clientes_list.getSelectedValue();
+            id = op.pegarID(linha);
+                        
+            oc.remover(id);
         }
+        
         dispose();
         new Remover_Cliente();
     }

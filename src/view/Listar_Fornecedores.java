@@ -1,11 +1,10 @@
 
 package view;
 
-import blackbones.Armazenamento_File;
-import blackbones.Registro;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import blackbones.Banco_de_Dados;
+import blackbones.Fornecedor;
+import blackbones.Operacoes_Fornecedores;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
 public class Listar_Fornecedores extends javax.swing.JFrame 
@@ -13,29 +12,25 @@ public class Listar_Fornecedores extends javax.swing.JFrame
     
     public void Listar()
     {
-        Armazenamento_File a = new Armazenamento_File();
+        Operacoes_Fornecedores of = new Operacoes_Fornecedores();
         
-            Registro r;
-        try 
-        {
-            r = a.loadFornecedor();
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listModel = bd.carregarFornecedor();
+        bd.FecharBanco();
         
-            for(int i = 0; i < r.getFornecedores().size(); i++)
-            {
-                funcionarios_lista.append("Nome: " + r.getFornecedores().get(i).getNome() + "\n");
-                funcionarios_lista.append("CNPJ: " + r.getFornecedores().get(i).getCnpj()+ "\n");
-                funcionarios_lista.append("E-Mail: " + r.getFornecedores().get(i).getEmail()+ "\n");
-                funcionarios_lista.append("Tipo: " + r.getFornecedores().get(i).getTipo()+ "\n");
-                funcionarios_lista.append("Telefone: " + r.getFornecedores().get(i).getTelefone()+ "\n");
-                funcionarios_lista.append(" \r\n\n\n");
-                funcionarios_lista.setEditable(false);
-            }
-        } 
-        catch (IOException ex) 
+        for(int i = 0; i < listModel.size(); i++)
         {
-            Logger.getLogger(Listar_Fornecedores.class.getName()).log(Level.SEVERE, null, ex);
+            Fornecedor f = of.gerarFornecedor(listModel.get(i));
+            
+            funcionarios_lista.append("Nome: " + f.getNome() + "\n");
+            funcionarios_lista.append("CNPJ: " + f.getCnpj()+ "\n");
+            funcionarios_lista.append("E-Mail: " + f.getEmail()+ "\n");
+            funcionarios_lista.append("Tipo: " + f.getTipo()+ "\n");
+            funcionarios_lista.append("Telefone: " + f.getTelefone()+ "\n");
+            funcionarios_lista.append(" \r\n\n\n");
+            funcionarios_lista.setEditable(false);
         }
-        
     }
     
     
@@ -45,7 +40,7 @@ public class Listar_Fornecedores extends javax.swing.JFrame
         setVisible(true);
         JTextArea fornecedores_lista = new JTextArea();
         Listar();
-        funcionarios_lista.setEditable(false);
+        fornecedores_lista.setEditable(false);
     }
     
     

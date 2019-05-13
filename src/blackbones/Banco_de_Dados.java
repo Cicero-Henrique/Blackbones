@@ -39,34 +39,6 @@ public class Banco_de_Dados
         }
     }
 
-    public void Inserir() 
-    {
-
-        String sql = "INSERT INTO cliente(nome, sexo, email, cpf, telefone, endereco) VALUES(?,?,?,?,?,?)";
-        String nome = "Cícero";
-        String email = "cicero@hotmail.com";
-        String telefone = "000";
-        String cpf = "0123";
-        String endereco = "Tiradentes-Baependi-Minas Gerais";
-        String sexo = "M";
-        try 
-        {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-
-            stmt.setString(1, nome);
-            stmt.setString(2, sexo);
-            stmt.setString(3, email);
-            stmt.setString(4, cpf);
-            stmt.setString(5, telefone);
-            stmt.setString(6, endereco);
-            stmt.execute(); //executa comando     
-            stmt.close();
-        } catch (SQLException u) {
-            throw new RuntimeException(u);
-        }
-    }
-    
-
     public void CadastrarConta(Conta c)
     {
         String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data_vencimento) VALUES(?,?,?,?,?,?)";
@@ -140,6 +112,21 @@ public class Banco_de_Dados
             Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public void RemoverConta(int id)
+    {
+        String sql = "delete from conta where idconta = ?;";
+        
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
     }
     
     public Conta pesquisarIdConta(int id)
@@ -252,6 +239,21 @@ public class Banco_de_Dados
 
     }
     
+    public void RemoverFornecedor(int id)
+    {
+        String sql = "delete from fornecedor where idfornecedor = ?;";
+        
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    }
+    
     public Fornecedor PesquisarIdFornecedor(int id)
     {
         String sql = "select * from fornecedor WHERE idfornecedor = ?";
@@ -359,6 +361,21 @@ public class Banco_de_Dados
 
     }
     
+    public void RemoverProduto(int id)
+    {
+        String sql = "delete from produto where idproduto = ?;";
+        
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    }
+    
     public Produto PesquisarIdProduto(int id)
     {
         String sql = "select * from produto WHERE idproduto = ?";
@@ -412,6 +429,23 @@ public class Banco_de_Dados
         
     }
     
+    public void RemoverCliente(int id)
+    {
+        String sql = "delete from cliente where idcliente = ?;";
+        
+            PreparedStatement stmt;
+        try 
+        {
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public DefaultListModel carregarCliente()  
     {
         DefaultListModel<String> list = new DefaultListModel();
@@ -432,7 +466,7 @@ public class Banco_de_Dados
                 String cpf = rs.getString("cpf");
                 String endereco = rs.getString("endereco");
                 String indicacao = rs.getString("indicacao");
-                String cliente = ("Id: " + id+ "- Nome:" + nome + "- E-Mail: " + email + "- Telefone:" 
+                String cliente = ("Id: " + id+ "- Nome:" + nome + "- EMail: " + email + "- Telefone:" 
                         + telefone + "- CPF:" + cpf + "- Endereço: " + endereco + "- Indicação:" + indicacao);
                 list.addElement(cliente);
             }

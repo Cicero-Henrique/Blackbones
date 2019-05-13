@@ -27,16 +27,12 @@ public class Operacoes_Contas
         bd.FecharBanco();
     }
     
-    public void remover(Financeiro f, int id, String tipo_conta)
+    public void remover(int id)
     {
-        if(tipo_conta.equals("pagar"))
-        {
-           f.getContas_pagar().remove(id);
-        }
-        else
-        {
-            f.getContas_receber().remove(id);
-        }
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        bd.RemoverConta(id);
+        bd.FecharBanco();
     }
     
     public void listar(Financeiro f, String tipo_conta)

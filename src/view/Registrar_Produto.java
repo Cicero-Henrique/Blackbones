@@ -1,10 +1,7 @@
 package view;
 
-import blackbones.Armazenamento_File;
-import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Validator;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class Registrar_Produto extends javax.swing.JFrame {
@@ -286,7 +283,6 @@ public class Registrar_Produto extends javax.swing.JFrame {
             if(tamanho.equals(""))
                 tamanho = "-Nenhum tamanho selecionado";
             
-
             op.adicionar_produto(nome, tipo, custo, venda, margem, qtd, tamanho);            
             return true;
         }

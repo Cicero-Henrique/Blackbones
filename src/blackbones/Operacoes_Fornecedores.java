@@ -1,10 +1,6 @@
 
 package blackbones;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 public class Operacoes_Fornecedores 
 {
@@ -27,9 +23,20 @@ public class Operacoes_Fornecedores
         bd.FecharBanco();
     }
     
-    public void remover(Registro r, int id)
+    public void remover(int id)
     {
-        r.getFornecedores().remove(id);
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        bd.RemoverFornecedor(id);
+        bd.FecharBanco();
+    }
+    
+    public String[] cortarString(String line)
+    {
+        String linha[] = new String[6];
+        linha = line.split("-");
+        return linha = line.split("-");   
+        
     }
     
     public int pegarID(String line)
@@ -38,6 +45,17 @@ public class Operacoes_Fornecedores
         linha = line.split("-");
         String numero[] = linha[0].split(":");
         return Integer.parseInt(numero[1].trim());
+    }
+    
+    public Fornecedor gerarFornecedor(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    {
+        String atributos[];
+        
+        atributos = cortarString(s);
+        
+        Fornecedor fornecedor = new Fornecedor(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5]);
+        
+        return fornecedor; 
     }
     
 }

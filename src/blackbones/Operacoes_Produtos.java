@@ -76,4 +76,32 @@ public class Operacoes_Produtos
         return Integer.parseInt(numero[1].trim());
     }
     
+    public String[] cortarString(String line)
+    {
+        String linha[] = new String[7];
+        linha = line.split("-");
+        return linha = line.split("-");   
+        
+    }
+    
+    public Produto gerarProduto(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    {
+        String atributos[];
+        
+        atributos = cortarString(s);
+        atributos[0] = atributos[0].split(":")[1];
+        atributos[1] = atributos[1].split(":")[1];
+        atributos[2] = atributos[2].split(":")[1];
+        atributos[3] = atributos[3].split(":")[1];
+        atributos[4] = atributos[4].split(":")[1];
+        atributos[5] = atributos[5].split(":")[1];
+        atributos[6] = atributos[6].split(":")[1];
+        atributos[7] = atributos[7].split(":")[1];
+        
+        Produto produto = new Produto(atributos[1], atributos[2], Double.parseDouble(atributos[5]), Double.parseDouble(atributos[6]), Double.parseDouble(atributos[7]), 
+                Integer.parseInt(atributos[4]), atributos[3]);
+        
+        return produto; 
+    }
+    
 }
