@@ -1,14 +1,11 @@
 
 package view;
 
-import blackbones.Armazenamento_File;
 import blackbones.Banco_de_Dados;
 import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import blackbones.Validator;
 import javax.swing.DefaultListModel;
 
 public class Editar_Produto extends javax.swing.JFrame 
@@ -261,12 +258,15 @@ public class Editar_Produto extends javax.swing.JFrame
         }
         if(tamanho.equals(""))
             tamanho = "-Nenhum tamanho selecionado";
-            
+        
+        if(Validator.isValidProduct(nome_text.getText(), tipo_text.getText(), custo.toString(), venda.toString(), Integer.toString(qtd)))
+        {
             op.editar(id, nome_text.getText(), tipo_text.getText(), Double.parseDouble(custo_text.getText()), 
                     Double.parseDouble(venda_text.getText()), margem, Integer.parseInt(qtd_text.getText()), tamanho);
         
-        dispose();
-        new Editar_Produto();
+            dispose();
+            new Editar_Produto();
+        }
             
         
     }//GEN-LAST:event_salvar_buttonActionPerformed

@@ -1,11 +1,12 @@
 
 package view;
 
-import blackbones.Armazenamento_File;
+
 import blackbones.Banco_de_Dados;
 import blackbones.Conta;
 import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
+import blackbones.Validator;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -210,9 +211,12 @@ public class Editar_Conta_Receber extends javax.swing.JFrame
         try 
         {
             data = formato.parse(dia + "/" + mes + "/" + ano);
-            oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "receber", status_text.getText());
-            dispose();
-            new Editar_Conta_Receber();
+            if(Validator.isValidConta(nome_text.getText(), valor_text.getText(), formato.format(data), pagamento_text.getText()))
+            {
+                oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "receber", status_text.getText());
+                dispose();
+                new Editar_Conta_Receber();
+            }
         } 
         catch (ParseException ex) {
             Logger.getLogger(Editar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);

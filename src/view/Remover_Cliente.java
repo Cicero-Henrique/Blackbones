@@ -1,7 +1,5 @@
-
 package view;
 
-import blackbones.Armazenamento_File;
 import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;

@@ -35,7 +35,7 @@ public class Receita {
         return false;
     }
 
-    public DefaultListModel main(String data_inicial, String data_final) 
+    /*public DefaultListModel main(String data_inicial, String data_final) 
     {
         Armazenamento_File a = new Armazenamento_File();
         ArrayList<Produto> vendidos = new ArrayList<>();
@@ -109,5 +109,5 @@ public class Receita {
         }
         return null;
 
-    }
+    }*/
 }

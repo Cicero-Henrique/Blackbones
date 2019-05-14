@@ -5,7 +5,6 @@
  */
 package view;
 
-import blackbones.Armazenamento_File;
 import blackbones.Banco_de_Dados;
 import blackbones.Fornecedor;
 import blackbones.Operacoes_Fornecedores;
@@ -241,11 +240,13 @@ public class Editar_Fornecedor extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Fornecedores of = new Operacoes_Fornecedores();
-        of.editar(id, nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText());
+        if(Validator.isValidFornecedor(nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText()))
+        {
+            of.editar(id, nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText());
        
-        dispose();
-        new Editar_Fornecedor();
-        
+            dispose();
+            new Editar_Fornecedor();
+        }
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
@@ -326,31 +327,5 @@ public class Editar_Fornecedor extends javax.swing.JFrame
     private javax.swing.JTextField tipo_text;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
-
-    public boolean Dados() throws IOException
-    {
-        Operacoes_Fornecedores of = new Operacoes_Fornecedores();
-        Armazenamento_File a = new Armazenamento_File();
-        Registro r = new Registro();
-        
-        String nome = nome_text.getText();
-        String telefone = telefone_text.getText();
-        String email = email_text.getText();
-        String cnpj = cnpj_text.getText();
-        String tipo =  tipo_text.getText();
-        
-
-        if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo))
-            return false;
-        else
-        {
-            r = a.loadFornecedor();
-            of.adicionar(nome, cnpj, telefone, email, tipo);
-            a.salvarFornecedor(r);
-            
-            return true;
-        }
-        
-    }
 
 }

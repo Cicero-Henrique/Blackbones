@@ -1,6 +1,5 @@
 package view;
 
-import blackbones.Armazenamento_File;
 import blackbones.Banco_de_Dados;
 import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;

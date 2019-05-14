@@ -1,6 +1,5 @@
 package view;
 
-import blackbones.Armazenamento_File;
 import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
 import blackbones.Validator;

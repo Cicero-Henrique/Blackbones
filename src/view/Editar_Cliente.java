@@ -1,10 +1,11 @@
 package view;
 
-import blackbones.Armazenamento_File;
+
 import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;
 import blackbones.Registro;
+import blackbones.Validator;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -255,9 +256,12 @@ public class Editar_Cliente extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Clientes oc = new Operacoes_Clientes();
-        oc.editar(id, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
-        dispose();
-        new Editar_Cliente();
+        if(Validator.isValidCliente(nome_text.getText(), telefone_text.getText(), endereco_text.getText(), email_text.getText(), indicacao_text.getText(), cpf_text.getText()))
+        {
+            oc.editar(id, nome_text.getText(), email_text.getText(), endereco_text.getText(), telefone_text.getText(), indicacao_text.getText(), cpf_text.getText());
+            dispose();
+            new Editar_Cliente();
+        }
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
