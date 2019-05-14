@@ -60,7 +60,7 @@ public class Operacoes_Contas
     
     public String[] cortarString(String line)
     {
-        String linha[] = new String[6];
+        String linha[] = new String[7];
         linha = line.split("-");
         return linha = line.split("-");   
         
@@ -71,14 +71,17 @@ public class Operacoes_Contas
         
         try 
         {
-            String atributos[];
-        
-            atributos = cortarString(s);
+            String atributos[] = cortarString(s);
+            
+            String ano = atributos[5].split(":")[1].trim();
+            String mes = atributos[6].trim();
+            String dia = atributos[7].trim();
         
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            Date data = formato.parse(atributos[3]);
+            Date data = formato.parse(dia+"/"+mes+"/"+ano);
             
-            Conta conta = new Conta(Double.parseDouble(atributos[1]), atributos[2], data, atributos[4], atributos[5], atributos[6]);
+            Conta conta = new Conta(Double.parseDouble(atributos[4].split(":")[1]), atributos[1].split(":")[1], data, atributos[2].split(":")[1], 
+                    atributos[5].split(":")[1], atributos[3].split(":")[1]);
             return conta;
             
         } catch (ParseException ex) {

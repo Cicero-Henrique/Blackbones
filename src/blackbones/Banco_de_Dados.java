@@ -42,7 +42,7 @@ public class Banco_de_Dados
 
     public void CadastrarConta(Conta c)
     {
-        String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data_vencimento) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data) VALUES(?,?,?,?,?,?)";
         
         java.sql.Date data = new java.sql.Date(c.getData().getTime());
         try 
@@ -62,7 +62,7 @@ public class Banco_de_Dados
     
     public void EditarConta(Conta c, int id)
     {
-        String sql = "UPDATE conta SET nome = ?, tipo_pagamento = ?, tipo_conta = ?, estado = ?, valor = ?, data_vencimento = ? WHERE idconta = ?";
+        String sql = "UPDATE conta SET nome = ?, tipo_pagamento = ?, tipo_conta = ?, estado = ?, valor = ?, data = ? WHERE idconta = ?";
         java.sql.Date data = new java.sql.Date(c.getData().getTime());
         
         try 
@@ -101,7 +101,7 @@ public class Banco_de_Dados
                 String pagamento = rs.getString("tipo_pagamento");
                 String estado = rs.getString("estado");
                 String valor = rs.getString("valor");
-                String data = rs.getString("data_vencimento");
+                String data = rs.getString("data");
                 String conta = ("Id: " + id+ "- Nome:" + nome + "- Pagamento:" 
                         + pagamento + "- Estado:" + estado + "- Valor: " + valor + "- Data:" + data);
                 list.addElement(conta);
@@ -150,7 +150,7 @@ public class Banco_de_Dados
                 conta.setTipo_conta(rs.getString("tipo_conta"));
                 conta.setTipo_pagamento(rs.getString("tipo_pagamento"));
                 conta.setValor(rs.getDouble("valor"));
-                conta.setData(rs.getDate("data_vencimento"));
+                conta.setData(rs.getDate("data"));
                 return conta;
             }
             

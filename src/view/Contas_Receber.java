@@ -1,11 +1,15 @@
 package view;
 
 import blackbones.Armazenamento_File;
+import blackbones.Banco_de_Dados;
+import blackbones.Conta;
 import blackbones.Financeiro;
+import blackbones.Operacoes_Contas;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
 public class Contas_Receber extends javax.swing.JFrame {
@@ -158,29 +162,23 @@ public class Contas_Receber extends javax.swing.JFrame {
 
     public void Listar()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        
-            Financeiro f;
-        try 
+        Operacoes_Contas oc = new Operacoes_Contas();
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listModel  = bd.carregarConta("receber");
+        bd.FecharBanco();
+        for(int i = 0; i < listModel.size(); i++)
         {
-            f = a.loadConta("receber");
-            for(int i = 0; i < f.getContas_receber().size(); i++)
-            {
-                contas_list.append("Nome: " + f.getContas_receber().get(i).getNome() + "\n");
-                contas_list.append("Valor: " + f.getContas_receber().get(i).getValor()+ "\n");
-                contas_list.append("Data: " + formato.format(f.getContas_receber().get(i).getData()) + "\n");
-                contas_list.append("Tipo de pagamento: " + f.getContas_receber().get(i).getTipo_pagamento() + "\n");
-                contas_list.append("Status: " + f.getContas_receber().get(i).getStatus()+ "\n");
-                contas_list.append(" \r\n\n\n");
-                contas_list.setEditable(false);
-            }
-        } 
-        catch (IOException ex) 
-        {
-            Logger.getLogger(Contas_Receber.class.getName()).log(Level.SEVERE, null, ex);
+            Conta c = oc.gerarConta(listModel.get(i));
+              
+            contas_list.append("Nome: " + c.getNome() + "\n");
+            contas_list.append("Valor: " + c.getValor()+ "\n");
+            contas_list.append("Data: " + formato.format(c.getData()) + "\n");
+            contas_list.append("Tipo de pagamento: " + c.getTipo_pagamento() + "\n");
+            contas_list.append("Status: " + c.getStatus()+ "\n");
+            contas_list.append(" \r\n\n\n");
+            contas_list.setEditable(false);
         }
-         
-        
     }
 
 

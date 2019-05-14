@@ -19,22 +19,21 @@ import javax.swing.DefaultListModel;
  *
  * @author Cícero
  */
-public class Editar_Conta_Pagar extends javax.swing.JFrame {
+public class Editar_Conta_Pagar extends javax.swing.JFrame 
+{
 
-    /**
-     * Creates new form Editar_Conta_Pagar
-     */
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    int id = -1;
     public Editar_Conta_Pagar() 
     {
         initComponents();
         setVisible(true);
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        DefaultListModel listModel = new DefaultListModel();
-        listModel = bd.carregarConta("pagar");
+        DefaultListModel listModel = bd.carregarConta("pagar");
         bd.FecharBanco();
         jList1.setModel(listModel);
+        id = -1;
     }
 
     @SuppressWarnings("unchecked")
@@ -202,7 +201,6 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Contas oc = new Operacoes_Contas();
-        int id = jList1.getSelectedIndex();
         String dia = ("" + data_text.getText().charAt(0) + data_text.getText().charAt(1));
         String mes = ("" + data_text.getText().charAt(3) + data_text.getText().charAt(4));
         String ano = ("" + data_text.getText().charAt(6) + data_text.getText().charAt(7) + data_text.getText().charAt(8) + data_text.getText().charAt(9));
@@ -239,7 +237,7 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
         {
             Operacoes_Contas oc = new Operacoes_Contas();
             String linha = jList1.getSelectedValue();
-            int id = oc.pegarID(linha);
+            id = oc.pegarID(linha);
             
             Banco_de_Dados bd = new Banco_de_Dados();
             bd.conectar("blackbones");
@@ -309,17 +307,5 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame {
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     
-    public String[] Listar(Financeiro f)
-    {
-        String linha;
-        String[] financeiro_completo = null;
-        for(int i = 0; i < f.getContas_pagar().size(); i++)
-        {
-            linha = (f.getContas_pagar().get(i).getNome() + "-" + formato.format(f.getContas_pagar().get(i).getData()) + "-" + 
-                    f.getContas_pagar().get(i).getTipo_pagamento() + "-" + f.getContas_pagar().get(i).getStatus());
-            financeiro_completo[i] = linha;
-        }
-        return financeiro_completo;
-    }
 
 }

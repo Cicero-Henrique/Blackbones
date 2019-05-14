@@ -1,27 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
-import blackbones.Armazenamento_File;
-import blackbones.Financeiro;
-import java.io.IOException;
+import blackbones.Banco_de_Dados;
+import blackbones.Conta;
+import blackbones.Operacoes_Contas;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author Cícero
- */
 public class Contas_Pagar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Contas
-     */
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     public Contas_Pagar() 
     {
@@ -172,29 +159,24 @@ public class Contas_Pagar extends javax.swing.JFrame {
 
     public void Listar()
     {
-        Armazenamento_File a = new Armazenamento_File();
-        Financeiro f;
-        try {
-            f = a.loadConta("pagar");
-        
-            for(int i = 0; i < f.getContas_pagar().size(); i++)
-            {
-                contas_list.append("Nome: " + f.getContas_pagar().get(i).getNome() + "\n");
-                contas_list.append("Valor: " + f.getContas_pagar().get(i).getValor()+ "\n");
-                contas_list.append("Data: " + formato.format(f.getContas_pagar().get(i).getData()) + "\n");
-                contas_list.append("Tipo de pagamento: " + f.getContas_pagar().get(i).getTipo_pagamento() + "\n");
-                contas_list.append("Status: " + f.getContas_pagar().get(i).getStatus()+ "\n");
-                contas_list.append(" \r\n\n\n");
-                contas_list.setEditable(false);
-            }
-        } 
-        catch (IOException ex) 
+        Operacoes_Contas oc = new Operacoes_Contas();
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listModel  = bd.carregarConta("pagar");
+        bd.FecharBanco();
+        for(int i = 0; i < listModel.size(); i++)
         {
-            Logger.getLogger(Contas_Pagar.class.getName()).log(Level.SEVERE, null, ex);
+            Conta c = oc.gerarConta(listModel.get(i));
+              
+            contas_list.append("Nome: " + c.getNome() + "\n");
+            contas_list.append("Valor: " + c.getValor()+ "\n");
+            contas_list.append("Data: " + formato.format(c.getData()) + "\n");
+            contas_list.append("Tipo de pagamento: " + c.getTipo_pagamento() + "\n");
+            contas_list.append("Status: " + c.getStatus()+ "\n");
+            contas_list.append(" \r\n\n\n");
+            contas_list.setEditable(false);
         }
-        
     }
-
 
 
 

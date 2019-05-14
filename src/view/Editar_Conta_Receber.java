@@ -21,6 +21,7 @@ import javax.swing.DefaultListModel;
 public class Editar_Conta_Receber extends javax.swing.JFrame 
 {
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    int id = -1;
     public Editar_Conta_Receber() 
     {
         initComponents();
@@ -33,6 +34,7 @@ public class Editar_Conta_Receber extends javax.swing.JFrame
         bd.FecharBanco();
         
         jList1.setModel(listModel);
+        id = -1;
     }
 
     @SuppressWarnings("unchecked")
@@ -200,7 +202,6 @@ public class Editar_Conta_Receber extends javax.swing.JFrame
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Contas oc = new Operacoes_Contas();
-        int id = jList1.getSelectedIndex();
         String dia = ("" + data_text.getText().charAt(0) + data_text.getText().charAt(1));
         String mes = ("" + data_text.getText().charAt(3) + data_text.getText().charAt(4));
         String ano = ("" + data_text.getText().charAt(6) + data_text.getText().charAt(7) + data_text.getText().charAt(8) + data_text.getText().charAt(9));
@@ -238,7 +239,7 @@ public class Editar_Conta_Receber extends javax.swing.JFrame
         {
             Operacoes_Contas oc = new Operacoes_Contas();
             String linha = jList1.getSelectedValue();
-            int id = oc.pegarID(linha);
+            id = oc.pegarID(linha);
             
             Banco_de_Dados bd = new Banco_de_Dados();
             bd.conectar("blackbones");
