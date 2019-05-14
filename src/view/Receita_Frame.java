@@ -37,6 +37,7 @@ public class Receita_Frame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         receita = new javax.swing.JList<>();
         confirmar_button = new javax.swing.JButton();
+        voltar_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +59,8 @@ public class Receita_Frame extends javax.swing.JFrame {
             }
         });
 
+        voltar_button.setText("Voltar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,6 +80,10 @@ public class Receita_Frame extends javax.swing.JFrame {
                         .addComponent(confirmar_button))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(voltar_button)
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +99,9 @@ public class Receita_Frame extends javax.swing.JFrame {
                         .addComponent(data_inicial_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(71, 71, 71)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(voltar_button)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,7 +126,7 @@ public class Receita_Frame extends javax.swing.JFrame {
         {
             DefaultListModel receita_list = new DefaultListModel();
             Receita r = new Receita();
-            //receita_list = r.main(data_inicial, data_final);
+            receita_list = r.main(data_inicial, data_final);
             receita.setModel(receita_list);
             
         }
@@ -168,5 +177,6 @@ public class Receita_Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> receita;
+    private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
 }

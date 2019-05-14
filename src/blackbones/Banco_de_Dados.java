@@ -566,6 +566,33 @@ public class Banco_de_Dados
         } catch (SQLException u) {System.out.println(u);}
     }
     
+    public DefaultListModel carregarVenda()  
+    {
+        DefaultListModel<String> list = new DefaultListModel();
+        String sql = "select * from venda order by 1";
+        PreparedStatement ps;
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+        
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) 
+            {
+                int id = (rs.getInt("idvenda"));
+                String data = rs.getString("data_venda");
+                String id_produto = rs.getString("id_produto");
+                String venda = ("Id: " + id+ "- Data:" + data + "- IDProduto: " + id_produto);
+                list.addElement(venda);
+            }
+            return list;
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     
 //
