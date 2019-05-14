@@ -1,9 +1,10 @@
 package view;
 
+import blackbones.Conta;
 import blackbones.Receita;
 import blackbones.Validator;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,23 +35,16 @@ public class Receita_Frame extends javax.swing.JFrame {
         data_inicial_text = new javax.swing.JTextField();
         data_final_label = new javax.swing.JLabel();
         data_final_text = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        receita = new javax.swing.JList<>();
         confirmar_button = new javax.swing.JButton();
         voltar_button = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        receita = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         data_inicial_label.setText("Data Inicial: ");
 
         data_final_label.setText("Data Final: ");
-
-        receita.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(receita);
 
         confirmar_button.setText("Confirmar");
         confirmar_button.addActionListener(new java.awt.event.ActionListener() {
@@ -60,16 +54,29 @@ public class Receita_Frame extends javax.swing.JFrame {
         });
 
         voltar_button.setText("Voltar");
+        voltar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltar_buttonActionPerformed(evt);
+            }
+        });
+
+        receita.setColumns(20);
+        receita.setRows(5);
+        jScrollPane2.setViewportView(receita);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(voltar_button)
+                .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(data_inicial_label)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(data_inicial_text, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80)
@@ -78,12 +85,8 @@ public class Receita_Frame extends javax.swing.JFrame {
                         .addComponent(data_final_text, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
                         .addComponent(confirmar_button))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
                 .addContainerGap(88, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(voltar_button)
-                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,9 +100,9 @@ public class Receita_Frame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(data_inicial_label)
                         .addComponent(data_inicial_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(74, 74, 74)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addComponent(voltar_button)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -123,44 +126,18 @@ public class Receita_Frame extends javax.swing.JFrame {
         String data_final = data_final_text.getText();
         
         if(Validator.isValidData(data_inicial) && Validator.isValidData(data_final))
-        {
-            DefaultListModel receita_list = new DefaultListModel();
-            Receita r = new Receita();
-            receita_list = r.main(data_inicial, data_final);
-            receita.setModel(receita_list);
-            
-        }
+            Listar(data_inicial, data_final);
     }//GEN-LAST:event_confirmar_buttonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Receita_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Receita_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Receita_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Receita_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void voltar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_buttonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new Estatisticas();
+    }//GEN-LAST:event_voltar_buttonActionPerformed
 
-        /* Create and display the form */
+
+    public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Receita_Frame().setVisible(true);
@@ -175,8 +152,23 @@ public class Receita_Frame extends javax.swing.JFrame {
     private javax.swing.JLabel data_inicial_label;
     private javax.swing.JTextField data_inicial_text;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> receita;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea receita;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
+    
+    public void Listar(String inicio, String data_final)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Receita r = new Receita();
+        ArrayList<Conta> pagar = r.pegarContasPagar(inicio, data_final);
+        
+        for(int i = 0; i <pagar.size(); i++)
+        {
+            receita.append("Nome: " + pagar.get(i).getNome() + "\n");
+            receita.append("Método de pagamento: " + pagar.get(i).getTipo_pagamento() + "\n");
+            receita.append("Status: " + pagar.get(i).getStatus() + "\n");
+            receita.append("Nome: " + formato.format(pagar.get(i).getData()) + "\n");
+        }
+    }
 }

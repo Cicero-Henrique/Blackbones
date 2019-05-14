@@ -23,17 +23,13 @@ public class Banco_de_Dados
 
     public void conectar(String database) 
     {
-        String servidor = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC";
+        String servidor = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
         String usuario = "root";
         String senha = "211170";
         try {
 
             // Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(servidor, usuario, senha);
-
-            if (connection != null) {
-                System.out.println("Conexão feita com sucesso!");
-            }
 
         } catch (Exception e) {
             System.out.println("Erro = " + e);

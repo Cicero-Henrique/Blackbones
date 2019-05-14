@@ -1,6 +1,6 @@
 package blackbones;
 
-import view.*;
+import view.Estatisticas;
 
 public class BlackBones 
 {
