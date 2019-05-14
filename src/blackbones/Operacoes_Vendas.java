@@ -15,9 +15,8 @@ public class Operacoes_Vendas
     
     public String[] cortarString(String line)
     {
-        String linha[] = new String[7];
-        linha = line.split("-");
-        return linha = line.split("-");   
+        String linha[] = line.split("-");
+        return linha;   
         
     }
     

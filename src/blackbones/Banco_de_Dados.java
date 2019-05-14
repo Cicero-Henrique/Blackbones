@@ -593,36 +593,7 @@ public class Banco_de_Dados
         }
         return null;
     }
-    
-    
-//
-//    public boolean estaConectado() {
-//        if (connection != null) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-//
-//    public void CadastrarUsuario(Usuario user) throws SQLException {
-//        String sql;
-//        sql = "INSERT INTO usuario (login,senha) VALUES (?,?)";
-//
-//        try {
-//            ps = connection.prepareStatement(sql);
-//            ps.setString(1, user.getLogin());
-//            ps.setInt(2, user.getSenha());
-//            ps.executeUpdate();
-//
-//            ps = connection.prepareStatement(sql);
-//            ps.executeUpdate();
-//
-//        } catch (Exception e) {
-//            System.out.println("Erro = " + e);
-//        }
-//
-//    }
-//
+
     public void FecharBanco()  
     {
         try {
@@ -630,52 +601,5 @@ public class Banco_de_Dados
         } catch (SQLException ex) {
             Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-//
-//    public void EditarLogin(Usuario user) throws SQLException {
-//        String sql;
-//        sql = "UPDATE usuario SET login = ?, senha = ? WHERE id = ?";
-//
-//        ps = connection.prepareStatement(sql);
-//        ps.setString(1, user.getLogin());
-//        ps.setInt(2, user.getSenha());
-//        ps.setString(3, user.getCpf());
-//
-//        ps.executeUpdate();
-//
-//    }
-//
-//    public int DeleteUsuario(Usuario user) throws SQLException {
-//
-//        String sql;
-//        sql = "DELETE FROM tabela WHERE cpf = " + user.getCpf();
-//
-//        PreparedStatement ps = connection.prepareStatement(sql);
-//        ps.executeUpdate();
-//
-//        return 0;
-//    }
-//
-//    public ArrayList<Usuario> LerBanco() throws SQLException {
-//        String sql;
-//        sql = "select * from usuario order by 1";
-//        PreparedStatement ps = connection.prepareStatement(sql);
-//        ResultSet rs = ps.executeQuery();
-//        ArrayList<Usuario> lista_usuarios = new ArrayList<>();
-//        Usuario user = new Usuario();
-//        while (rs.next()) {
-//            user.setId(rs.getInt("id"));
-//            user.setLogin(rs.getString("login"));
-//            user.setSenha(rs.getInt("senha"));
-//            lista_usuarios.add(user);
-//
-//            System.out.println("Id = " + rs.getInt("id") + "; Nome: " + rs.getString("login") + ";Senha: " + rs.getInt("senha"));
-//        }
-//
-//        rs.close();
-//        ps.close();
-//
-//        return lista_usuarios;
-//
-//    
+    }   
 }
