@@ -54,7 +54,7 @@ public class Receita
     {
         Operacoes_Contas oc = new Operacoes_Contas();
         Banco_de_Dados bd = new Banco_de_Dados();
-        ArrayList<Conta> list = null;
+        ArrayList<Conta> list = new ArrayList();
         
         boolean x = Verificar_Datas(data_inicial, data_final);
         bd.conectar("blackbones");

@@ -164,14 +164,17 @@ public class Receita_Frame extends javax.swing.JFrame {
         ArrayList<Conta> conta = r.pegarContasPagar(inicio, data_final);
         ArrayList<String> vendas = r.pegarVendas(inicio, data_final);
         
-        
+        receita.append("\t\t LUCROS \n");
         for(int i = 0; i <conta.size(); i++)
         {
             receita.append("Nome: " + conta.get(i).getNome() + "\n");
             receita.append("Método de pagamento: " + conta.get(i).getTipo_pagamento() + "\n");
             receita.append("Status: " + conta.get(i).getStatus() + "\n");
-            receita.append("Nome: " + formato.format(conta.get(i).getData()) + "\n");
+            receita.append("Data: " + formato.format(conta.get(i).getData()) + "\n\n");
         }
+        
+        receita.append("\n\n\n\n\t\t PREJUÍZOS \n");
+        
         
         conta = r.pegarContasReceber(inicio, data_final);
         for(int i = 0; i <conta.size(); i++)
@@ -179,13 +182,15 @@ public class Receita_Frame extends javax.swing.JFrame {
             receita.append("Nome: " + conta.get(i).getNome() + "\n");
             receita.append("Método de pagamento: " + conta.get(i).getTipo_pagamento() + "\n");
             receita.append("Status: " + conta.get(i).getStatus() + "\n");
-            receita.append("Nome: " + formato.format(conta.get(i).getData()) + "\n");
+            receita.append("Data: " + formato.format(conta.get(i).getData()) + "\n\n");
         }
+        
+        receita.append("\n");
         
         for(int i = 0; i <vendas.size(); i++)
         {
             receita.append("Data: " + vendas.get(i).split("-")[0] + "\n");
-            receita.append("ID do Produto: " + vendas.get(i).split("-")[1] + "\n");
+            receita.append("ID do Produto: " + vendas.get(i).split("-")[1] + "\n\n");
         }
         
     }
