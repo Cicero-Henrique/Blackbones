@@ -12,7 +12,8 @@ import javax.swing.JOptionPane;
 public class Receita 
 {
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-    public boolean Verificar_Datas(String dinicial, String dfinal) {
+    public boolean Verificar_Datas(String dinicial, String dfinal) 
+    {
         try 
         {
             Date data_i = formato.parse(dinicial);
@@ -76,26 +77,28 @@ public class Receita
     public ArrayList pegarVendas(String data_inicial, String data_final)
     {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        Operacoes_Contas oc = new Operacoes_Contas();
         Banco_de_Dados bd = new Banco_de_Dados();
-        ArrayList<Conta> list = null;
         
         boolean x = Verificar_Datas(data_inicial, data_final);
         bd.conectar("blackbones");
-        DefaultListModel<String> contasPagar = bd.carregarConta("receber");
+        DefaultListModel<String> vendas = bd.carregarVenda();
+        ArrayList<String> array = new ArrayList<>();
         bd.FecharBanco();
         
         if(x)
         {
-            for (int i = 0; i < contasPagar.size(); i++)
-            {
-                Conta c = oc.gerarConta(contasPagar.get(i));
-                if(Verificar_Datas(data_inicial, formato.format(c.getData())) && Verificar_Datas(formato.format(c.getData()), data_final))
-                    list.add(c);
-            }
-            return list;
+            
+            for (int i = 0; i < vendas.size(); i++) 
+                {
+                    Operacoes_Vendas ov =  new Operacoes_Vendas();
+                    String v = ov.gerarVenda(vendas.get(i));
+                    String[] venda = v.split("-");
+                    if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
+                        array.add(vendas.get(i));
+                }
+            return array;
         }
-        return list;
+        return array;
     }
     
 

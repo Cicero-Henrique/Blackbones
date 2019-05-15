@@ -32,7 +32,7 @@ public class Operacoes_Vendas
         atributos[4] = atributos[4].split(":")[1].trim();
         String data = dia+"/"+mes+"/"+ano;
         
-        String venda = data + "-" + atributos[1] + "-" + atributos[4]; 
+        String venda = data + "-" + atributos[4]; 
         
         return venda; 
     }

@@ -161,14 +161,32 @@ public class Receita_Frame extends javax.swing.JFrame {
     {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Receita r = new Receita();
-        ArrayList<Conta> pagar = r.pegarContasPagar(inicio, data_final);
+        ArrayList<Conta> conta = r.pegarContasPagar(inicio, data_final);
+        ArrayList<String> vendas = r.pegarVendas(inicio, data_final);
         
-        for(int i = 0; i <pagar.size(); i++)
+        
+        for(int i = 0; i <conta.size(); i++)
         {
-            receita.append("Nome: " + pagar.get(i).getNome() + "\n");
-            receita.append("Método de pagamento: " + pagar.get(i).getTipo_pagamento() + "\n");
-            receita.append("Status: " + pagar.get(i).getStatus() + "\n");
-            receita.append("Nome: " + formato.format(pagar.get(i).getData()) + "\n");
+            receita.append("Nome: " + conta.get(i).getNome() + "\n");
+            receita.append("Método de pagamento: " + conta.get(i).getTipo_pagamento() + "\n");
+            receita.append("Status: " + conta.get(i).getStatus() + "\n");
+            receita.append("Nome: " + formato.format(conta.get(i).getData()) + "\n");
         }
+        
+        conta = r.pegarContasReceber(inicio, data_final);
+        for(int i = 0; i <conta.size(); i++)
+        {
+            receita.append("Nome: " + conta.get(i).getNome() + "\n");
+            receita.append("Método de pagamento: " + conta.get(i).getTipo_pagamento() + "\n");
+            receita.append("Status: " + conta.get(i).getStatus() + "\n");
+            receita.append("Nome: " + formato.format(conta.get(i).getData()) + "\n");
+        }
+        
+        for(int i = 0; i <vendas.size(); i++)
+        {
+            receita.append("Data: " + vendas.get(i).split("-")[0] + "\n");
+            receita.append("ID do Produto: " + vendas.get(i).split("-")[1] + "\n");
+        }
+        
     }
 }
