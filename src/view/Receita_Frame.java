@@ -175,7 +175,7 @@ public class Receita_Frame extends javax.swing.JFrame {
         }
         conta = r.pegarContasPagar(inicio, data_final);
         
-        receita.append("\n\n\n\n\t\t PREJUÍZOS \n");
+        receita.append("\n\n\n\t\t PREJUÍZOS \n");
         for(int i = 0; i <conta.size(); i++)
         {
             receita.append("Nome: " + conta.get(i).getNome() + "\n");
@@ -184,7 +184,10 @@ public class Receita_Frame extends javax.swing.JFrame {
             receita.append("Data: " + formato.format(conta.get(i).getData()) + "\n\n");
             despesas = despesas + conta.get(i).getValor();
         }
-        
         total = lucros - despesas;
+        receita.append("\n\n\n\t\t RESUMO \n");
+        receita.append("DESPESAS: " + despesas + "\n");
+        receita.append("LUCROS: " + lucros + "\n");
+        receita.append("TOTAL: " + total + "\n");        
     }
 }
