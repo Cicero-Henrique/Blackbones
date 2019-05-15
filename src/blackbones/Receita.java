@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
 
 public class Receita 
 {
@@ -41,11 +40,15 @@ public class Receita
         DefaultListModel<String> contasPagar = bd.carregarConta("pagar");
         bd.FecharBanco();
         
-        for (int i = 0; i < contasPagar.size(); i++)
+        if(x)
         {
-            Conta c = oc.gerarConta(contasPagar.get(i));
-            if(Verificar_Datas(data_inicial, formato.format(c.getData())) && Verificar_Datas(formato.format(c.getData()), data_final))
-                list.add(c);
+            for (int i = 0; i < contasPagar.size(); i++)
+            {
+                Conta c = oc.gerarConta(contasPagar.get(i));
+                if(Verificar_Datas(data_inicial, formato.format(c.getData())) && Verificar_Datas(formato.format(c.getData()), data_final))
+                    list.add(c);
+            }
+            return list;
         }
         return list;
     }
@@ -76,9 +79,7 @@ public class Receita
     
     public ArrayList pegarVendas(String data_inicial, String data_final)
     {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Banco_de_Dados bd = new Banco_de_Dados();
-        
         boolean x = Verificar_Datas(data_inicial, data_final);
         bd.conectar("blackbones");
         DefaultListModel<String> vendas = bd.carregarVenda();
@@ -87,73 +88,16 @@ public class Receita
         
         if(x)
         {
-            
             for (int i = 0; i < vendas.size(); i++) 
-                {
-                    Operacoes_Vendas ov =  new Operacoes_Vendas();
-                    String v = ov.gerarVenda(vendas.get(i));
-                    String[] venda = v.split("-");
-                    if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
-                        array.add(vendas.get(i));
-                }
+            {
+                Operacoes_Vendas ov =  new Operacoes_Vendas();
+                String v = ov.gerarVenda(vendas.get(i));
+                String[] venda = v.split("-");
+                if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
+                    array.add(vendas.get(i));
+            }
             return array;
         }
         return array;
-    }
-    
-
-    public DefaultListModel main(String data_inicial, String data_final) 
-    {
-
-        
-            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            String elemento;
-            double despesas = 0, lucros = 0, total;
-            boolean x = Verificar_Datas(data_inicial, data_final);
-            DefaultListModel<String> list = new DefaultListModel();
-            String[] strings = null;
-
-            if (x) 
-            {
-                Operacoes_Contas oc = new Operacoes_Contas();
-                Banco_de_Dados bd = new Banco_de_Dados();
-                bd.conectar("blackbones");
-                DefaultListModel<String> contasPagar = bd.carregarConta("pagar");
-                DefaultListModel<String> contasReceber = bd.carregarConta("receber");
-                DefaultListModel<String> vendas = bd.carregarVenda();
-                
-                for (int i = 0; i < contasPagar.size(); i++) 
-                {
-                    Conta c = oc.gerarConta(contasPagar.get(i));
-                    if(Verificar_Datas(data_inicial, formato.format(c.getData())) && Verificar_Datas(formato.format(c.getData()), data_final))
-                        list.addElement(contasPagar.get(i));
-                }
-                
-                for (int i = 0; i < contasReceber.size(); i++) 
-                {
-                    Conta c = oc.gerarConta(contasPagar.get(i));
-                    if(Verificar_Datas(data_inicial, formato.format(c.getData())) && Verificar_Datas(formato.format(c.getData()), data_final))
-                        list.addElement(contasPagar.get(i));
-                }
-                
-                for (int i = 0; i < vendas.size(); i++) 
-                {
-                    Operacoes_Vendas ov =  new Operacoes_Vendas();
-                    String v = ov.gerarVenda(vendas.get(i));
-                    String[] venda = v.split("-");
-                    if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
-                        list.addElement(vendas.get(i));
-                }
-                bd.FecharBanco();
-
-                total = lucros - despesas;
-                
-                list.addElement(Double.toString(total));
-                return list;
-            } 
-            else 
-                JOptionPane.showMessageDialog(null, "Data final menor que inicial");
-            
-        return null;
     }
 }
