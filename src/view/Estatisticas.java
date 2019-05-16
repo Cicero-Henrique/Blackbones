@@ -1,5 +1,24 @@
 package view;
-
+import blackbones.Conta;
+import blackbones.Receita;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
+import org.jfree.data.category.DefaultCategoryDataset;
+import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Estatisticas extends javax.swing.JFrame {
 
@@ -7,6 +26,8 @@ public class Estatisticas extends javax.swing.JFrame {
     {
         initComponents();
         setVisible(true);
+        criarGrafico();
+        grafico_label.setIcon(new javax.swing.ImageIcon("Grafico_Normal.png"));
     }
 
     @SuppressWarnings("unchecked")
@@ -31,6 +52,7 @@ public class Estatisticas extends javax.swing.JFrame {
         listarfornecedor_button = new javax.swing.JButton();
         remover_fornecedor_button = new javax.swing.JButton();
         receita_button = new javax.swing.JButton();
+        grafico_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,11 +165,16 @@ public class Estatisticas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(223, 223, 223)
-                .addComponent(receita_button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(223, 223, 223)
+                        .addComponent(receita_button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(153, 153, 153)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -186,29 +213,32 @@ public class Estatisticas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(estoque_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(vender_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(clientes_label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(adicionarfuncionario_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editarfuncionario_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(listar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(demitir_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fornecedores_label)
-                .addGap(18, 18, 18)
-                .addComponent(adicionarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(editarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(listarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addComponent(vender_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(clientes_label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(adicionarfuncionario_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editarfuncionario_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(listar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(demitir_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(fornecedores_label)
+                        .addGap(18, 18, 18)
+                        .addComponent(adicionarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(listarfornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -343,6 +373,7 @@ public class Estatisticas extends javax.swing.JFrame {
     private javax.swing.JButton editarproduto_button;
     private javax.swing.JButton estoque_button;
     private javax.swing.JLabel fornecedores_label;
+    private javax.swing.JLabel grafico_label;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton listar_button;
     private javax.swing.JButton listarfornecedor_button;
@@ -351,4 +382,98 @@ public class Estatisticas extends javax.swing.JFrame {
     private javax.swing.JButton remover_fornecedor_button;
     private javax.swing.JButton vender_button;
     // End of variables declaration//GEN-END:variables
+
+    public void criarGrafico()
+    {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        java.time.LocalDate data = LocalDate.now();
+        String dataInicial =  reduzMeses(data.toString());
+        
+        for(int i = 0; i < 5; i++)
+        {
+            String dataFinal = acrescentaMes(dataInicial);
+            String[] aux  = dataFinal.split("-");
+            String mes = aux[1];
+            dataset.addValue(calcularLucro(inverterData(dataInicial), inverterData(dataFinal)), "Máximo", "Mês "+ mes);
+            dataInicial = dataFinal;            
+        }
+
+        JFreeChart criaGrafico = ChartFactory.createLineChart("Lucro nos últimos cinco meses", "Mês", "Valor", 
+                dataset, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = criaGrafico.getCategoryPlot();
+        plot.setBackgroundPaint(Color.WHITE);
+        LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
+        renderer.setBaseShapesVisible(true);
+        renderer.setSeriesPaint(0, Color.BLUE);
+        DecimalFormat format = new DecimalFormat("#0.##");
+        renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", format));
+        renderer.setBaseItemLabelsVisible(true);
+        
+        try 
+        {
+            OutputStream png = new FileOutputStream("Grafico_Normal.png");
+            ChartUtilities.writeChartAsPNG(png, criaGrafico, 500, 400);
+            png.close();
+        } 
+        catch (FileNotFoundException ex) 
+        {
+            Logger.getLogger(Estatisticas.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(Estatisticas.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }
+    
+    public double calcularLucro(String data_inicial, String data_final)
+    {
+        data_inicial = data_inicial.replace("-", "/");
+        data_final = data_final.replace("-", "/");
+        Receita r = new Receita();
+        ArrayList<Conta> conta = r.pegarContasReceber(data_inicial, data_final);
+        //ArrayList<String> vendas = r.pegarVendas(inicio, data_final);
+        double lucros = 0, total = 0, despesas = 0;
+        for(int i = 0; i <conta.size(); i++)
+            lucros = lucros + conta.get(i).getValor();
+        
+        
+        
+        /*          FALTA SOMAR O LUCRO COM AS VENDAS*/
+        
+        
+        
+        
+        conta = r.pegarContasPagar(data_inicial, data_final);
+        
+        for(int i = 0; i <conta.size(); i++)
+            despesas = despesas + conta.get(i).getValor();
+        
+        total = lucros - despesas;
+        return total;
+    
+    }
+    public String reduzMeses(String dataReduzida)
+    {
+        String[] aux = dataReduzida.split("-");
+        LocalDate data = LocalDate.of(Integer.parseInt(aux[0]), Integer.parseInt(aux[1]), Integer.parseInt(aux[2]));
+        data  = data.minusMonths(6);
+        dataReduzida = data.getYear()+"-"+data.getMonth().getValue()+"-"+data.getDayOfMonth();
+        return dataReduzida;
+    }
+    
+    public String acrescentaMes(String dataAumentada)
+    {
+        String[] aux = dataAumentada.split("-");
+        LocalDate data = LocalDate.of(Integer.parseInt(aux[0]), Integer.parseInt(aux[1]), Integer.parseInt(aux[2]));
+        data = data.plusMonths(1);
+        dataAumentada = data.getYear()+"-"+data.getMonth().getValue()+"-"+data.getDayOfMonth();
+        return dataAumentada;
+    }
+    
+    public String inverterData(String data)
+    {
+        String[] aux = data.split("-");
+        data = aux[2]+"-"+aux[1]+"-"+aux[0];
+        return data;
+    }
 }

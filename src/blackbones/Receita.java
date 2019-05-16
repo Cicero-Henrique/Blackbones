@@ -94,7 +94,7 @@ public class Receita
                 String v = ov.gerarVenda(vendas.get(i));
                 String[] venda = v.split("-");
                 if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
-                    array.add(vendas.get(i));
+                    array.add(v);
             }
             return array;
         }
