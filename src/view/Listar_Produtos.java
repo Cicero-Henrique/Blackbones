@@ -1,12 +1,8 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 

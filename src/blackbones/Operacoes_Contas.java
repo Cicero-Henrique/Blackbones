@@ -35,7 +35,7 @@ public class Operacoes_Contas
         bd.FecharBanco();
     }
     
-    public void listar(Financeiro f, String tipo_conta)
+    /*public void listar(Financeiro f, String tipo_conta)
     {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         int i = 0;
@@ -55,7 +55,7 @@ public class Operacoes_Contas
                         + "- " +f.getContas_receber().get(i).getTipo_pagamento() + "- " + f.getContas_receber().get(i).getStatus());
             }
         }
-    }
+    }*/
     
     
     public String[] cortarString(String line)

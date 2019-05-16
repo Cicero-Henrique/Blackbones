@@ -4,10 +4,8 @@ package view;
 
 import blackbones.Banco_de_Dados;
 import blackbones.Conta;
-import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
 import blackbones.Validator;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -287,16 +285,5 @@ public class Editar_Conta_Receber extends javax.swing.JFrame
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
 
-    public String[] Listar(Financeiro f)
-    {
-        String linha;
-        String[] financeiro_completo = null;
-        for(int i = 0; i < f.getContas_receber().size(); i++)
-        {
-            linha = (f.getContas_receber().get(i).getNome() + "-" + f.getContas_receber().get(i).getData() + "-" + 
-                    f.getContas_receber().get(i).getTipo_pagamento() + "-" + f.getContas_receber().get(i).getStatus());
-            financeiro_completo[i] = linha;
-        }
-        return financeiro_completo;
-    }
+    
 }

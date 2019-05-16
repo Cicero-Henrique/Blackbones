@@ -2,7 +2,6 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
 import blackbones.Validator;
@@ -344,21 +343,7 @@ public class Editar_Produto extends javax.swing.JFrame
     private javax.swing.JTextField venda_text;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
-    
-    public String[] Listar(Estoque e)
-    {
-        String linha;
-        String[] estoque_completo = null;
-        for(int i = 0; i < e.getProdutos().size(); i++)
-        {
-            linha = (e.getProdutos().get(i).getNome() + "-" + e.getProdutos().get(i).getTipo() + "-" 
-                    + e.getProdutos().get(i).getPreco_custo() + "-" + e.getProdutos().get(i).getPreco_venda() + "-" + 
-                    e.getProdutos().get(i).getMargem_lucro());
-            estoque_completo[i] = linha;
-        }
-        return estoque_completo;
-    }
-    
+        
     public String[] Tamanhos()
     {
         String[] selecionados = new String[6];

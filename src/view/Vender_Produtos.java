@@ -1,15 +1,10 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Estoque;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
 import blackbones.Validator;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class Vender_Produtos extends javax.swing.JFrame 

@@ -1,11 +1,7 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 

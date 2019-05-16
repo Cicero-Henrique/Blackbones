@@ -2,12 +2,8 @@ package view;
 
 import blackbones.Banco_de_Dados;
 import blackbones.Conta;
-import blackbones.Financeiro;
 import blackbones.Operacoes_Contas;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**

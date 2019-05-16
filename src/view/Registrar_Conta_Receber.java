@@ -2,13 +2,9 @@ package view;
 
 import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
-import blackbones.Conta;
-import blackbones.Financeiro;
 import blackbones.Operacoes_Clientes;
 import blackbones.Operacoes_Contas;
-import blackbones.Registro;
 import blackbones.Validator;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

@@ -45,7 +45,7 @@ public class Operacoes_Produtos
         }
     }
     
-    public void listar(Estoque a)
+    /*public void listar(Estoque a)
     {
         int i = 0;
         for(i = 0; i < a.getProdutos().size(); i++)
@@ -53,7 +53,7 @@ public class Operacoes_Produtos
             System.out.println(i + "-" + a.getProdutos().get(i).getNome() + " - " + a.getProdutos().get(i).getTipo() +
                     " - Margem:" + a.getProdutos().get(i).getMargem_lucro());
         }
-    }
+    }*/
     
     public int pegarID(String line)
     {
