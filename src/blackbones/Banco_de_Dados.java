@@ -36,9 +36,13 @@ public class Banco_de_Dados
         }
     }
 
-    public void CadastrarConta(Conta c)
+    public void CadastrarConta(Conta c, int idCliente)
     {
-        String sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data) VALUES(?,?,?,?,?,?)";
+        String sql;
+        if(c.getTipo_conta().equals("pagar"))
+            sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data) VALUES(?,?,?,?,?,?)";
+        else
+            sql = "INSERT INTO conta(nome, tipo_pagamento, tipo_conta, estado, valor, data, id_cliente) VALUES(?,?,?,?,?,?,?)";
         
         java.sql.Date data = new java.sql.Date(c.getData().getTime());
         try 
@@ -51,6 +55,8 @@ public class Banco_de_Dados
             stmt.setString(4, c.getStatus());
             stmt.setDouble(5, c.getValor());
             stmt.setDate(6, data);
+            if(c.getTipo_conta().equals("receber"))
+                stmt.setInt(7, idCliente);
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {System.out.println(u);}
@@ -73,6 +79,8 @@ public class Banco_de_Dados
             ps.setInt(7, id);
 
             ps.executeUpdate();
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
         }

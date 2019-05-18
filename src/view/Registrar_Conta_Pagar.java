@@ -219,7 +219,7 @@ public class Registrar_Conta_Pagar extends javax.swing.JFrame {
             try 
             {
                 Date data = formato.parse(dia + "/" + mes + "/" + ano);
-                op.adicionar(valor, nome, data, pagamento, tipo_conta, status);
+                op.adicionar(valor, nome, data, pagamento, tipo_conta, status, -1);
                 
                 dispose();
                 new Registrar_Conta_Pagar();

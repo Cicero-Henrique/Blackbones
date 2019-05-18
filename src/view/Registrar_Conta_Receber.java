@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Registrar_Conta_Receber extends javax.swing.JFrame 
 {
-
+    ArrayList<String> clientes = new ArrayList<>();
     public Registrar_Conta_Receber() 
     {
         initComponents();
@@ -261,6 +261,9 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame
         else
         {
             //String nome = nome_text.getText();
+            String cliente = cliente_combo.getSelectedItem().toString();
+            int id_cliente = gerarId(cliente);
+            
             double valor = Double.parseDouble(valor_text.getText());
             String dia = ("" + data_text.getText().charAt(0) + data_text.getText().charAt(1));
             String mes = ("" + data_text.getText().charAt(3) + data_text.getText().charAt(4));
@@ -270,7 +273,7 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame
             try 
             {
                 Date data = formato.parse(dia + "/" + mes + "/" + ano);
-                op.adicionar(valor, nome, data, pagamento, tipo_conta, status);
+                op.adicionar(valor, nome, data, pagamento, tipo_conta, status, id_cliente);
                 return true;
             } 
             catch (ParseException ex) {Logger.getLogger(Registrar_Conta_Receber.class.getName()).log(Level.SEVERE, null, ex);}
@@ -282,22 +285,38 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame
     public void carregar_comboBox()
     {
         Operacoes_Clientes oc = new Operacoes_Clientes();
-         Banco_de_Dados bd = new Banco_de_Dados();
-         bd.conectar("blackbones");
-         DefaultListModel<String> list = bd.carregarCliente();
-         bd.FecharBanco();
-         ArrayList<Cliente> listaClientes = new ArrayList<>();
-         for(int i  = 0; i < list.size(); i++)
-             listaClientes.add(oc.gerarCliente(list.get(i)));
-
-            if(listaClientes.size() > 0)
-            {
-                for(int i =0; i < listaClientes.size(); i++)
-                    cliente_combo.addItem(listaClientes.get(i).getNome());
-                
-            }
-            else
-                cliente_combo.addItem("Nenhum cliente cadastrado");
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> list = bd.carregarCliente();
+        bd.FecharBanco();
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
+        for(int i  = 0; i < list.size(); i++)
+        {
+            Cliente c = oc.gerarCliente(list.get(i));
+            listaClientes.add(c);
+            clientes.add(oc.pegarID(list.get(i)) + "-" + c.getNome());
+        }
+        
+        if(listaClientes.size() > 0)
+        {
+            for(int i =0; i < listaClientes.size(); i++)
+                cliente_combo.addItem(listaClientes.get(i).getNome());
+        }
+        else
+            cliente_combo.addItem("Nenhum cliente cadastrado");
     }
+    
+    public int gerarId(String nome)
+    {
+        int aux = -1;
+        for(int i = 0; i < clientes.size(); i++)
+        {
+            String[] linha = clientes.get(i).split("-");
+            if(linha[1].equals(nome))
+                return Integer.parseInt(linha[0].trim());
+        }        
+        return aux;
+    }
+    
 
 }

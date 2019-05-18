@@ -69,8 +69,7 @@ public class Operacoes_Clientes
     
     public int pegarID(String line)
     {
-        String linha[] = new String[6];
-        linha = line.split("-");
+        String linha[] = line.split("-");
         String numero[] = linha[0].split(":");
         return Integer.parseInt(numero[1].trim());
     }

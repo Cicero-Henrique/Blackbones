@@ -8,12 +8,15 @@ import java.util.logging.Logger;
 
 public class Operacoes_Contas 
 {
-    public void adicionar(double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status)
+    public void adicionar(double valor, String nome, Date data, String tipo_pagamento, String tipo_conta, String status, int id_cliente)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
         Conta c = new Conta(valor, nome, data, tipo_pagamento, tipo_conta, status);
-        bd.CadastrarConta(c);
+        if(tipo_conta.equals("pagar"))
+            bd.CadastrarConta(c, -1);
+        else
+            bd.CadastrarConta(c, id_cliente);            
         bd.FecharBanco();
 
     }
