@@ -7,6 +7,12 @@ public class Validator
 {
     public static boolean isValidProduct(String nome, String tipo, String custo, String venda, String qtd) 
     {
+        if(!sqlTest(nome) || !sqlTest(tipo) || !sqlTest(custo) || !sqlTest(venda) || !sqlTest(qtd))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -37,6 +43,13 @@ public class Validator
     
     public static boolean isValidCliente(String nome, String telefone, String endereco, String email, String indicacao, String cpf)
     {
+        if(!sqlTest(nome) || !sqlTest(telefone) || !sqlTest(nome) || !sqlTest(email) || !sqlTest(indicacao) || !sqlTest(cpf))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -73,6 +86,13 @@ public class Validator
     
     public static boolean isValidFornecedor(String nome, String cnpj, String telefone, String email, String tipo)
     {
+        if(!sqlTest(nome) || !sqlTest(cnpj) || !sqlTest(telefone) || !sqlTest(email) || !sqlTest(tipo))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do fornecedor nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -104,6 +124,13 @@ public class Validator
     
     public static boolean isValidConta(String nome, String valor, String data, String pagamento)
     {
+        if(!sqlTest(nome) || !sqlTest(valor) || !sqlTest(data) || !sqlTest(pagamento))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -138,7 +165,20 @@ public class Validator
     
     public static boolean isValidData(String data)
     {
-        if (data.length() == 0 || data.length() > 10) {
+        if (data.length() != 10) {
+            JOptionPane.showMessageDialog(null, "Digite uma data válida");
+            return false;
+        }
+        if(hasLetters(data) || hasSpecialCharacters(data))
+        {
+            
+            JOptionPane.showMessageDialog(null, "Digite uma data válida");
+            return false;
+        }
+        if(!sqlTest(data))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
@@ -161,6 +201,13 @@ public class Validator
         if((dia <= 0 || dia > 31) || (mes <= 0 || mes > 12) || (ano <= 1950 || ano > 2030))
                 return false;
         
+        return true;
+    }
+    
+    public static boolean sqlTest(String palavra)
+    {
+        if((palavra.charAt(0) == '"' || (palavra.contains(" 1 == 1;"))))
+            return false;
         return true;
     }
     

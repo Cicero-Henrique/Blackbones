@@ -117,7 +117,8 @@ public class Receita_Frame extends javax.swing.JFrame {
         String data_inicial = data_inicial_text.getText();
         String data_final = data_final_text.getText();
         
-        if(Validator.isValidData(data_inicial) && Validator.isValidData(data_final))
+        if(Validator.isValidData(data_inicial) && Validator.isValidData(data_final) &&
+                Validator.sqlTest(data_inicial) && Validator.sqlTest(data_final))
             Listar(data_inicial, data_final);
     }//GEN-LAST:event_confirmar_buttonActionPerformed
 

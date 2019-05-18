@@ -8,11 +8,7 @@ package view;
 import blackbones.Banco_de_Dados;
 import blackbones.Fornecedor;
 import blackbones.Operacoes_Fornecedores;
-import blackbones.Registro;
 import blackbones.Validator;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 
 /**

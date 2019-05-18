@@ -62,14 +62,6 @@ public class Operacoes_Clientes
         atributos[5] = atributos[5].trim().split(":")[1];
         atributos[6] = atributos[6].trim().split(":")[1];
         
-        System.out.println(1 + atributos[1]);
-        System.out.println(2 + atributos[2]);
-        System.out.println(3 + atributos[3]);
-        System.out.println(4 + atributos[4]);
-        System.out.println(5 + atributos[5]);
-        System.out.println(6 + atributos[6]);
-        
-        
         Cliente cliente = new Cliente(atributos[1], atributos[2], atributos[5], atributos[3], atributos[6], atributos[4]);
         
         return cliente; 

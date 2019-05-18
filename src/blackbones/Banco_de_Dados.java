@@ -421,7 +421,7 @@ public class Banco_de_Dados
     
     public void CadastrarCliente(Cliente c)
     {
-        String sql = "INSERT INTO cliente(nome, email, endereco, telefone, indicacao, cpf) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO cliente(nome, email, telefone, indicacao, cpf, endereco) VALUES(?,?,?,?,?,?)";
 
         try 
         {
@@ -429,10 +429,11 @@ public class Banco_de_Dados
 
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getEmail());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getIndicacao());
-            stmt.setString(6, c.getCpf());
+            stmt.setString(3, c.getTelefone());
+            stmt.setString(4, c.getIndicacao());
+            stmt.setString(5, c.getCpf());
+            stmt.setString(6, c.getEndereco());
+            
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {
@@ -589,7 +590,7 @@ public class Banco_de_Dados
         }
         return null;
     }
-
+    
     public void FecharBanco()  
     {
         try {

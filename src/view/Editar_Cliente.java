@@ -4,13 +4,8 @@ package view;
 import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;
-import blackbones.Registro;
 import blackbones.Validator;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.JList;
 
 public class Editar_Cliente extends javax.swing.JFrame 
 {

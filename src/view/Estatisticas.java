@@ -398,7 +398,7 @@ public class Estatisticas extends javax.swing.JFrame {
             dataInicial = dataFinal;            
         }
 
-        JFreeChart criaGrafico = ChartFactory.createLineChart("Lucro nos últimos cinco meses", "Mês", "Valor", 
+        JFreeChart criaGrafico = ChartFactory.createLineChart("Lucro bruto nos últimos cinco meses", "Mês", "Valor", 
                 dataset, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot plot = criaGrafico.getCategoryPlot();
         plot.setBackgroundPaint(Color.WHITE);
