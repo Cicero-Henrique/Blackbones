@@ -617,21 +617,20 @@ public class Banco_de_Dados
         } catch (SQLException u) {System.out.println(u);}
     }
     
-    public void CadastrarEndereco()
+    public void CadastrarEndereco(Endereco e, int id_fornecedor)
     {
         String sql = "INSERT INTO endereco(rua, bairro, cidade, estado, numero, id_fornecedor) VALUES(?,?,?,?,?,?)";
-        
         
         try 
         {
             PreparedStatement stmt = connection.prepareStatement(sql);   
             
-            stmt.setInt(1, idproduto);
-            stmt.setInt(2, idvenda);
-            stmt.setString(3, p.getNome());
-            stmt.setString(4, p.getTipo());
-            stmt.setInt(5, quantidade);
-            stmt.setDouble(6, p.getMargem_lucro());
+            stmt.setString(1, e.getRua());
+            stmt.setString(2, e.getBairro());
+            stmt.setString(3, e.getCidade());
+            stmt.setString(4, e.getEstado());
+            stmt.setInt(5, e.getNumero());
+            stmt.setInt(6, id_fornecedor);
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {System.out.println(u);}

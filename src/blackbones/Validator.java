@@ -149,15 +149,40 @@ public class Validator
             return false;
         }
         
-        /*if (!isValidStatus(status)) {
-            JOptionPane.showMessageDialog(null, "O status da conta nao pode ter mais que 10 caracteres e nao deve ter caracteres especiais.",
-                    "Erro no status da conta", JOptionPane.ERROR_MESSAGE);
-            return false;
-        }*/
-        
         if (!isValidData(data)) {
             JOptionPane.showMessageDialog(null, "A data deve seguir o padrão DD/MM/AAAA.",
                     "Erro na data", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean isValidEndereco(String cidade, String bairro, String rua, String numero) 
+    {
+        if(!sqlTest(cidade) || !sqlTest(bairro) || !sqlTest(rua) || !sqlTest(numero))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidCidade(cidade)) {
+            JOptionPane.showMessageDialog(null, "O nome da cidade nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
+                    "Erro na cidade", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidCidade(rua)) {
+            JOptionPane.showMessageDialog(null, "O nome da rua nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
+                    "Erro na rua", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidCidade(bairro)) {
+            JOptionPane.showMessageDialog(null, "O nome da cidade nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
+                    "Erro no bairro", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isNotInt(numero)) {
+            JOptionPane.showMessageDialog(null, "O numero do estabelecimento deve conter apenas digitos e se for o caso uma unica letra",
+                    "Erro numero do estabelecimento", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -181,10 +206,6 @@ public class Validator
                     "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        
-        
-        /* COLOCAR TRY CATCH*/
-        
         
         int dia = Integer.parseInt("" + data.charAt(0) + data.charAt(1));
         char barra1 = data.charAt(2);
@@ -312,7 +333,7 @@ public class Validator
     }
 
     public static boolean isValidCidade(String cidade) {
-        if (cidade.length() == 0 || cidade.length() > 50) {
+        if (cidade.length() == 0 || cidade.length() > 30) {
             return false;
         }
         return (!hasDigits(cidade) && !hasSpecialCharacters(cidade));
