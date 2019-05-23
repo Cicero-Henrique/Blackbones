@@ -3,13 +3,16 @@ package view;
 import blackbones.Banco_de_Dados;
 import blackbones.Operacoes_Produtos;
 import blackbones.Produto;
-import blackbones.Validator;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class Vender_Produtos extends javax.swing.JFrame 
 {
     int id = -1;
+    DefaultListModel<String> vender = new DefaultListModel();
+    ArrayList<Produto> produtos = new ArrayList<>();
+    
     public Vender_Produtos() 
     {
         initComponents();
@@ -21,6 +24,7 @@ public class Vender_Produtos extends javax.swing.JFrame
         bd.FecharBanco();
         
         produtos_list.setModel(listModel);
+        vender_list.setModel(vender);
         id = -1;
     }
 
@@ -35,6 +39,10 @@ public class Vender_Produtos extends javax.swing.JFrame
         voltar_button = new javax.swing.JButton();
         quantidade_label = new javax.swing.JLabel();
         qtd_text = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        vender_list = new javax.swing.JList<>();
+        selecionar_button = new javax.swing.JButton();
+        remover_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +75,27 @@ public class Vender_Produtos extends javax.swing.JFrame
             }
         });
 
+        vender_list.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(vender_list);
+
+        selecionar_button.setText("Selecionar");
+        selecionar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecionar_buttonActionPerformed(evt);
+            }
+        });
+
+        remover_button.setText("Remover");
+        remover_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remover_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -78,25 +107,37 @@ public class Vender_Produtos extends javax.swing.JFrame
                 .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(quantidade_label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(409, 409, 409)
+                .addComponent(quantidade_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(selecionar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(remover_button)
+                .addGap(115, 115, 115))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quantidade_label)
-                    .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(quantidade_label)
+                        .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selecionar_button)
+                    .addComponent(remover_button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,11 +151,15 @@ public class Vender_Produtos extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,6 +193,49 @@ public class Vender_Produtos extends javax.swing.JFrame
 
     }//GEN-LAST:event_qtd_textActionPerformed
 
+    private void selecionar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionar_buttonActionPerformed
+        if(!produtos_list.isSelectionEmpty())
+        {
+            if(qtd_text.getText().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null, "Insira a quantidade a ser vendida");
+            }
+            else
+            {
+                try
+                {
+                    int qtdInserida = Integer.parseInt(qtd_text.getText().trim());
+                    int qtdTemporaria = qtdInserida + somaQuantidades();
+                    
+                    if(!VerificaEstoque(produtos_list.getSelectedValue(), qtdTemporaria) || qtdInserida == 0)
+                        JOptionPane.showMessageDialog(null, "Quantidade indisponível no estoque!");
+                    else
+                    {
+                        String[] produto = produtos_list.getSelectedValue().split("-");
+                        String item = produto[0] + "-" + produto[1] + "-" + produto[2] + "-" + qtdInserida;
+                        vender.addElement(item);
+                        vender_list.setModel(vender);
+                        qtd_text.setText(" ");
+                        
+                    }
+                }
+                catch(NumberFormatException u)
+                {
+                    JOptionPane.showMessageDialog(null, "Valor incorreto");
+                }
+            }
+        }
+    }//GEN-LAST:event_selecionar_buttonActionPerformed
+
+    private void remover_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_buttonActionPerformed
+        if(!vender_list.isSelectionEmpty())
+        {
+            vender.remove(vender_list.getSelectedIndex());
+            vender_list.setModel(vender);
+            qtd_text.setText(" ");
+        }
+    }//GEN-LAST:event_remover_buttonActionPerformed
+
     public static void main(String args[]) 
     {
         java.awt.EventQueue.invokeLater(new Runnable() 
@@ -161,31 +249,31 @@ public class Vender_Produtos extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList<String> produtos_list;
     private javax.swing.JTextField qtd_text;
     private javax.swing.JLabel quantidade_label;
+    private javax.swing.JButton remover_button;
+    private javax.swing.JButton selecionar_button;
     private javax.swing.JButton vender_button;
+    private javax.swing.JList<String> vender_list;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     public void Remover() 
     {
-        if (!produtos_list.isSelectionEmpty()) 
+        if (!vender.isEmpty()) 
         {
             Operacoes_Produtos op = new Operacoes_Produtos();
             
-            String linha = produtos_list.getSelectedValue();
-            id = op.pegarID(linha);
-            Produto produto = op.gerarProduto(linha);
-            
-            if((Validator.isValidQuantidade(qtd_text.getText())))
+            for(int i = 0; i < vender.size(); i++)
             {
-                int quantidade = Integer.parseInt(qtd_text.getText());
-                if(temEmEstoque(quantidade, produto.getQtd()))
-                {
-                    op.vender(id, quantidade, produto);
-                }
-                else
-                    JOptionPane.showMessageDialog(null, "A quantidade a ser vendida deve ser menor ou igual que a quantiadde em estoque");
+                String[] linha = vender.get(i).split("-");
+                int qtd = Integer.parseInt(linha[3]);
+                id = Integer.parseInt(linha[0].trim().split(":")[1].trim());
+                Banco_de_Dados bd = new Banco_de_Dados();
+                bd.conectar("blackbones");
+                Produto produto = bd.PesquisarIdProduto(id);
+                op.vender(id, qtd, produto);
             }
         }
         
@@ -198,6 +286,35 @@ public class Vender_Produtos extends javax.swing.JFrame
         if(vendida <= estoque)
             return true;
         return false;
+    }
+    
+    public boolean VerificaEstoque(String elemento, int qtd)
+    {
+        Operacoes_Produtos op = new Operacoes_Produtos();
+        Produto estoque = op.gerarProduto(elemento);
+        if(temEmEstoque(qtd, estoque.getQtd()))
+                return true;
+        return false;
+    }
+    
+    public int somaQuantidades()
+    {
+        int aux = 0;
+        if(vender.size() > 0)
+        {
+            for(int i  = 0; i < vender.size(); i++)
+            {
+                String[] produtoVender = vender.get(i).split("-");
+                String[] produtoSelecionado = produtos_list.getSelectedValue().split("-");
+                int idSelecionado = Integer.parseInt(produtoSelecionado[0].split(":")[1].trim());
+                int idVender = Integer.parseInt(produtoVender[0].split(":")[1].trim());
+                int quantidadeTemp = Integer.parseInt(produtoVender[3]);
+                
+                if(idVender == idSelecionado)
+                    aux  = aux + quantidadeTemp;
+            }
+        }
+        return aux;
     }
     
 }
