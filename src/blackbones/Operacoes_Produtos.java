@@ -1,5 +1,7 @@
 package blackbones;
 
+import javax.swing.DefaultListModel;
+
 public class Operacoes_Produtos 
 {
     public void adicionar_produto(String nome, String tipo, double preco_custo, double preco_venda, double margem_lucro, int qtd, String tamanho)
@@ -20,21 +22,28 @@ public class Operacoes_Produtos
         bd.FecharBanco();
     }
     
-    public void vender(int id, int qtd, Produto p)
+    public void vender(int idProduto, int qtd, Produto p)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        bd.CadastrarVenda(p, id);
+        bd.CadastrarVenda(p, idProduto);
+        
+        // Adicionar a venda na tabela de relação entre Produto e Venda
+        DefaultListModel<String> listaDeVendas = bd.carregarVenda();
+        String[]  infoVenda = listaDeVendas.get(listaDeVendas.size()-1).split("-");
+        int idVenda = Integer.parseInt(infoVenda[0].split(":")[1].trim());
+        bd.CadastrarProduto_Venda(p, idProduto, idVenda, qtd);
+        
         
         if(qtd == p.getQtd())
         {
-            bd.RemoverProduto(id);
+            bd.RemoverProduto(idProduto);
             bd.FecharBanco();
         }
         else
         {
             p.setQtd(p.getQtd() - qtd);
-            bd.EditarProduto(p, id);
+            bd.EditarProduto(p, idProduto);
             bd.FecharBanco();
         }
     }
