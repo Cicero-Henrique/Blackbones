@@ -1,5 +1,6 @@
 package view;
 
+import blackbones.Operacoes_Endereco;
 import blackbones.Operacoes_Fornecedores;
 import blackbones.Validator;
 import javax.swing.JOptionPane;
@@ -341,6 +342,7 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
     public boolean Dados() 
     {
         Operacoes_Fornecedores of = new Operacoes_Fornecedores();
+        Operacoes_Endereco oe = new Operacoes_Endereco();
         
         String nome = nome_text.getText();
         String telefone = telefone_text.getText();
@@ -353,28 +355,28 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         String cidade = cidade_text.getText();
         String bairro = bairro_text.getText();
         String rua = rua_text.getText();
-        String numero = numero_text.getText();
-        
-        if(!Validator.isValidEndereco(cidade, bairro, rua, numero))
-        {
-            JOptionPane.showMessageDialog(null, "Corrija os dados informados");
-            return false;
-        }
-        else
-        {
-            // Adicioanr endereço
-        }
-        
+        String numeroString = numero_text.getText();
 
-        if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo))
+        if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo) && !Validator.isValidEndereco(cidade, bairro, rua, numeroString))
         {
             JOptionPane.showMessageDialog(null, "Corrija os dados informados");
             return false;
         }
         else
         {
-            of.adicionar(nome, cnpj, telefone, email, tipo);
-            return true;
+            try
+            {
+                of.adicionar(nome, cnpj, telefone, email, tipo);
+                int idFornecedor = of.ultimoID();
+                int numero = Integer.parseInt(numeroString.trim());
+                oe.adicionar(estado, cidade, bairro, rua, numero, idFornecedor);
+
+                return true;
+            }
+            catch(Exception u)
+            {
+                return false;
+            }
         }
         
     }

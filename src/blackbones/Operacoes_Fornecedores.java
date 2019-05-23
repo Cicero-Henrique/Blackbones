@@ -1,6 +1,8 @@
 
 package blackbones;
 
+import javax.swing.DefaultListModel;
+
 
 public class Operacoes_Fornecedores 
 {
@@ -56,6 +58,17 @@ public class Operacoes_Fornecedores
         Fornecedor fornecedor = new Fornecedor(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5]);
         
         return fornecedor; 
+    }
+    
+    public int ultimoID()
+    {
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> listaFornecedores = bd.carregarFornecedor();
+        bd.FecharBanco();
+        String[] ultimoFornecedor = cortarString(listaFornecedores.get(listaFornecedores.size() - 1));
+        int id = Integer.parseInt(ultimoFornecedor[0].split(":")[1].trim());
+        return id;
     }
     
 }
