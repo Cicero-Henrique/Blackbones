@@ -636,6 +636,58 @@ public class Banco_de_Dados
         } catch (SQLException u) {System.out.println(u);}
     }
     
+    public void EditarEndereco(Endereco e, int id)
+    {
+        String sql = "UPDATE endereco SET estado = ?, cidade = ?, bairro = ?, rua = ?, numero = ? WHERE id_fornecedor = ?";
+
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, e.getEstado());
+            ps.setString(2, e.getCidade());
+            ps.setString(3, e.getBairro());
+            ps.setString(4, e.getRua());
+            ps.setInt(5, e.getNumero());
+            ps.setInt(6, id);
+
+            ps.executeUpdate();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Endereco PesquisarIdEndereco(int id)
+    {
+        String sql = "select * from endereco WHERE idfornecedor = ?";
+        Endereco endereco = new Endereco("", "", "", "", -1);
+        
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+        
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) 
+            {
+                endereco.setEstado(rs.getString("estado"));
+                endereco.setCidade(rs.getString("cidade"));
+                endereco.setBairro(rs.getString("bairro"));
+                endereco.setRua(rs.getString("rua"));
+                endereco.setNumero(rs.getInt("numero"));
+                return endereco;
+            }
+            
+        } catch (SQLException ex) {
+        Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return endereco;
+    }
+    
+    
     public void FecharBanco()  
     {
         try {

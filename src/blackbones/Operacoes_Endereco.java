@@ -17,7 +17,7 @@ public class Operacoes_Endereco
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
         Endereco e = new Endereco(estado, cidade, bairro, rua, numero);
-        //bd.EditarEndereco(e, idfornecedor);
+        bd.EditarEndereco(e, idfornecedor);
         bd.FecharBanco();
     }
     
