@@ -757,7 +757,7 @@ public class Banco_de_Dados
 
             while (rs.next()) 
             {
-                usuario.setUsuario(rs.getString("usuario"));
+                usuario.setUsuario(rs.getString("login"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 return usuario;

@@ -45,7 +45,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="login_button" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="173" max="32767" attributes="0"/>
                                   <Component id="limpar_button" min="-2" pref="118" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -55,8 +55,8 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="login_text" max="32767" attributes="0"/>
-                                      <Component id="senha_text" min="-2" pref="338" max="-2" attributes="0"/>
+                                      <Component id="login_text" pref="338" max="32767" attributes="0"/>
+                                      <Component id="senha_text" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -113,8 +113,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="login_text">
         </Component>
-        <Component class="javax.swing.JTextField" name="senha_text">
-        </Component>
         <Component class="javax.swing.JButton" name="login_button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
@@ -144,6 +142,8 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editar_buttonActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="senha_text">
         </Component>
       </SubComponents>
     </Container>

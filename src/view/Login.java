@@ -1,5 +1,8 @@
 package view;
 
+import blackbones.Operacoes_Usuarios;
+import javax.swing.JOptionPane;
+
 public class Login extends javax.swing.JFrame {
 
     public Login() {
@@ -15,11 +18,11 @@ public class Login extends javax.swing.JFrame {
         usuario_label = new javax.swing.JLabel();
         senha_label = new javax.swing.JLabel();
         login_text = new javax.swing.JTextField();
-        senha_text = new javax.swing.JTextField();
         login_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
         cadastrar_button = new javax.swing.JButton();
         editar_button = new javax.swing.JButton();
+        senha_text = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +65,7 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(login_button, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                                 .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -70,8 +73,8 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(senha_label, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(login_text)
-                                    .addComponent(senha_text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(login_text, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                                    .addComponent(senha_text)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,8 +119,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
-        dispose();
-        new Estatisticas();
+        Operacoes_Usuarios ou = new Operacoes_Usuarios();
+        String login = login_text.getText();
+        String senha = new String(senha_text.getPassword());
+        if(ou.login(login, senha))
+        {
+            dispose();
+            new Estatisticas();
+        }
+        else
+            JOptionPane.showConfirmDialog(null, "Usuário ou senha incorretos");
     }//GEN-LAST:event_login_buttonActionPerformed
 
     private void cadastrar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_buttonActionPerformed
@@ -172,7 +183,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton login_button;
     private javax.swing.JTextField login_text;
     private javax.swing.JLabel senha_label;
-    private javax.swing.JTextField senha_text;
+    private javax.swing.JPasswordField senha_text;
     private javax.swing.JLabel usuario_label;
     // End of variables declaration//GEN-END:variables
 }

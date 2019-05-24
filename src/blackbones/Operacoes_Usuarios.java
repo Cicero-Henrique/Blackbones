@@ -41,5 +41,21 @@ public class Operacoes_Usuarios
         bd.FecharBanco();
     }
     
+    public boolean login(String usuario, String senha)
+    {
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        Usuario u = bd.PesquisarUsuario(usuario);
+        if(u == null)
+            JOptionPane.showMessageDialog(null, "Usuário já inexistente.");
+        else
+        {
+            if(senha.equals(u.getSenha()))
+                return true;
+        }
+        bd.FecharBanco();
+        return false;
+    }
+    
     
 }
