@@ -30,7 +30,7 @@ public class Operacoes_Clientes
         bd.FecharBanco();
     }
     
-    public void listar(Registro r)
+    /*public void listar(Registro r)
     {
         int i = 0;
         for(i = 0; i < r.getRegistro().size(); i++)
@@ -38,8 +38,7 @@ public class Operacoes_Clientes
             System.out.println(i +"- " + r.getRegistro().get(i).getNome() + "- " + r.getRegistro().get(i).getEmail()
                     + "- " +r.getRegistro().get(i).getEndereco() + "- " + r.getRegistro().get(i).getTelefone() 
                     + "- " +r.getRegistro().get(i).getIndicacao() + "- " + r.getRegistro().get(i).getCpf());
-        }
-    }
+      */
     
     public String[] cortarString(String line)
     {

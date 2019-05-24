@@ -3,7 +3,6 @@ package view;
 import blackbones.Banco_de_Dados;
 import blackbones.Cliente;
 import blackbones.Operacoes_Clientes;
-import blackbones.Registro;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
