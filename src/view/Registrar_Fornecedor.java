@@ -3,6 +3,7 @@ package view;
 import blackbones.Operacoes_Endereco;
 import blackbones.Operacoes_Fornecedores;
 import blackbones.Validator;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,11 +12,11 @@ import javax.swing.JOptionPane;
  */
 public class Registrar_Fornecedor extends javax.swing.JFrame {
 
-    public Registrar_Fornecedor() {
+    public Registrar_Fornecedor() 
+    {
         initComponents();
         setVisible(true);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -108,7 +109,7 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
 
         estado_label.setText("Estado: ");
 
-        estados_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estados_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO" }));
 
         numero_label.setText("Número:");
 
@@ -248,16 +249,13 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
     }//GEN-LAST:event_email_textActionPerformed
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
-        // TODO add your handling code here:
-        
-            if(Dados())
-            {
-                JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
-                setVisible(false);
-                new Registrar_Fornecedor().setVisible(true);
-            }
-        
 
+        if(Dados())
+        {
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+            setVisible(false);
+            new Registrar_Fornecedor().setVisible(true);
+        }
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
     private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed

@@ -138,7 +138,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame
 
         estado_label.setText("Estado:");
 
-        estado_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        estado_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"}));
 
         numero_label.setText("Número: ");
 
@@ -302,6 +302,12 @@ public class Editar_Fornecedor extends javax.swing.JFrame
             telefone_text.setText(f.getTelefone());
             tipo_text.setText(f.getTipo());
             email_text.setText(f.getEmail());
+            
+            cidade_text.setText(e.getCidade());
+            bairro_text.setText(e.getBairro());
+            rua_text.setText(e.getRua());
+            numero_text.setText(Integer.toString(e.getNumero()));
+            estado_combo.setSelectedItem(e.getEstado());
         }
     }//GEN-LAST:event_selecionar_buttonActionPerformed
 
@@ -311,6 +317,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame
         if(Validator.isValidFornecedor(nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText()))
         {
             of.editar(id, nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText());
+            oe.editar(estado_combo.getSelectedItem().toString(), cidade_text.getText(), bairro_text.getText(), rua_text.getText(), Integer.parseInt(numero_text.getText()), id);
        
             dispose();
             new Editar_Fornecedor();
@@ -324,6 +331,11 @@ public class Editar_Fornecedor extends javax.swing.JFrame
         cnpj_text.setText(" ");
         telefone_text.setText(" ");
         email_text.setText(" ");
+        
+        cidade_text.setText(" ");
+        bairro_text.setText(" ");
+        rua_text.setText(" ");
+        numero_text.setText(" ");
     }//GEN-LAST:event_limpar_buttonActionPerformed
 
     private void voltar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_buttonActionPerformed

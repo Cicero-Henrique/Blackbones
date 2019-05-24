@@ -660,7 +660,7 @@ public class Banco_de_Dados
     
     public Endereco PesquisarIdEndereco(int id)
     {
-        String sql = "select * from endereco WHERE idfornecedor = ?";
+        String sql = "select * from endereco WHERE id_fornecedor = ?";
         Endereco endereco = new Endereco("", "", "", "", -1);
         
         try 

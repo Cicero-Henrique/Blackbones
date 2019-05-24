@@ -46,13 +46,13 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
         pagamento_label = new javax.swing.JLabel();
         pagamento_text = new javax.swing.JTextField();
         status_label = new javax.swing.JLabel();
-        status_text = new javax.swing.JTextField();
         salvar_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
         voltar_button = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         selecionar_button = new javax.swing.JButton();
+        status_combo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,26 +105,12 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
             }
         });
 
+        status_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "À pagar", "Pago" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(data_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(valor_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pagamento_label, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(status_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nome_text)
-                    .addComponent(valor_text)
-                    .addComponent(data_text)
-                    .addComponent(pagamento_text)
-                    .addComponent(status_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(174, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +127,28 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
                         .addGap(18, 18, 18)
                         .addComponent(selecionar_button)
                         .addGap(116, 116, 116))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(data_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(valor_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pagamento_label, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(status_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nome_text, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                        .addComponent(valor_text)
+                        .addComponent(data_text)
+                        .addComponent(pagamento_text))
+                    .addComponent(status_combo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(selecionar_button)
@@ -169,10 +172,10 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
                     .addComponent(pagamento_label, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pagamento_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(status_label)
-                    .addComponent(status_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104)
+                    .addComponent(status_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(98, 98, 98)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,7 +209,7 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
             data = formato.parse(dia + "/" + mes + "/" + ano);
             if(Validator.isValidConta(nome_text.getText(), valor_text.getText(), formato.format(data), pagamento_text.getText()))
             {
-                oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "pagar", status_text.getText());
+                oc.editar(id, Double.parseDouble(valor_text.getText()), nome_text.getText(), data, pagamento_text.getText(), "pagar", status_combo.getSelectedItem().toString());
                 dispose();
                 new Editar_Conta_Pagar();
             }
@@ -222,7 +225,7 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
         valor_text.setText(" ");
         data_text.setText(" ");
         pagamento_text.setText(" ");
-        status_text.setText(" ");
+        status_combo.setSelectedIndex(0);
     }//GEN-LAST:event_limpar_buttonActionPerformed
 
     private void voltar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_buttonActionPerformed
@@ -247,7 +250,7 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
             valor_text.setText(Double.toString(c.getValor()));
             data_text.setText(formato.format(c.getData()));
             pagamento_text.setText(c.getTipo_pagamento());
-            status_text.setText(c.getStatus());
+            status_combo.setSelectedIndex(0);
         }
     }//GEN-LAST:event_selecionar_buttonActionPerformed
 
@@ -299,12 +302,11 @@ public class Editar_Conta_Pagar extends javax.swing.JFrame
     private javax.swing.JTextField pagamento_text;
     private javax.swing.JButton salvar_button;
     private javax.swing.JButton selecionar_button;
+    private javax.swing.JComboBox<String> status_combo;
     private javax.swing.JLabel status_label;
-    private javax.swing.JTextField status_text;
     private javax.swing.JLabel valor_label;
     private javax.swing.JTextField valor_text;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     
-
 }
