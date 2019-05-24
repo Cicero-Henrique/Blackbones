@@ -687,6 +687,87 @@ public class Banco_de_Dados
         return endereco;
     }
     
+    public void CadastrarUsuario(Usuario u)
+    {
+        String sql = "INSERT INTO usuario(usuario, email, senha) VALUES(?,?,?)";
+
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, u.getUsuario());
+            stmt.setString(2, u.getEmail());
+            stmt.setString(3, u.getSenha());
+            
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } 
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void EditarUsuario(Usuario u, String login)
+    {
+        String sql = "UPDATE usuario SET usuario = ?, email = ?, senha = ? WHERE login = ?";
+
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, u.getUsuario());
+            ps.setString(2, u.getEmail());
+            ps.setString(3, u.getSenha());
+            ps.setString(4, login);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void RemoverUsuario(String login)
+    {
+        String sql = "delete from usuario where usuario = ?;";
+        
+            PreparedStatement stmt;
+        try 
+        {
+            stmt = connection.prepareStatement(sql);
+            
+            stmt.setString(1, login);
+            stmt.execute(); //executa comando     
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Usuario PesquisarUsuario(String login)
+    {
+        String sql = "select * from usuario WHERE login = ?";
+        Usuario usuario = null;
+        try 
+        {
+            ps = connection.prepareStatement(sql);
+        
+            ps.setString(1, login);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) 
+            {
+                usuario.setUsuario(rs.getString("usuario"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
+                return usuario;
+            }
+            
+        } catch (SQLException ex) {
+        Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return usuario;
+    }
     
     public void FecharBanco()  
     {

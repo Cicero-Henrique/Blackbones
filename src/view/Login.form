@@ -64,6 +64,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Component id="cadastrar_button" min="-2" pref="116" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="editar_button" min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="277" max="32767" attributes="0"/>
@@ -88,9 +90,12 @@
                       <Component id="login_button" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="limpar_button" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                  <Component id="cadastrar_button" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cadastrar_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="editar_button" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -130,6 +135,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrar_buttonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="editar_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Editar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editar_buttonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

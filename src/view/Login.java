@@ -19,6 +19,7 @@ public class Login extends javax.swing.JFrame {
         login_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
         cadastrar_button = new javax.swing.JButton();
+        editar_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,6 +41,13 @@ public class Login extends javax.swing.JFrame {
         cadastrar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrar_buttonActionPerformed(evt);
+            }
+        });
+
+        editar_button.setText("Editar");
+        editar_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editar_buttonActionPerformed(evt);
             }
         });
 
@@ -66,7 +74,9 @@ public class Login extends javax.swing.JFrame {
                                     .addComponent(senha_text, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(277, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -84,9 +94,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(72, 72, 72)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastrar_button)
+                    .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,6 +124,10 @@ public class Login extends javax.swing.JFrame {
           dispose();
           new Registrar_Cliente();
     }//GEN-LAST:event_cadastrar_buttonActionPerformed
+
+    private void editar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editar_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editar_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,6 +166,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrar_button;
+    private javax.swing.JButton editar_button;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton limpar_button;
     private javax.swing.JButton login_button;

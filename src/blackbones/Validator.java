@@ -188,6 +188,30 @@ public class Validator
         return true;
     }
     
+    public static boolean isValidUsuario(String email, String usuario, String senha)
+    {
+        if(!sqlTest(email) || !sqlTest(usuario) || !sqlTest(senha))
+        {
+            JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
+                    "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(null, "O email deve conter pelo menos um @",
+                    "Erro no email", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidUsuario(usuario)) {
+            JOptionPane.showMessageDialog(null, "O usuario deve conter apenas letras e numeros e até 30 caracteres", "Erro no Usuario", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if (!isValidSenha(senha)) {
+            JOptionPane.showMessageDialog(null, "A senha deve conter letras maiúsculas e minúsculas", "Erro na Senha", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
     public static boolean isValidData(String data)
     {
         if (data.length() != 10) {
@@ -230,6 +254,13 @@ public class Validator
         if((palavra.charAt(0) == '"' || (palavra.contains(" 1 == 1;") || (palavra.contains("-")))))
             return false;
         return true;
+    }
+    
+    public static boolean isValidUsuario(String palavra)
+    {
+        if (palavra.length() == 0 || palavra.length() > 30)
+            return false;
+        return hasSpecialCharacters(palavra);
     }
     
     public static boolean isValidPagamento( String pagamento)
@@ -318,22 +349,11 @@ public class Validator
         return !hasSpecialCharacters(rua);
     }
 
-    public static boolean isValidComplemento(String complemento) {
-        if (complemento.length() > 50) {
-            return false;
-        }
-        return !hasSpecialCharacters(complemento);
-    }
-
     public static boolean isValidCidade(String cidade) {
         if (cidade.length() == 0 || cidade.length() > 30) {
             return false;
         }
         return (!hasDigits(cidade) && !hasSpecialCharacters(cidade));
-    }
-
-    public static boolean isValidCep(int cep) {
-        return ((new Integer(cep)).toString().length() == 8);
     }
     public static boolean isValidIndicacao(String indicacao){
         return(!hasDigits(indicacao) && !hasSpecialCharacters(indicacao));
