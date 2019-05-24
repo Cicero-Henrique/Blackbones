@@ -3,7 +3,6 @@ package blackbones;
 public class Fornecedor 
 {
     private String nome, cnpj, telefone, email, tipo;
-    private Endereco endereco;
 
     public Fornecedor(String nome, String cnpj, String telefone, String email, String tipo) 
     {

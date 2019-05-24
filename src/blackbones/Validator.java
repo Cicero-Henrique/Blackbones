@@ -227,7 +227,7 @@ public class Validator
     
     public static boolean sqlTest(String palavra)
     {
-        if((palavra.charAt(0) == '"' || (palavra.contains(" 1 == 1;"))))
+        if((palavra.charAt(0) == '"' || (palavra.contains(" 1 == 1;") || (palavra.contains("-")))))
             return false;
         return true;
     }
@@ -273,13 +273,6 @@ public class Validator
             return false;
         }
         return true;
-    }
-    
-    public static boolean isValidSalario(String salario) {
-        if (salario.length() == 0 || salario.length() > 9) {
-            return false;
-        }
-        return (!hasSpecialCharacters(salario) && !hasLetters(salario));
     }
 
     public static boolean isValidCnpj(String cnpj) {

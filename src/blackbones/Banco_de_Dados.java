@@ -208,7 +208,7 @@ public class Banco_de_Dados
                 String email = rs.getString("email");
                 String tipo = rs.getString("tipo");
                 String fornecedor = ("Id: " + id+ "- Nome:" + nome + "- CNPJ: " + cnpj + "- Telefone:" 
-                        + telefone + "- E-Mail:" + email + "- Tipo: " + tipo);
+                        + telefone + "- EMail:" + email + "- Tipo: " + tipo);
                 list.addElement(fornecedor);
             }
             return list;

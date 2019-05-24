@@ -54,7 +54,11 @@ public class Operacoes_Fornecedores
         String atributos[];
         
         atributos = cortarString(s);
-        
+        atributos[1] = atributos[1].trim().split(":")[1];
+        atributos[2] = atributos[2].trim().split(":")[1];
+        atributos[3] = atributos[3].trim().split(":")[1];
+        atributos[4] = atributos[4].trim().split(":")[1];
+        atributos[5] = atributos[5].trim().split(":")[1];
         Fornecedor fornecedor = new Fornecedor(atributos[1], atributos[2], atributos[3], atributos[4], atributos[5]);
         
         return fornecedor; 
