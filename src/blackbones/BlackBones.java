@@ -1,13 +1,14 @@
 package blackbones;
 
 import view.Estatisticas;
+import view.Login;
 
 public class BlackBones 
 {
     public static void main(String[] args) 
     {
         
-        Estatisticas e = new Estatisticas();
+        Login e = new Login();
         e.setVisible(true);
     }
 }

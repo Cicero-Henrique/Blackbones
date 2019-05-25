@@ -201,12 +201,12 @@ public class Validator
                     "Erro no email", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if (!isValidUsuario(usuario)) {
+        if (!isValidUser(usuario)) {
             JOptionPane.showMessageDialog(null, "O usuario deve conter apenas letras e numeros e até 30 caracteres", "Erro no Usuario", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         if (!isValidSenha(senha)) {
-            JOptionPane.showMessageDialog(null, "A senha deve conter letras maiúsculas e minúsculas", "Erro na Senha", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "A senha deve conter letras maiúsculas e minúsculas e números", "Erro na Senha", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         return true;
@@ -256,11 +256,11 @@ public class Validator
         return true;
     }
     
-    public static boolean isValidUsuario(String palavra)
+    public static boolean isValidUser(String palavra)
     {
         if (palavra.length() == 0 || palavra.length() > 30)
             return false;
-        return hasSpecialCharacters(palavra);
+        return !hasSpecialCharacters(palavra);
     }
     
     public static boolean isValidPagamento( String pagamento)

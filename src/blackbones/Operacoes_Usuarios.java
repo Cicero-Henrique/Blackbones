@@ -4,12 +4,13 @@ import javax.swing.JOptionPane;
 
 public class Operacoes_Usuarios 
 {
-    public void adicionar(String usuario, String email, String senha)
+    public void adicionar(String login, String email, String senha)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        Usuario u = new Usuario(usuario, email, senha);
-        if(bd.PesquisarUsuario(usuario) == null)
+        Usuario u = new Usuario(login, email, senha);
+        Usuario aux = bd.PesquisarUsuario(login);
+        if(aux.getUsuario().equals(login))
             JOptionPane.showMessageDialog(null, "Usuário já existente.");
         else
             bd.CadastrarUsuario(u);
@@ -17,27 +18,30 @@ public class Operacoes_Usuarios
         
     }
     
-    public void editar(int id, String usuario, String email, String senha)
+    public void editar(String loginAntigo, String login, String email, String senha)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        Usuario u = new Usuario(usuario, email, senha);
-        if(bd.PesquisarUsuario(usuario) == null)
+        Usuario u = new Usuario(login, email, senha);   //Cria um novo usuário com os novos dados
+        Usuario aux = bd.PesquisarUsuario(login);       //Verifica se já existe algum usuário com esse login (Não podem haver usuários com logins iguais)
+        
+        if(aux.getUsuario().equals(login))
             JOptionPane.showMessageDialog(null, "Usuário já existente.");
         else
-            bd.EditarUsuario(u, usuario);
+            bd.EditarUsuario(u, loginAntigo);           //Se não houver usuários com logins repetidos
         bd.FecharBanco();
         
     }
     
-    public void remover(String usuario)
+    public void remover(String login)
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        if(bd.PesquisarUsuario(usuario) == null)
+        Usuario aux = bd.PesquisarUsuario(login);
+        if(aux.getUsuario().equals(login))
             JOptionPane.showMessageDialog(null, "Usuário já inexistente.");
         else
-            bd.RemoverUsuario(usuario);
+            bd.RemoverUsuario(login);
         bd.FecharBanco();
     }
     
@@ -46,7 +50,7 @@ public class Operacoes_Usuarios
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
         Usuario u = bd.PesquisarUsuario(usuario);
-        if(u == null)
+        if(u.getUsuario().equals("0"))
             JOptionPane.showMessageDialog(null, "Usuário já inexistente.");
         else
         {

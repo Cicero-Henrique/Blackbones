@@ -23,44 +23,44 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" pref="113" max="32767" attributes="0"/>
-                          <Component id="usuario_label" max="32767" attributes="0"/>
-                          <Component id="senha_label" max="32767" attributes="0"/>
-                          <Component id="email_label" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="email_text" max="32767" attributes="0"/>
-                          <Component id="usuario_text" max="32767" attributes="0"/>
-                          <Component id="senha_text" alignment="0" max="32767" attributes="0"/>
-                          <Component id="confirma_text" alignment="0" pref="383" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
-                      <Component id="salvar_button" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                      <Component id="limpar_button" min="-2" max="-2" attributes="0"/>
-                  </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="246" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="usuario_label" alignment="0" max="32767" attributes="0"/>
+                  <Component id="senha_label" alignment="0" max="32767" attributes="0"/>
+                  <Component id="email_label" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="399" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="email_text" alignment="0" max="32767" attributes="0"/>
+                  <Component id="usuario_text" alignment="0" max="32767" attributes="0"/>
+                  <Component id="senha_text" alignment="0" max="32767" attributes="0"/>
+                  <Component id="confirma_text" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="voltar_button" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="salvar_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="limpar_button" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="609" max="-2" attributes="0"/>
+                      <Component id="voltar_button" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="email_label" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="email_text" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -80,29 +80,19 @@
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="confirma_text" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="187" max="32767" attributes="0"/>
+              <EmptySpace pref="112" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="salvar_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="limpar_button" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Component id="voltar_button" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="usuario_label">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="senha_label">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Senha:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="email_label">
       <Properties>
         <Property name="text" type="java.lang.String" value="E-Mail:"/>
@@ -110,7 +100,21 @@
     </Component>
     <Component class="javax.swing.JTextField" name="email_text">
     </Component>
+    <Component class="javax.swing.JLabel" name="usuario_label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio:"/>
+      </Properties>
+    </Component>
     <Component class="javax.swing.JTextField" name="usuario_text">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="senha_text">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="confirma_text">
+    </Component>
+    <Component class="javax.swing.JLabel" name="senha_label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nova Senha:"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -140,10 +144,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltar_buttonActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="senha_text">
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="confirma_text">
     </Component>
   </SubComponents>
 </Form>

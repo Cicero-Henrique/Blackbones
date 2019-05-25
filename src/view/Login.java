@@ -1,6 +1,7 @@
 package view;
 
 import blackbones.Operacoes_Usuarios;
+import blackbones.Validator;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -128,16 +129,23 @@ public class Login extends javax.swing.JFrame {
             new Estatisticas();
         }
         else
-            JOptionPane.showConfirmDialog(null, "Usuário ou senha incorretos");
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
     }//GEN-LAST:event_login_buttonActionPerformed
 
     private void cadastrar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_buttonActionPerformed
           dispose();
-          new Registrar_Cliente();
+          new Registrar_Usuario();
     }//GEN-LAST:event_cadastrar_buttonActionPerformed
 
     private void editar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editar_buttonActionPerformed
-        // TODO add your handling code here:
+        Operacoes_Usuarios o = new Operacoes_Usuarios();
+        String login = JOptionPane.showInputDialog("Digite o login", "");
+        String senha = JOptionPane.showInputDialog("Digite a senha", "");
+        if(Validator.sqlTest(login) && Validator.sqlTest(senha) && o.login(login, senha))
+        {
+            dispose();
+            new Editar_Usuario(login);
+        }
     }//GEN-LAST:event_editar_buttonActionPerformed
 
     /**

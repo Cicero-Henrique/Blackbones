@@ -689,7 +689,7 @@ public class Banco_de_Dados
     
     public void CadastrarUsuario(Usuario u)
     {
-        String sql = "INSERT INTO usuario(usuario, email, senha) VALUES(?,?,?)";
+        String sql = "INSERT INTO usuario(login, email, senha) VALUES(?,?,?)";
 
         try 
         {
@@ -709,7 +709,7 @@ public class Banco_de_Dados
     
     public void EditarUsuario(Usuario u, String login)
     {
-        String sql = "UPDATE usuario SET usuario = ?, email = ?, senha = ? WHERE login = ?";
+        String sql = "UPDATE usuario SET login = ?, email = ?, senha = ? WHERE login = ?";
 
         try 
         {
@@ -728,7 +728,7 @@ public class Banco_de_Dados
     
     public void RemoverUsuario(String login)
     {
-        String sql = "delete from usuario where usuario = ?;";
+        String sql = "delete from usuario where login = ?;";
         
             PreparedStatement stmt;
         try 
@@ -746,7 +746,7 @@ public class Banco_de_Dados
     public Usuario PesquisarUsuario(String login)
     {
         String sql = "select * from usuario WHERE login = ?";
-        Usuario usuario = null;
+        Usuario usuario = new Usuario("0", "0", "0");
         try 
         {
             ps = connection.prepareStatement(sql);
@@ -755,7 +755,7 @@ public class Banco_de_Dados
 
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) 
+            while(rs.next()) 
             {
                 usuario.setUsuario(rs.getString("login"));
                 usuario.setEmail(rs.getString("email"));
