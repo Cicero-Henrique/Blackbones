@@ -66,6 +66,8 @@
                           <Component id="cadastrar_button" min="-2" pref="116" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="editar_button" min="-2" pref="116" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="remover_button" min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="277" max="32767" attributes="0"/>
@@ -94,6 +96,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cadastrar_button" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="editar_button" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="remover_button" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
@@ -144,6 +147,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="senha_text">
+        </Component>
+        <Component class="javax.swing.JButton" name="remover_button">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remover"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remover_buttonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

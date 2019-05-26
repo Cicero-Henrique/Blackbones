@@ -24,6 +24,7 @@ public class Login extends javax.swing.JFrame {
         cadastrar_button = new javax.swing.JButton();
         editar_button = new javax.swing.JButton();
         senha_text = new javax.swing.JPasswordField();
+        remover_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +56,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        remover_button.setText("Remover");
+        remover_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remover_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -80,7 +88,9 @@ public class Login extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(remover_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(277, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,7 +111,8 @@ public class Login extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrar_button)
-                    .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(remover_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
         );
 
@@ -123,7 +134,7 @@ public class Login extends javax.swing.JFrame {
         Operacoes_Usuarios ou = new Operacoes_Usuarios();
         String login = login_text.getText();
         String senha = new String(senha_text.getPassword());
-        if(ou.login(login, senha))
+        if(Validator.sqlTest(login) && Validator.sqlTest(senha) && ou.login(login, senha))
         {
             dispose();
             new Estatisticas();
@@ -146,7 +157,20 @@ public class Login extends javax.swing.JFrame {
             dispose();
             new Editar_Usuario(login);
         }
+        else
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
     }//GEN-LAST:event_editar_buttonActionPerformed
+
+    private void remover_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_buttonActionPerformed
+        Operacoes_Usuarios o = new Operacoes_Usuarios();
+        String login = JOptionPane.showInputDialog("Digite o login", "");
+        String senha = JOptionPane.showInputDialog("Digite a senha", "");
+        if(Validator.sqlTest(login) && Validator.sqlTest(senha) || o.login(login, senha))
+        {
+            o.remover(login);
+            JOptionPane.showMessageDialog(null, "Usuário Removido com sucesso");
+        }
+    }//GEN-LAST:event_remover_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +214,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton limpar_button;
     private javax.swing.JButton login_button;
     private javax.swing.JTextField login_text;
+    private javax.swing.JButton remover_button;
     private javax.swing.JLabel senha_label;
     private javax.swing.JPasswordField senha_text;
     private javax.swing.JLabel usuario_label;

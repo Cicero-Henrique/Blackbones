@@ -251,7 +251,7 @@ public class Validator
     
     public static boolean sqlTest(String palavra)
     {
-        if((palavra.charAt(0) == '"' || (palavra.contains(" 1 == 1;") || (palavra.contains("-")))))
+        if(palavra.length() <=0 || palavra.charAt(0) == '"' || palavra.contains(" 1 == 1;") || (palavra.contains("-")))
             return false;
         return true;
     }
