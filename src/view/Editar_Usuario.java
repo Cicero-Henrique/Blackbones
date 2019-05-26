@@ -20,7 +20,9 @@ public class Editar_Usuario extends javax.swing.JFrame {
      * Creates new form Editar_Usuario
      */
     static String loginAntigo = null;
-    public Editar_Usuario(String login) {
+    public Editar_Usuario(String login) 
+    {
+        setVisible(true);
         initComponents();
         loginAntigo = login;
     }
@@ -140,6 +142,7 @@ public class Editar_Usuario extends javax.swing.JFrame {
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
         Usuario u = bd.PesquisarUsuario(loginAntigo);
         
         String email = email_text.getText();

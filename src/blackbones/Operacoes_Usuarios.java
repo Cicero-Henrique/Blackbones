@@ -24,11 +24,8 @@ public class Operacoes_Usuarios
         bd.conectar("blackbones");
         Usuario u = new Usuario(login, email, senha);   //Cria um novo usuário com os novos dados
         Usuario aux = bd.PesquisarUsuario(login);       //Verifica se já existe algum usuário com esse login (Não podem haver usuários com logins iguais)
-        
-        if(aux.getUsuario().equals(login))
-            JOptionPane.showMessageDialog(null, "Usuário já existente.");
-        else
-            bd.EditarUsuario(u, loginAntigo);           //Se não houver usuários com logins repetidos
+
+        bd.EditarUsuario(u, loginAntigo);           //Se não houver usuários com logins repetidos
         bd.FecharBanco();
         
     }
@@ -55,7 +52,10 @@ public class Operacoes_Usuarios
         else
         {
             if(senha.equals(u.getSenha()))
+            {
+                bd.FecharBanco();
                 return true;
+            }
         }
         bd.FecharBanco();
         return false;

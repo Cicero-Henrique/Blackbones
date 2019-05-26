@@ -745,7 +745,7 @@ public class Banco_de_Dados
     
     public Usuario PesquisarUsuario(String login)
     {
-        String sql = "select * from usuario WHERE login = ?";
+        String sql = "select * from usuario WHERE login = ?;";
         Usuario usuario = new Usuario("0", "0", "0");
         try 
         {
@@ -754,7 +754,7 @@ public class Banco_de_Dados
             ps.setString(1, login);
 
             ResultSet rs = ps.executeQuery();
-
+            
             while(rs.next()) 
             {
                 usuario.setUsuario(rs.getString("login"));
