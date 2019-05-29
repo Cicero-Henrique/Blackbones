@@ -151,7 +151,13 @@ public class Login extends javax.swing.JFrame {
     private void editar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editar_buttonActionPerformed
         Operacoes_Usuarios o = new Operacoes_Usuarios();
         String login = JOptionPane.showInputDialog("Digite o login", "");
+        while(login == null || login.isEmpty())
+            login = JOptionPane.showInputDialog("Digite o login", "");
+        
         String senha = JOptionPane.showInputDialog("Digite a senha", "");
+        while(senha.isEmpty())
+            senha = JOptionPane.showInputDialog("Digite a senha", "");
+        
         if(Validator.sqlTest(login) && Validator.sqlTest(senha) && o.login(login, senha))
         {
             dispose();
@@ -164,7 +170,13 @@ public class Login extends javax.swing.JFrame {
     private void remover_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover_buttonActionPerformed
         Operacoes_Usuarios o = new Operacoes_Usuarios();
         String login = JOptionPane.showInputDialog("Digite o login", "");
+        while(login == null || login.isEmpty())
+            login = JOptionPane.showInputDialog("Digite o login", "");
+        
         String senha = JOptionPane.showInputDialog("Digite a senha", "");
+        while(senha.isEmpty())
+            senha = JOptionPane.showInputDialog("Digite a senha", "");
+        
         if(Validator.sqlTest(login) && Validator.sqlTest(senha) || o.login(login, senha))
         {
             o.remover(login);

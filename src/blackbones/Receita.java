@@ -77,6 +77,40 @@ public class Receita
         return list;
     }
     
+    public double lucroDeVendas(String data_inicial, String data_final)
+    {
+        Banco_de_Dados bd = new Banco_de_Dados();
+        bd.conectar("blackbones");
+        DefaultListModel<String> vendas = bd.carregarVenda();
+        Operacoes_Vendas ov = new Operacoes_Vendas();
+        
+        double lucro = 0.0;
+        
+        for(int i = 0; i < vendas.size(); i++)
+        {
+            String venda = ov.gerarVenda(vendas.get(i));
+            String[] aux = venda.split("-");
+            String dataVenda = aux[1];
+            if(Verificar_Datas(data_inicial, dataVenda) && Verificar_Datas(dataVenda, data_final))
+            {
+                int idVenda = Integer.parseInt(aux[0].trim());
+                DefaultListModel<String> produtoVendas = bd.carregarProduto_Venda(idVenda);
+                for(int j = 0; j < produtoVendas.size(); j++)
+                {
+                    aux = produtoVendas.get(j).split("-");
+                    aux = aux[6].split(":");
+                    double lucroParcial = Double.parseDouble(aux[1].trim());
+                    aux = produtoVendas.get(j).split("-");
+                    aux = aux[5].split(":");
+                    int quantidade = Integer.parseInt(aux[1].trim());
+                    lucro =  lucro + lucroParcial*quantidade;
+                }
+            }
+        }
+        bd.FecharBanco();
+        return lucro;
+    }
+    
     public ArrayList pegarVendas(String data_inicial, String data_final)
     {
         Banco_de_Dados bd = new Banco_de_Dados();

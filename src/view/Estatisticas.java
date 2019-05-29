@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -173,8 +174,8 @@ public class Estatisticas extends javax.swing.JFrame {
                         .addComponent(receita_button, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(153, 153, 153)
+                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(168, 168, 168)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(remover_fornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(listarfornecedor_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -237,7 +238,7 @@ public class Estatisticas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(contas_button, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
-                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(grafico_label, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -387,14 +388,15 @@ public class Estatisticas extends javax.swing.JFrame {
     {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         java.time.LocalDate data = LocalDate.now();
-        String dataInicial =  reduzMeses(data.toString());
+        String dataInicial = acrescentaMes(data.toString());
+        dataInicial =  reduzMeses(dataInicial);
         
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 6; i++)
         {
             String dataFinal = acrescentaMes(dataInicial);
             String[] aux  = dataFinal.split("-");
             String mes = aux[1];
-            dataset.addValue(calcularLucro(inverterData(dataInicial), inverterData(dataFinal)), "Máximo", "Mês "+ mes);
+            dataset.addValue(calcularLucro(inverterData(dataInicial), inverterData(dataFinal)), "Máximo",java.time.Month.of(Integer.parseInt(mes)));
             dataInicial = dataFinal;            
         }
 
@@ -412,7 +414,7 @@ public class Estatisticas extends javax.swing.JFrame {
         try 
         {
             OutputStream png = new FileOutputStream("Grafico_Normal.png");
-            ChartUtilities.writeChartAsPNG(png, criaGrafico, 500, 400);
+            ChartUtilities.writeChartAsPNG(png, criaGrafico, 550, 450);
             png.close();
         } 
         catch (FileNotFoundException ex) 
@@ -427,16 +429,18 @@ public class Estatisticas extends javax.swing.JFrame {
     
     public double calcularLucro(String data_inicial, String data_final)
     {
+        Receita r = new Receita();
+        
+        double lucros = 0, total = 0, despesas = 0;
         data_inicial = data_inicial.replace("-", "/");
         data_final = data_final.replace("-", "/");
-        Receita r = new Receita();
+        
         ArrayList<Conta> conta = r.pegarContasReceber(data_inicial, data_final);
-        //ArrayList<String> vendas = r.pegarVendas(inicio, data_final);
-        double lucros = 0, total = 0, despesas = 0;
-        for(int i = 0; i <conta.size(); i++)
+        
+        for(int i = 0; i < conta.size(); i++)
             lucros = lucros + conta.get(i).getValor();
-        
-        
+        r.lucroDeVendas(data_inicial, data_final);
+        lucros = lucros + r.lucroDeVendas(data_inicial, data_final);
         
         /*          FALTA SOMAR O LUCRO COM AS VENDAS*/
         

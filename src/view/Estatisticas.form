@@ -48,10 +48,10 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Component id="grafico_label" min="-2" pref="571" max="-2" attributes="0"/>
+                          <Component id="grafico_label" min="-2" pref="556" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="remover_fornecedor_button" alignment="0" max="32767" attributes="0"/>
                       <Component id="listarfornecedor_button" alignment="0" max="32767" attributes="0"/>
@@ -122,7 +122,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="contas_button" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="grafico_label" min="-2" pref="443" max="-2" attributes="0"/>
+                          <Component id="grafico_label" min="-2" pref="466" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="89" max="32767" attributes="0"/>

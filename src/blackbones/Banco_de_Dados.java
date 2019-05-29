@@ -599,7 +599,7 @@ public class Banco_de_Dados
     
     public void CadastrarProduto_Venda(Produto p, int idproduto, int idvenda, int quantidade)
     {
-        String sql = "INSERT INTO produto_venda(id_produto, id_venda, nome, tipo, qtd, margem_lucro) VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO produto_venda(id_produto, id_venda, nome, tipo, qtd, lucro) VALUES(?,?,?,?,?,?)";
         
         
         try 
@@ -611,10 +611,45 @@ public class Banco_de_Dados
             stmt.setString(3, p.getNome());
             stmt.setString(4, p.getTipo());
             stmt.setInt(5, quantidade);
-            stmt.setDouble(6, p.getMargem_lucro());
+            stmt.setDouble(6, p.getPreco_venda()-p.getPreco_custo());
             stmt.execute(); //executa comando     
             stmt.close();
         } catch (SQLException u) {System.out.println(u);}
+    }
+    
+    public DefaultListModel carregarProduto_Venda(int idvenda)
+    {
+        DefaultListModel<String> list = new DefaultListModel();
+        String sql = "select * from produto_venda where id_venda = ? order by 1;";
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);   
+            stmt.setInt(1, idvenda);
+            stmt.execute();
+        
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) 
+            {
+                int id = (rs.getInt("idprodutovenda"));
+                int idProduto = rs.getInt("id_produto");
+                int idVenda = rs.getInt("id_venda");
+                String nomeProduto = rs.getString("nome");
+                String tipo = rs.getString("tipo");
+                int qtd = rs.getInt("qtd");
+                double lucro = rs.getDouble("lucro");
+                String produtoVenda = ("ID Produto Venda: " + id + "- ID Produto:" + idProduto + "- ID Venda: " + idVenda + "- Nome Produto:" 
+                        + nomeProduto + "- Tipo:" + tipo + "- Quantidade: " + qtd + "- Lucro:" + lucro);
+                list.addElement(produtoVenda);
+            }
+            stmt.close();
+            return list;
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(Banco_de_Dados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public void CadastrarEndereco(Endereco e, int id_fornecedor)
