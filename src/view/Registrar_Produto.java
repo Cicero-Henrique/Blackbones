@@ -195,9 +195,7 @@ public class Registrar_Produto extends javax.swing.JFrame {
 
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         
-            if(Dados() == false)
-                JOptionPane.showMessageDialog(null, "Algum dado não foi digitado corretamente", "Dados incorretos", JOptionPane.ERROR_MESSAGE);
-            else
+            if(Dados() == true)
                 JOptionPane.showMessageDialog(null, "As informações foram salvas corretamente.", "Dados salvos", JOptionPane.WARNING_MESSAGE);
         
     }//GEN-LAST:event_salvar_buttonActionPerformed
@@ -262,7 +260,6 @@ public class Registrar_Produto extends javax.swing.JFrame {
         
         if(!Validator.isValidProduct(nome, tipo, custo_text.getText(), venda_text.getText(), qtd_text.getText()))
         {
-            JOptionPane.showMessageDialog(null, "Corrija os dados informados");
             return false;
         }
         else

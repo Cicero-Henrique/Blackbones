@@ -252,9 +252,9 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
 
         if(Dados())
         {
-            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
             setVisible(false);
             new Registrar_Fornecedor().setVisible(true);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
         }
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
@@ -355,9 +355,8 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         String rua = rua_text.getText();
         String numeroString = numero_text.getText();
 
-        if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo) && !Validator.isValidEndereco(cidade, bairro, rua, numeroString))
+        if(!Validator.isValidFornecedor(nome, cnpj, telefone, email, tipo) || !Validator.isValidEndereco(cidade, bairro, rua, numeroString))
         {
-            JOptionPane.showMessageDialog(null, "Corrija os dados informados");
             return false;
         }
         else

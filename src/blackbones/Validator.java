@@ -7,6 +7,12 @@ public class Validator
 {
     public static boolean isValidProduct(String nome, String tipo, String custo, String venda, String qtd) 
     {
+        if(!basicTest(nome) || !basicTest(tipo) || !basicTest(custo) || !basicTest(venda) || !basicTest(qtd))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if(!sqlTest(nome) || !sqlTest(tipo) || !sqlTest(custo) || !sqlTest(venda) || !sqlTest(qtd))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
@@ -19,7 +25,7 @@ public class Validator
             return false;
         }
         if (!isValidNome(tipo)) {
-            JOptionPane.showMessageDialog(null, "O tipo do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
+            JOptionPane.showMessageDialog(null, "O tipo do produto nao pode ter mais que 50 caracteres e deve conter apenas letras.",
                     "Erro no tipo", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -43,13 +49,18 @@ public class Validator
     
     public static boolean isValidCliente(String nome, String telefone, String endereco, String email, String indicacao, String cpf)
     {
-        if(!sqlTest(nome) || !sqlTest(telefone) || !sqlTest(nome) || !sqlTest(email) || !sqlTest(indicacao) || !sqlTest(cpf))
+        if(!basicTest(nome) || !basicTest(telefone) || !basicTest(endereco) || !basicTest(email) || !basicTest(indicacao) || !basicTest(cpf))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        if(!sqlTest(nome) || !sqlTest(telefone) || !sqlTest(nome) || !sqlTest(email) || !sqlTest(indicacao) || !sqlTest(cpf) || !sqlTest(endereco))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
                     "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -60,7 +71,7 @@ public class Validator
                     "Erro no telefone", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if (!isValidEndereco(endereco)) {
+        if (!isValidEnderecoCliente(endereco)) {
             JOptionPane.showMessageDialog(null, "O endereço não pode conter mais do que 60 caracteres",
                     "Erro no endereço", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -86,13 +97,18 @@ public class Validator
     
     public static boolean isValidFornecedor(String nome, String cnpj, String telefone, String email, String tipo)
     {
+        if(!basicTest(nome) || !basicTest(telefone) || !basicTest(cnpj) || !basicTest(email) || !basicTest(tipo))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if(!sqlTest(nome) || !sqlTest(cnpj) || !sqlTest(telefone) || !sqlTest(email) || !sqlTest(tipo))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
                     "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do fornecedor nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -115,7 +131,7 @@ public class Validator
             return false;
         }
         if (!isValidCargo(tipo)) {
-            JOptionPane.showMessageDialog(null, "O cargo não pode ter mais do que 20 caracteres.",
+            JOptionPane.showMessageDialog(null, "O tipo não pode ter mais do que 20 caracteres ou caracteres especiais.",
                     "Erro na indicação", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -124,13 +140,18 @@ public class Validator
     
     public static boolean isValidConta(String nome, String valor, String data, String pagamento)
     {
+        if(!basicTest(nome) || !basicTest(valor) || !basicTest(data) || !basicTest(pagamento))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if(!sqlTest(nome) || !sqlTest(valor) || !sqlTest(data) || !sqlTest(pagamento))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
                     "Tentativa de SQL Injection", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        
         if (!isValidNome(nome)) {
             JOptionPane.showMessageDialog(null, "O nome do produto nao pode ter mais que 50 caracteres e nao deve ter caracteres especiais.",
                     "Erro no nome", JOptionPane.ERROR_MESSAGE);
@@ -159,6 +180,12 @@ public class Validator
     
     public static boolean isValidEndereco(String cidade, String bairro, String rua, String numero) 
     {
+        if(!basicTest(cidade) || !basicTest(bairro) || !basicTest(rua) || !basicTest(numero))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if(!sqlTest(cidade) || !sqlTest(bairro) || !sqlTest(rua) || !sqlTest(numero))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
@@ -170,18 +197,18 @@ public class Validator
                     "Erro na cidade", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if (!isValidCidade(rua)) {
+        if (!isValidRua(rua)) {
             JOptionPane.showMessageDialog(null, "O nome da rua nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
                     "Erro na rua", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         if (!isValidCidade(bairro)) {
-            JOptionPane.showMessageDialog(null, "O nome da cidade nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
+            JOptionPane.showMessageDialog(null, "O nome do bairro nao pode ter mais que 30 caracteres e nao deve ter caracteres especiais.",
                     "Erro no bairro", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-        if (!isNotInt(numero)) {
-            JOptionPane.showMessageDialog(null, "O numero do estabelecimento deve conter apenas digitos e se for o caso uma unica letra",
+        if (hasLetters(numero) || hasSpecialCharacters(numero)) {
+            JOptionPane.showMessageDialog(null, "O numero do estabelecimento deve conter apenas digitos",
                     "Erro numero do estabelecimento", JOptionPane.ERROR_MESSAGE);
             return false;
         }
@@ -190,6 +217,13 @@ public class Validator
     
     public static boolean isValidUsuario(String email, String usuario, String senha)
     {
+        
+        if(!basicTest(usuario) || !basicTest(email) || !basicTest(senha))
+        {
+            JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos e não podem conter -",
+                    "Entradas inválidas", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         if(!sqlTest(email) || !sqlTest(usuario) || !sqlTest(senha))
         {
             JOptionPane.showMessageDialog(null, "Haa pra cima de mim não!!!",
@@ -251,7 +285,14 @@ public class Validator
     
     public static boolean sqlTest(String palavra)
     {
-        if(palavra.length() <=0 || palavra.charAt(0) == '"' || palavra.contains(" 1 == 1;") || (palavra.contains("-")))
+        if(palavra.charAt(0) == '"' || palavra.contains(" 1 == 1;"))
+            return false;
+        return true;
+    }
+    
+    public static boolean basicTest(String palavra)
+    {
+        if(palavra.length() <=0 || (palavra.contains("-")))
             return false;
         return true;
     }
@@ -289,17 +330,17 @@ public class Validator
         if (nome.length() == 0 || nome.length() > 50 || nome.equals("Nenhum cliente cadastrado")) {
             return false;
         }
-        return !hasSpecialCharacters(nome);
+        return !hasSpecialCharacters(nome) && !hasDigits(nome);
     }
     
     public static boolean isValidCargo(String cargo) {
         if (cargo.length() == 0 || cargo.length() > 20) {
             return false;
         }
-        return !hasSpecialCharacters(cargo);
+        return !hasSpecialCharacters(cargo) && !hasDigits(cargo);
     }
     
-    public static boolean isValidEndereco(String endereco) {
+    public static boolean isValidEnderecoCliente(String endereco) {
         if (endereco.length() > 60) {
             return false;
         }
@@ -328,13 +369,43 @@ public class Validator
     }
     
     public static boolean isValidCusto(String custo) {
+        try
+        {
+            double numero = Double.parseDouble(custo);
+            if(numero > 1000000000)
+                return false;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
         return (!hasLetters(custo) && !hasSpecialCharacters(custo));
     }
     public static boolean isValidVenda(String venda) {
+        try
+        {
+            double numero = Double.parseDouble(venda);
+            if(numero > 1000000000 || numero <= 0.0)
+                return false;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
         return (!hasLetters(venda) && !hasSpecialCharacters(venda));
     }
     public static boolean isValidQuantidade(String qtd){
-        return(!hasLetters(qtd) && !isNotInt(qtd));
+        try
+        {
+            int numero = Integer.parseInt(qtd);
+            if(numero > 1000000000 || numero <= 0)
+                return false;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+        return(!hasLetters(qtd) && !hasSpecialCharacters(qtd));
     }
 
     public static boolean isValidEmail(String email) {
@@ -353,7 +424,7 @@ public class Validator
         if (cidade.length() == 0 || cidade.length() > 30) {
             return false;
         }
-        return (!hasDigits(cidade) && !hasSpecialCharacters(cidade));
+        return !hasDigits(cidade) && !hasSpecialCharacters(cidade);
     }
     public static boolean isValidIndicacao(String indicacao){
         return(!hasDigits(indicacao) && !hasSpecialCharacters(indicacao));
@@ -364,7 +435,7 @@ public class Validator
     }
 
     private static boolean hasSpecialCharacters(String s) {
-        Pattern regex = Pattern.compile("[$&+,:;=?@#|]");
+        Pattern regex = Pattern.compile("[$&+,:;=?@%¨*#!|]");
         return regex.matcher(s).find();
     }
     

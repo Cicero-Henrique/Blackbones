@@ -314,7 +314,8 @@ public class Editar_Fornecedor extends javax.swing.JFrame
     private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
         Operacoes_Fornecedores of = new Operacoes_Fornecedores();
         Operacoes_Endereco oe = new Operacoes_Endereco();
-        if(Validator.isValidFornecedor(nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText()))
+        if(Validator.isValidFornecedor(nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText()) && 
+                Validator.isValidEndereco(cidade_text.getText(), bairro_text.getText(), rua_text.getText(), numero_text.getText()))
         {
             of.editar(id, nome_text.getText(), cnpj_text.getText(), telefone_text.getText(), email_text.getText(), tipo_text.getText());
             oe.editar(estado_combo.getSelectedItem().toString(), cidade_text.getText(), bairro_text.getText(), rua_text.getText(), Integer.parseInt(numero_text.getText()), id);

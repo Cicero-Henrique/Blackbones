@@ -127,7 +127,7 @@ public class Receita
                 Operacoes_Vendas ov =  new Operacoes_Vendas();
                 String v = ov.gerarVenda(vendas.get(i));
                 String[] venda = v.split("-");
-                if(Verificar_Datas(data_inicial, venda[0])  && Verificar_Datas(venda[0], data_final))
+                if(Verificar_Datas(data_inicial, venda[1])  && Verificar_Datas(venda[1], data_final))
                     array.add(v);
             }
             return array;

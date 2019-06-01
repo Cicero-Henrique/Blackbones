@@ -15,6 +15,7 @@ public class Receita_Frame extends javax.swing.JFrame {
     public Receita_Frame() 
     {
         initComponents();
+        receita.setEditable(false);
         setVisible(true);
     }
 
@@ -114,12 +115,15 @@ public class Receita_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmar_buttonActionPerformed
+        receita.setEditable(true);
+        receita.setText(" ");
         String data_inicial = data_inicial_text.getText();
         String data_final = data_final_text.getText();
         
         if(Validator.isValidData(data_inicial) && Validator.isValidData(data_final) &&
                 Validator.sqlTest(data_inicial) && Validator.sqlTest(data_final))
             Listar(data_inicial, data_final);
+        receita.setEditable(false);
     }//GEN-LAST:event_confirmar_buttonActionPerformed
 
     private void voltar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltar_buttonActionPerformed
@@ -171,8 +175,8 @@ public class Receita_Frame extends javax.swing.JFrame {
         
         for(int i = 0; i <vendas.size(); i++)
         {
-            receita.append("Data: " + vendas.get(i).split("-")[0] + "\n");
-            receita.append("ID do Produto: " + vendas.get(i).split("-")[1] + "\n\n");
+            receita.append("Data: " + vendas.get(i).split("-")[1] + "\n");
+            receita.append("ID do Produto: " + vendas.get(i).split("-")[0] + "\n\n");
         }
         conta = r.pegarContasPagar(inicio, data_final);
         
