@@ -1,6 +1,6 @@
 package view;
 import model.Conta;
-import blackbones.Receita;
+import controller.Receita;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;

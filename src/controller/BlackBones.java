@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 import view.Login;
 

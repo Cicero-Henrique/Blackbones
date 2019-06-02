@@ -1,10 +1,10 @@
 
 package view;
 
-import blackbones.Banco_de_Dados;
-import blackbones.Operacoes_Produtos;
+import controller.Banco_de_Dados;
+import controller.Operacoes_Produtos;
 import model.Produto;
-import blackbones.Validator;
+import controller.Validator;
 import javax.swing.DefaultListModel;
 
 public class Editar_Produto extends javax.swing.JFrame 

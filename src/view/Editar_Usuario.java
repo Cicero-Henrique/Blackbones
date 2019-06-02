@@ -5,10 +5,10 @@
  */
 package view;
 
-import blackbones.Banco_de_Dados;
-import blackbones.Operacoes_Usuarios;
+import controller.Banco_de_Dados;
+import controller.Operacoes_Usuarios;
 import model.Usuario;
-import blackbones.Validator;
+import controller.Validator;
 
 /**
  *

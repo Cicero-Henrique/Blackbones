@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 import model.Usuario;
 import javax.swing.JOptionPane;

@@ -1,8 +1,8 @@
 package view;
 
-import blackbones.Banco_de_Dados;
+import controller.Banco_de_Dados;
 import model.Conta;
-import blackbones.Operacoes_Contas;
+import controller.Operacoes_Contas;
 import java.text.SimpleDateFormat;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;

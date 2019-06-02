@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;

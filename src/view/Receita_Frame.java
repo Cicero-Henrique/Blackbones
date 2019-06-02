@@ -1,8 +1,8 @@
 package view;
 
 import model.Conta;
-import blackbones.Receita;
-import blackbones.Validator;
+import controller.Receita;
+import controller.Validator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 

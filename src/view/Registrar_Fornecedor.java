@@ -1,8 +1,8 @@
 package view;
 
-import blackbones.Operacoes_Endereco;
-import blackbones.Operacoes_Fornecedores;
-import blackbones.Validator;
+import controller.Operacoes_Endereco;
+import controller.Operacoes_Fornecedores;
+import controller.Validator;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 

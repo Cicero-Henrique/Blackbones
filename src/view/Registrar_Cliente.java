@@ -1,7 +1,7 @@
 package view;
 
-import blackbones.Operacoes_Clientes;
-import blackbones.Validator;
+import controller.Operacoes_Clientes;
+import controller.Validator;
 import javax.swing.JOptionPane;
 
 public class Registrar_Cliente extends javax.swing.JFrame 

@@ -1,8 +1,8 @@
 package view;
 
-import blackbones.Banco_de_Dados;
+import controller.Banco_de_Dados;
 import model.Cliente;
-import blackbones.Operacoes_Clientes;
+import controller.Operacoes_Clientes;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

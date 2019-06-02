@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 public class Operacoes_Vendas 
 {

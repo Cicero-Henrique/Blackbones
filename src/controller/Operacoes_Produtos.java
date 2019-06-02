@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 import model.Produto;
 import javax.swing.DefaultListModel;

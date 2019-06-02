@@ -1,9 +1,9 @@
 
 package view;
 
-import blackbones.Banco_de_Dados;
+import controller.Banco_de_Dados;
 import model.Fornecedor;
-import blackbones.Operacoes_Fornecedores;
+import controller.Operacoes_Fornecedores;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 

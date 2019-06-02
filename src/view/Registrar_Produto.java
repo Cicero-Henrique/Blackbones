@@ -1,7 +1,7 @@
 package view;
 
-import blackbones.Operacoes_Produtos;
-import blackbones.Validator;
+import controller.Operacoes_Produtos;
+import controller.Validator;
 import javax.swing.JOptionPane;
 
 public class Registrar_Produto extends javax.swing.JFrame {

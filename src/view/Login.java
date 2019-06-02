@@ -1,7 +1,7 @@
 package view;
 
-import blackbones.Operacoes_Usuarios;
-import blackbones.Validator;
+import controller.Operacoes_Usuarios;
+import controller.Validator;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {

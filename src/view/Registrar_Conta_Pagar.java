@@ -1,7 +1,7 @@
 package view;
 
-import blackbones.Operacoes_Contas;
-import blackbones.Validator;
+import controller.Operacoes_Contas;
+import controller.Validator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

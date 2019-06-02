@@ -1,12 +1,12 @@
 
 package view;
 
-import blackbones.Banco_de_Dados;
+import controller.Banco_de_Dados;
 import model.Endereco;
 import model.Fornecedor;
-import blackbones.Operacoes_Endereco;
-import blackbones.Operacoes_Fornecedores;
-import blackbones.Validator;
+import controller.Operacoes_Endereco;
+import controller.Operacoes_Fornecedores;
+import controller.Validator;
 import javax.swing.DefaultListModel;
 
 /**

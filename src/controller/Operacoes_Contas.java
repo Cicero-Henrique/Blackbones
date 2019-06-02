@@ -1,4 +1,4 @@
-package blackbones;
+package controller;
 
 import model.Conta;
 import java.text.ParseException;

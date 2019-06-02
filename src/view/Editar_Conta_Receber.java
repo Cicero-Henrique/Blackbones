@@ -2,10 +2,10 @@
 package view;
 
 
-import blackbones.Banco_de_Dados;
+import controller.Banco_de_Dados;
 import model.Conta;
-import blackbones.Operacoes_Contas;
-import blackbones.Validator;
+import controller.Operacoes_Contas;
+import controller.Validator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
