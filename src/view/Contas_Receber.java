@@ -1,7 +1,7 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Conta;
+import model.Conta;
 import blackbones.Operacoes_Contas;
 import java.text.SimpleDateFormat;
 import javax.swing.DefaultListModel;

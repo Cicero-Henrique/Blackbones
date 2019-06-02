@@ -1,4 +1,4 @@
-package blackbones;
+package model;
 
 public class Endereco 
 {

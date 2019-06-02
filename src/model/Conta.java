@@ -1,4 +1,4 @@
-package blackbones;
+package model;
 
 import java.util.Date;
 

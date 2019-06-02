@@ -1,5 +1,11 @@
 package blackbones;
 
+import model.Usuario;
+import model.Produto;
+import model.Fornecedor;
+import model.Endereco;
+import model.Conta;
+import model.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

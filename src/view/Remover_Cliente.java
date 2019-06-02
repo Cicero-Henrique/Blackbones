@@ -1,7 +1,7 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Cliente;
+import model.Cliente;
 import blackbones.Operacoes_Clientes;
 import java.io.IOException;
 import java.util.logging.Level;

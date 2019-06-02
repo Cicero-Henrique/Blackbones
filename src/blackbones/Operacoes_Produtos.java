@@ -1,5 +1,6 @@
 package blackbones;
 
+import model.Produto;
 import javax.swing.DefaultListModel;
 
 public class Operacoes_Produtos 

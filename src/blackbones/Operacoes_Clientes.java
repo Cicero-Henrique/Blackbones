@@ -1,5 +1,7 @@
 package blackbones;
 
+import model.Cliente;
+
 public class Operacoes_Clientes 
 {
     public void adicionar(String nome, String email, String endereco, String telefone, String indicacao, String cpf)

@@ -1,5 +1,6 @@
 package blackbones;
 
+import model.Fornecedor;
 import javax.swing.DefaultListModel;
 
 

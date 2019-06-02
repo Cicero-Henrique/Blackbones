@@ -2,7 +2,7 @@ package view;
 
 import blackbones.Banco_de_Dados;
 import blackbones.Operacoes_Produtos;
-import blackbones.Produto;
+import model.Produto;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextArea;
 

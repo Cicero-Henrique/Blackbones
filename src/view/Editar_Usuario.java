@@ -7,7 +7,7 @@ package view;
 
 import blackbones.Banco_de_Dados;
 import blackbones.Operacoes_Usuarios;
-import blackbones.Usuario;
+import model.Usuario;
 import blackbones.Validator;
 
 /**

@@ -1,5 +1,7 @@
 package blackbones;
 
+import model.Endereco;
+
 public class Operacoes_Endereco 
 {
     public void adicionar(String estado, String cidade, String bairro, String rua, int numero, int idfornecedor)

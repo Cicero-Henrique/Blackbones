@@ -1,5 +1,6 @@
 package blackbones;
 
+import model.Usuario;
 import javax.swing.JOptionPane;
 
 public class Operacoes_Usuarios 

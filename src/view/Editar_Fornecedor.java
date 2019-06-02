@@ -2,8 +2,8 @@
 package view;
 
 import blackbones.Banco_de_Dados;
-import blackbones.Endereco;
-import blackbones.Fornecedor;
+import model.Endereco;
+import model.Fornecedor;
 import blackbones.Operacoes_Endereco;
 import blackbones.Operacoes_Fornecedores;
 import blackbones.Validator;

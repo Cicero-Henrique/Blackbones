@@ -1,5 +1,6 @@
 package blackbones;
 
+import model.Conta;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
