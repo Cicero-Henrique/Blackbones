@@ -1,6 +1,4 @@
-
 package blackbones;
-
 
 public class Produto 
 {

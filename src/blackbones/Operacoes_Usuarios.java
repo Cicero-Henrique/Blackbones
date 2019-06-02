@@ -23,9 +23,8 @@ public class Operacoes_Usuarios
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
         Usuario u = new Usuario(login, senha, email);   //Cria um novo usuário com os novos dados
-        //Usuario aux = bd.PesquisarUsuario(login);       //Verifica se já existe algum usuário com esse login (Não podem haver usuários com logins iguais)
 
-        bd.EditarUsuario(u, loginAntigo);           //Se não houver usuários com logins repetidos
+        bd.EditarUsuario(u, loginAntigo);
         bd.FecharBanco();
         
     }
@@ -56,6 +55,4 @@ public class Operacoes_Usuarios
         bd.FecharBanco();
         return false;
     }
-    
-    
 }

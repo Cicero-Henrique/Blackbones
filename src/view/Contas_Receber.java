@@ -175,6 +175,4 @@ public class Contas_Receber extends javax.swing.JFrame {
             contas_list.setEditable(false);
         }
     }
-
-
 }

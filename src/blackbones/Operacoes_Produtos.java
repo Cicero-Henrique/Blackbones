@@ -28,7 +28,6 @@ public class Operacoes_Produtos
         bd.conectar("blackbones");
         bd.CadastrarVenda(p, idProduto);
         
-        // Adicionar a venda na tabela de relação entre Produto e Venda
         DefaultListModel<String> listaDeVendas = bd.carregarVenda();
         String[]  infoVenda = listaDeVendas.get(listaDeVendas.size()-1).split("-");
         int idVenda = Integer.parseInt(infoVenda[0].split(":")[1].trim());
@@ -48,16 +47,6 @@ public class Operacoes_Produtos
         }
     }
     
-    /*public void listar(Estoque a)
-    {
-        int i = 0;
-        for(i = 0; i < a.getProdutos().size(); i++)
-        {
-            System.out.println(i + "-" + a.getProdutos().get(i).getNome() + " - " + a.getProdutos().get(i).getTipo() +
-                    " - Margem:" + a.getProdutos().get(i).getMargem_lucro());
-        }
-    }*/
-    
     public int pegarID(String line)
     {
         String linha[] = new String[7];
@@ -68,10 +57,7 @@ public class Operacoes_Produtos
     
     public String[] cortarString(String line)
     {
-        String linha[] = new String[7];
-        linha = line.split("-");
-        return linha = line.split("-");   
-        
+        return line.split("-");   
     }
     
     public Produto gerarProduto(String s)                                   // Transform one line saved in a file in an Object of type Product 

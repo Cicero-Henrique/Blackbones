@@ -3,9 +3,8 @@ package blackbones;
 public class Cliente 
 {
     private String nome, email, telefone, endereco, indicacao, cpf;
-    //private Conta conta;
 
-    public Cliente(String nome, String email, String endereco, String telefone, String indicacao, String cpf)//, Conta conta) 
+    public Cliente(String nome, String email, String endereco, String telefone, String indicacao, String cpf) 
     {
         this.nome = nome;
         this.email = email;
@@ -13,7 +12,6 @@ public class Cliente
         this.endereco = endereco;
         this.indicacao = indicacao;
         this.cpf = cpf;     
-        //this.conta = conta;
     }
 
     public String getEmail() {return email;}

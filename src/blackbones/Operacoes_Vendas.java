@@ -1,8 +1,5 @@
 package blackbones;
-/**
- *
- * @author Cícero
- */
+
 public class Operacoes_Vendas 
 {
     public int pegarID(String line)
@@ -16,7 +13,6 @@ public class Operacoes_Vendas
     {
         String linha[] = line.split("-");
         return linha;   
-        
     }
     
     public String gerarVenda(String s)                                   // Transform one line saved in a file in an Object of type Product 
@@ -44,6 +40,4 @@ public class Operacoes_Vendas
         Double lucro = Double.parseDouble(atributos[5].split(":")[1].trim());        
         return lucro; 
     }
-    
-    
 }

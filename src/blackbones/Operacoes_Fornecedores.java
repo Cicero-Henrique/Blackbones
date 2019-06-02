@@ -1,4 +1,3 @@
-
 package blackbones;
 
 import javax.swing.DefaultListModel;
@@ -13,7 +12,6 @@ public class Operacoes_Fornecedores
         Fornecedor f = new Fornecedor(nome, cnpj, telefone, email, tipo);
         bd.CadastrarFornecedor(f);
         bd.FecharBanco();
-        
     }
     
     public void editar(int id, String nome, String cnpj, String telefone, String email, String tipo)
@@ -35,16 +33,12 @@ public class Operacoes_Fornecedores
     
     public String[] cortarString(String line)
     {
-        String linha[] = new String[6];
-        linha = line.split("-");
-        return linha = line.split("-");   
-        
+        return line.split("-");   
     }
     
     public int pegarID(String line)
     {
-        String linha[] = new String[6];
-        linha = line.split("-");
+        String linha[] = line.split("-");
         String numero[] = linha[0].split(":");
         return Integer.parseInt(numero[1].trim());
     }

@@ -20,7 +20,8 @@ public class Contas extends javax.swing.JFrame
         setVisible(true);
         Listar_Pagar();
         Listar_Receber();
-        
+        pagar_text.setEditable(false);
+        receber_text.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -168,6 +169,7 @@ public class Contas extends javax.swing.JFrame
     // End of variables declaration//GEN-END:variables
     public void Listar_Pagar()
     {
+        pagar_text.setEditable(rootPaneCheckingEnabled);
         Operacoes_Contas oc = new Operacoes_Contas();
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
@@ -194,6 +196,7 @@ public class Contas extends javax.swing.JFrame
         bd.conectar("blackbones");
         DefaultListModel<String> listModel  = bd.carregarConta("receber");
         bd.FecharBanco();
+        pagar_text.setEditable(true);
         
         for(int i = 0; i < listModel.size(); i++)
         {

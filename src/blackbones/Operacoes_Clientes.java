@@ -30,22 +30,9 @@ public class Operacoes_Clientes
         bd.FecharBanco();
     }
     
-    /*public void listar(Registro r)
-    {
-        int i = 0;
-        for(i = 0; i < r.getRegistro().size(); i++)
-        {
-            System.out.println(i +"- " + r.getRegistro().get(i).getNome() + "- " + r.getRegistro().get(i).getEmail()
-                    + "- " +r.getRegistro().get(i).getEndereco() + "- " + r.getRegistro().get(i).getTelefone() 
-                    + "- " +r.getRegistro().get(i).getIndicacao() + "- " + r.getRegistro().get(i).getCpf());
-      */
-    
     public String[] cortarString(String line)
     {
-        String linha[] = new String[6];
-        linha = line.split("-");
-        return linha = line.split("-");   
-        
+        return line.split("-");   
     }
     
     public Cliente gerarCliente(String s)                                   // Transform one line saved in a file in an Object of type Product 

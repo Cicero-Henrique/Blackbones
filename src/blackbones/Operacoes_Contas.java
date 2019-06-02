@@ -36,37 +36,11 @@ public class Operacoes_Contas
         bd.conectar("blackbones");
         bd.RemoverConta(id);
         bd.FecharBanco();
-    }
-    
-    /*public void listar(Financeiro f, String tipo_conta)
-    {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        int i = 0;
-        if(tipo_conta.equals("pagar"))
-        {
-            for(i = 0; i < f.getContas_pagar().size(); i++)
-            {
-                System.out.println(i +"- " + f.getContas_pagar().get(i).getNome() + "- " + formato.format(f.getContas_pagar().get(i).getData())
-                        + "- " +f.getContas_pagar().get(i).getTipo_pagamento() + "- " + f.getContas_pagar().get(i).getStatus());
-            }
-        }
-        else
-        {
-            for(i = 0; i < f.getContas_pagar().size(); i++)
-            {
-                System.out.println(i +"- " + f.getContas_receber().get(i).getNome() + "- " + formato.format(f.getContas_receber().get(i).getData())
-                        + "- " +f.getContas_receber().get(i).getTipo_pagamento() + "- " + f.getContas_receber().get(i).getStatus());
-            }
-        }
-    }*/
-    
+    }    
     
     public String[] cortarString(String line)
     {
-        String linha[] = new String[7];
-        linha = line.split("-");
-        return linha = line.split("-");   
-        
+        return line.split("-");   
     }
     
     public Conta gerarConta(String s)                                   // Transform one line saved in a file in an Object of type Product 
@@ -87,10 +61,10 @@ public class Operacoes_Contas
                     atributos[5].split(":")[1], atributos[3].split(":")[1]);
             return conta;
             
-        } catch (ParseException ex) {
+        } catch (ParseException ex) 
+        {
             Logger.getLogger(Operacoes_Contas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return null; 
     }
     
@@ -102,5 +76,4 @@ public class Operacoes_Contas
         
         return Integer.parseInt(numero[1].trim());
     }
-    
 }
