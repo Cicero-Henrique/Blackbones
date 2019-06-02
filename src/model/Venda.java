@@ -1,6 +1,5 @@
 package model;
 
-import model.Produto;
 import java.util.Date;
 
 public class Venda 
