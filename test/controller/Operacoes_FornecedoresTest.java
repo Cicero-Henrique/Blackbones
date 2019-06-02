@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class Operacoes_FornecedoresTest 
 {
+    public int idTest = -1;
     
     public Operacoes_FornecedoresTest() {}
     
@@ -32,7 +33,7 @@ public class Operacoes_FornecedoresTest
         Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
         instance.adicionar(nome, cnpj, telefone, email, tipo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -50,10 +51,20 @@ public class Operacoes_FornecedoresTest
         String tipo = "";
         Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
         instance.editar(id, nome, cnpj, telefone, email, tipo);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
-
+    /**
+     * Test of ultimoID method, of class Operacoes_Fornecedores.
+     */
+    @Test
+    public void testUltimoID() {
+        System.out.println("ultimoID");
+        Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
+        int expResult = 5;
+        int result = instance.ultimoID();
+        assertEquals(expResult, result);
+        idTest = result;
+    }
     /**
      * Test of remover method, of class Operacoes_Fornecedores.
      */
@@ -61,10 +72,8 @@ public class Operacoes_FornecedoresTest
     public void testRemover() 
     {
         System.out.println("remover");
-        int id = 0;
         Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
-        instance.remover(id);
-        // TODO review the generated test code and remove the default call to fail.
+        instance.remover(idTest);
         //fail("The test case is a prototype.");
     }
 
@@ -75,13 +84,12 @@ public class Operacoes_FornecedoresTest
     public void testPegarID() 
     {
         System.out.println("pegarID");
-        String line = "";
+        String line = "Id: " + 0 + "- Nome:" + "Teste" + "- CNPJ: " + "85207419635478" 
+                + "- Telefone:" + "11111111" + "- EMail:" + "teste@" + "- Tipo: " + "serviços";
         Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
         int expResult = 0;
         int result = instance.pegarID(line);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -91,27 +99,15 @@ public class Operacoes_FornecedoresTest
     public void testGerarFornecedor() 
     {
         System.out.println("gerarFornecedor");
-        String s = "";
+        String s = "Id: " + 0 + "- Nome:" + "Teste" + "- CNPJ: " + "85207419635478" 
+                + "- Telefone:" + "11111111" + "- EMail:" + "teste@" + "- Tipo: " + "serviços";
         Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
-        Fornecedor expResult = null;
+        Fornecedor f = new Fornecedor("Teste", "85207419635478", "11111111", "teste@", "serviços");
+        Fornecedor expResult = f;
         Fornecedor result = instance.gerarFornecedor(s);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        assertEquals(expResult.getEmail(), result.getEmail());
     }
 
-    /**
-     * Test of ultimoID method, of class Operacoes_Fornecedores.
-     */
-    @Test
-    public void testUltimoID() {
-        System.out.println("ultimoID");
-        Operacoes_Fornecedores instance = new Operacoes_Fornecedores();
-        int expResult = 0;
-        int result = instance.ultimoID();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+    
     
 }
