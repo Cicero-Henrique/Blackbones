@@ -57,8 +57,10 @@ public class Estatisticas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
 
+        adicionarproduto_button.setBackground(new java.awt.Color(172, 172, 172));
+        adicionarproduto_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         adicionarproduto_button.setText("Adicionar novo");
         adicionarproduto_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +68,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        estoque_button.setBackground(new java.awt.Color(172, 172, 172));
+        estoque_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         estoque_button.setText("Estoque");
         estoque_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +77,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        editarproduto_button.setBackground(new java.awt.Color(172, 172, 172));
+        editarproduto_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         editarproduto_button.setText("Editar");
         editarproduto_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +86,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        vender_button.setBackground(new java.awt.Color(172, 172, 172));
+        vender_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         vender_button.setText("Vender");
         vender_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +95,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        adicionarfuncionario_button.setBackground(new java.awt.Color(172, 172, 172));
+        adicionarfuncionario_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         adicionarfuncionario_button.setText("Adicionar");
         adicionarfuncionario_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +104,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        editarfuncionario_button.setBackground(new java.awt.Color(172, 172, 172));
+        editarfuncionario_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         editarfuncionario_button.setText("Editar");
         editarfuncionario_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +113,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        listar_button.setBackground(new java.awt.Color(172, 172, 172));
+        listar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         listar_button.setText("Listar");
         listar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +122,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        demitir_button.setBackground(new java.awt.Color(172, 172, 172));
+        demitir_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         demitir_button.setText("Remover");
         demitir_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +135,8 @@ public class Estatisticas extends javax.swing.JFrame {
 
         clientes_label.setText("Clientes");
 
+        contas_button.setBackground(new java.awt.Color(172, 172, 172));
+        contas_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         contas_button.setText("Contas");
         contas_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +146,8 @@ public class Estatisticas extends javax.swing.JFrame {
 
         fornecedores_label.setText("Fornecedores");
 
+        adicionarfornecedor_button.setBackground(new java.awt.Color(172, 172, 172));
+        adicionarfornecedor_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         adicionarfornecedor_button.setText("Adicionar");
         adicionarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +155,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        editarfornecedor_button.setBackground(new java.awt.Color(172, 172, 172));
+        editarfornecedor_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         editarfornecedor_button.setText("Editar");
         editarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +164,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        listarfornecedor_button.setBackground(new java.awt.Color(172, 172, 172));
+        listarfornecedor_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         listarfornecedor_button.setText("Listar");
         listarfornecedor_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +173,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        remover_fornecedor_button.setBackground(new java.awt.Color(172, 172, 172));
+        remover_fornecedor_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         remover_fornecedor_button.setText("Remover");
         remover_fornecedor_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +182,8 @@ public class Estatisticas extends javax.swing.JFrame {
             }
         });
 
+        receita_button.setBackground(new java.awt.Color(172, 172, 172));
+        receita_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         receita_button.setText("Receita");
         receita_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,7 +436,7 @@ public class Estatisticas extends javax.swing.JFrame {
         plot.setBackgroundPaint(Color.WHITE);
         LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
         renderer.setBaseShapesVisible(true);
-        renderer.setSeriesPaint(0, Color.BLUE);
+        renderer.setSeriesPaint(0, Color.RED);
         DecimalFormat format = new DecimalFormat("#0.##");
         renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator("{2}", format));
         renderer.setBaseItemLabelsVisible(true);

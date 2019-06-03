@@ -33,23 +33,33 @@ public class Contas extends javax.swing.JFrame
         receber_text = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         pagar_text = new javax.swing.JTextArea();
-        pagar_label = new javax.swing.JLabel();
+        contas_label = new javax.swing.JLabel();
         voltar_button = new javax.swing.JButton();
         pagar_button = new javax.swing.JButton();
         receber_button = new javax.swing.JButton();
+        titulo_label = new javax.swing.JLabel();
+        pagar_label = new javax.swing.JLabel();
+        receber_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
         receber_text.setColumns(20);
+        receber_text.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         receber_text.setRows(5);
         jScrollPane1.setViewportView(receber_text);
 
         pagar_text.setColumns(20);
+        pagar_text.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         pagar_text.setRows(5);
         jScrollPane2.setViewportView(pagar_text);
 
-        pagar_label.setText("Contas");
+        contas_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        contas_label.setText("Gerenciar");
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +67,8 @@ public class Contas extends javax.swing.JFrame
             }
         });
 
+        pagar_button.setBackground(new java.awt.Color(172, 172, 172));
+        pagar_button.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         pagar_button.setText("Contas a Pagar");
         pagar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +76,8 @@ public class Contas extends javax.swing.JFrame
             }
         });
 
+        receber_button.setBackground(new java.awt.Color(172, 172, 172));
+        receber_button.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         receber_button.setText("Contas a Receber");
         receber_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,43 +85,70 @@ public class Contas extends javax.swing.JFrame
             }
         });
 
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Contas");
+
+        pagar_label.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        pagar_label.setText("Contas a Pagar");
+
+        receber_label.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        receber_label.setText("Contas a Receber");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(28, 28, 28))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(receber_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(pagar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pagar_label)
-                        .addGap(62, 62, 62))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(receber_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pagar_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addComponent(contas_label, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titulo_label))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(receber_label, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(pagar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
+                .addComponent(titulo_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(pagar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pagar_label)
+                        .addComponent(contas_label)
                         .addGap(18, 18, 18)
                         .addComponent(pagar_button)
                         .addGap(18, 18, 18)
                         .addComponent(receber_button))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(103, 103, 103)
+                .addGap(68, 68, 68)
+                .addComponent(receber_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -157,6 +198,7 @@ public class Contas extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel contas_label;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -164,7 +206,9 @@ public class Contas extends javax.swing.JFrame
     private javax.swing.JLabel pagar_label;
     private javax.swing.JTextArea pagar_text;
     private javax.swing.JButton receber_button;
+    private javax.swing.JLabel receber_label;
     private javax.swing.JTextArea receber_text;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     public void Listar_Pagar()

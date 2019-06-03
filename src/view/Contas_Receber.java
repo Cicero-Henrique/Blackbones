@@ -31,9 +31,14 @@ public class Contas_Receber extends javax.swing.JFrame {
         voltar_button = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         contas_list = new javax.swing.JTextArea();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel4.setBackground(new java.awt.Color(206, 206, 206));
+
+        editar_button.setBackground(new java.awt.Color(172, 172, 172));
+        editar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         editar_button.setText("Editar");
         editar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -41,6 +46,8 @@ public class Contas_Receber extends javax.swing.JFrame {
             }
         });
 
+        adicionar_button.setBackground(new java.awt.Color(172, 172, 172));
+        adicionar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         adicionar_button.setText("Adicionar");
         adicionar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +55,8 @@ public class Contas_Receber extends javax.swing.JFrame {
             }
         });
 
+        remover_button.setBackground(new java.awt.Color(172, 172, 172));
+        remover_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         remover_button.setText("Remover");
         remover_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +64,8 @@ public class Contas_Receber extends javax.swing.JFrame {
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +76,9 @@ public class Contas_Receber extends javax.swing.JFrame {
         contas_list.setColumns(20);
         contas_list.setRows(5);
         jScrollPane1.setViewportView(contas_list);
+
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Contas a Receber");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -84,11 +98,17 @@ public class Contas_Receber extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addContainerGap()
+                .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -152,6 +172,7 @@ public class Contas_Receber extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton remover_button;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
 
