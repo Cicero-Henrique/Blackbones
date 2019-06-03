@@ -8,6 +8,7 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
+        logo_label.setIcon(new javax.swing.ImageIcon("BB_logo_grande.jpg"));
         setVisible(true);
     }
 
@@ -25,13 +26,17 @@ public class Login extends javax.swing.JFrame {
         editar_button = new javax.swing.JButton();
         senha_text = new javax.swing.JPasswordField();
         remover_button = new javax.swing.JButton();
+        logo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
 
         usuario_label.setText("Usuário:");
 
         senha_label.setText("Senha:");
 
+        login_button.setBackground(new java.awt.Color(172, 172, 172));
         login_button.setText("Login");
         login_button.setActionCommand("login");
         login_button.addActionListener(new java.awt.event.ActionListener() {
@@ -40,8 +45,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        limpar_button.setBackground(new java.awt.Color(172, 172, 172));
         limpar_button.setText("Limpar");
 
+        cadastrar_button.setBackground(new java.awt.Color(172, 172, 172));
         cadastrar_button.setText("Cadastrar");
         cadastrar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,6 +56,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        editar_button.setBackground(new java.awt.Color(172, 172, 172));
         editar_button.setText("Editar");
         editar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +64,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        remover_button.setBackground(new java.awt.Color(172, 172, 172));
         remover_button.setText("Remover");
         remover_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,12 +100,18 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(editar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(remover_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 221, Short.MAX_VALUE)
+                .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(201, 201, 201))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(340, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usuario_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(login_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -226,6 +241,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton limpar_button;
     private javax.swing.JButton login_button;
     private javax.swing.JTextField login_text;
+    private javax.swing.JLabel logo_label;
     private javax.swing.JButton remover_button;
     private javax.swing.JLabel senha_label;
     private javax.swing.JPasswordField senha_text;

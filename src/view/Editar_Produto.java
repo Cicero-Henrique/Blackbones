@@ -258,7 +258,7 @@ public class Editar_Produto extends javax.swing.JFrame
                     tamanho = (tamanho + "/" + tamanhos[i]);
             }
             if(tamanho.equals(""))
-                tamanho = "-Nenhum tamanho selecionado";
+                tamanho = "Nenhum tamanho selecionado";
             op.editar(id, nome_text.getText(), tipo_text.getText(), custo, venda, margem, qtd, tamanho);
         
             dispose();

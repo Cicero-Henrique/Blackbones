@@ -278,7 +278,7 @@ public class Registrar_Produto extends javax.swing.JFrame {
                     tamanho = (tamanho + "/" + tamanhos[i]);
             }
             if(tamanho.equals(""))
-                tamanho = "-Nenhum tamanho selecionado";
+                tamanho = "Nenhum tamanho selecionado";
             
             op.adicionar_produto(nome, tipo, custo, venda, margem, qtd, tamanho);            
             return true;
