@@ -46,7 +46,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="825" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace pref="160" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="usuario_label" alignment="0" max="32767" attributes="0"/>
+                              <Component id="senha_label" alignment="0" max="32767" attributes="0"/>
+                              <Component id="email_label" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="email_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="usuario_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="senha_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="confirma_text" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="logo_label" min="-2" pref="368" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -56,29 +80,11 @@
                               <EmptySpace min="519" pref="519" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="usuario_label" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="senha_label" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="email_label" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="salvar_button" min="-2" pref="79" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Component id="limpar_button" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="email_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="usuario_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="senha_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="confirma_text" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+                              <EmptySpace min="26" pref="267" max="32767" attributes="0"/>
+                              <Component id="salvar_button" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="limpar_button" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="738" max="-2" attributes="0"/>
@@ -92,32 +98,36 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="579" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="logo_label" pref="212" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="email_label" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="email_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="usuario_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="usuario_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="senha_label" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="senha_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="confirma_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="titulo_label" min="-2" pref="37" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="email_label" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="email_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="usuario_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="usuario_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="senha_label" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="senha_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="confirma_text" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
+                      <EmptySpace pref="367" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="salvar_button" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="limpar_button" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -240,6 +250,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Editar Usu&#xe1;rio"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="logo_label">
         </Component>
       </SubComponents>
     </Container>

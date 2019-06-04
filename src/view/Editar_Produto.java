@@ -55,6 +55,7 @@ public class Editar_Produto extends javax.swing.JFrame
         tamanho_gg = new javax.swing.JCheckBox();
         tamanho_ggg = new javax.swing.JCheckBox();
         titulo_label = new javax.swing.JLabel();
+        logo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,75 +163,75 @@ public class Editar_Produto extends javax.swing.JFrame
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(132, 132, 132)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(selecionar_button))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(301, 301, 301)
-                            .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(146, 146, 146)
-                            .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(214, 214, 214)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tamanhos_lable)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(custo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(venda_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(qtd_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(47, 47, 47)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(nome_text)
-                                        .addComponent(tipo_text)
-                                        .addComponent(custo_text)
-                                        .addComponent(venda_text)
-                                        .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(tamanho_pp)
-                            .addGap(18, 18, 18)
-                            .addComponent(tamanho_p)
-                            .addGap(18, 18, 18)
-                            .addComponent(tamanho_m)
-                            .addGap(18, 18, 18)
-                            .addComponent(tamanho_g)
-                            .addGap(18, 18, 18)
-                            .addComponent(tamanho_gg)
-                            .addGap(18, 18, 18)
-                            .addComponent(tamanho_ggg)
-                            .addGap(282, 282, 282)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
+                        .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(349, 349, 349))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(selecionar_button))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tamanhos_lable)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(custo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(venda_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(qtd_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nome_text)
+                                    .addComponent(tipo_text)
+                                    .addComponent(custo_text)
+                                    .addComponent(venda_text)
+                                    .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(tamanho_pp)
+                        .addGap(18, 18, 18)
+                        .addComponent(tamanho_p)
+                        .addGap(18, 18, 18)
+                        .addComponent(tamanho_m)
+                        .addGap(18, 18, 18)
+                        .addComponent(tamanho_g)
+                        .addGap(18, 18, 18)
+                        .addComponent(tamanho_gg)
+                        .addGap(18, 18, 18)
+                        .addComponent(tamanho_ggg)
+                        .addGap(282, 282, 282)))
+                .addGap(69, 69, 69))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
+                        .addGap(73, 73, 73)
                         .addComponent(selecionar_button)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -254,7 +255,7 @@ public class Editar_Produto extends javax.swing.JFrame
                     .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tamanhos_lable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tamanho_ggg)
                     .addComponent(tamanho_gg)
@@ -262,11 +263,16 @@ public class Editar_Produto extends javax.swing.JFrame
                     .addComponent(tamanho_m)
                     .addComponent(tamanho_p)
                     .addComponent(tamanho_pp))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(87, 87, 87))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,56 +289,19 @@ public class Editar_Produto extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
-        Operacoes_Produtos op = new Operacoes_Produtos();
-        
-        if(Validator.isValidProduct(nome_text.getText(), tipo_text.getText(), custo_text.getText(), venda_text.getText(), qtd_text.getText()))
-        {
-            Double custo = Double.parseDouble(custo_text.getText());
-            Double venda = Double.parseDouble(venda_text.getText());
-            int qtd = Integer.parseInt(qtd_text.getText());
-            double receita = venda * qtd;
-            double margem = (receita - custo)/receita;
-            String[] tamanhos = Tamanhos();
-            String tamanho = "";
-            
-            for(int i = 0; i <= 5; i++)
-            {
-                if(tamanhos[i] != null)
-                    tamanho = (tamanho + "/" + tamanhos[i]);
-            }
-            if(tamanho.equals(""))
-                tamanho = "Nenhum tamanho selecionado";
-            op.editar(id, nome_text.getText(), tipo_text.getText(), custo, venda, margem, qtd, tamanho);
-        
-            dispose();
-            new Editar_Produto();
-        }
-            
-        
-    }//GEN-LAST:event_salvar_buttonActionPerformed
-
-    private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed
-        nome_text.setText(" ");
-        tipo_text.setText(" ");
-        custo_text.setText(" ");
-        venda_text.setText(" ");
-        qtd_text.setText(" ");
-    }//GEN-LAST:event_limpar_buttonActionPerformed
-
     private void selecionar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionar_buttonActionPerformed
 
-        if (!jList1.isSelectionEmpty()) 
+        if (!jList1.isSelectionEmpty())
         {
             Operacoes_Produtos op = new Operacoes_Produtos();
             String linha = jList1.getSelectedValue();
             id = op.pegarID(linha);
-            
+
             Banco_de_Dados bd = new Banco_de_Dados();
             bd.conectar("blackbones");
             Produto p = bd.PesquisarIdProduto(id);
             bd.FecharBanco();
-            
+
             nome_text.setText(p.getNome());
             tipo_text.setText(p.getTipo());
             custo_text.setText(Double.toString(p.getPreco_custo()));
@@ -347,6 +316,42 @@ public class Editar_Produto extends javax.swing.JFrame
         dispose();
         new Estatisticas();
     }//GEN-LAST:event_voltar_buttonActionPerformed
+
+    private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed
+        nome_text.setText(" ");
+        tipo_text.setText(" ");
+        custo_text.setText(" ");
+        venda_text.setText(" ");
+        qtd_text.setText(" ");
+    }//GEN-LAST:event_limpar_buttonActionPerformed
+
+    private void salvar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvar_buttonActionPerformed
+        Operacoes_Produtos op = new Operacoes_Produtos();
+
+        if(Validator.isValidProduct(nome_text.getText(), tipo_text.getText(), custo_text.getText(), venda_text.getText(), qtd_text.getText()))
+        {
+            Double custo = Double.parseDouble(custo_text.getText());
+            Double venda = Double.parseDouble(venda_text.getText());
+            int qtd = Integer.parseInt(qtd_text.getText());
+            double receita = venda * qtd;
+            double margem = (receita - custo)/receita;
+            String[] tamanhos = Tamanhos();
+            String tamanho = "";
+
+            for(int i = 0; i <= 5; i++)
+            {
+                if(tamanhos[i] != null)
+                tamanho = (tamanho + "/" + tamanhos[i]);
+            }
+            if(tamanho.equals(""))
+            tamanho = "Nenhum tamanho selecionado";
+            op.editar(id, nome_text.getText(), tipo_text.getText(), custo, venda, margem, qtd, tamanho);
+
+            dispose();
+            new Editar_Produto();
+        }
+
+    }//GEN-LAST:event_salvar_buttonActionPerformed
 
 
     public static void main(String args[]) 
@@ -366,6 +371,7 @@ public class Editar_Produto extends javax.swing.JFrame
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limpar_button;
+    private javax.swing.JLabel logo_label;
     private javax.swing.JLabel nome_label;
     private javax.swing.JTextField nome_text;
     private javax.swing.JLabel qtd_label;

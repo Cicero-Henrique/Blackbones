@@ -50,38 +50,45 @@
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cpf_label" max="32767" attributes="0"/>
-                              <Component id="indicacao_label" max="32767" attributes="0"/>
-                              <Component id="telefone_label" max="32767" attributes="0"/>
-                              <Component id="endereco_label" max="32767" attributes="0"/>
-                              <Component id="email_label" max="32767" attributes="0"/>
-                              <Component id="nome_label" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="nome_text" max="32767" attributes="0"/>
-                              <Component id="email_text" max="32767" attributes="0"/>
-                              <Component id="endereco_text" max="32767" attributes="0"/>
-                              <Component id="telefone_text" max="32767" attributes="0"/>
-                              <Component id="indicacao_text" max="32767" attributes="0"/>
-                              <Component id="cpf_text" pref="300" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                          <Component id="salvar_button" min="-2" pref="93" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                          <Component id="limpar_button" min="-2" pref="94" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="titulo_label" min="-2" pref="181" max="-2" attributes="0"/>
+                          <EmptySpace pref="203" max="32767" attributes="0"/>
+                          <Component id="logo_label" min="-2" pref="368" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="cpf_label" max="32767" attributes="0"/>
+                                      <Component id="indicacao_label" max="32767" attributes="0"/>
+                                      <Component id="telefone_label" max="32767" attributes="0"/>
+                                      <Component id="endereco_label" max="32767" attributes="0"/>
+                                      <Component id="email_label" max="32767" attributes="0"/>
+                                      <Component id="nome_label" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="nome_text" max="32767" attributes="0"/>
+                                      <Component id="email_text" max="32767" attributes="0"/>
+                                      <Component id="endereco_text" max="32767" attributes="0"/>
+                                      <Component id="telefone_text" max="32767" attributes="0"/>
+                                      <Component id="indicacao_text" max="32767" attributes="0"/>
+                                      <Component id="cpf_text" pref="300" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                                  <Component id="salvar_button" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                                  <Component id="limpar_button" min="-2" pref="94" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="454" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -89,8 +96,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="titulo_label" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="titulo_label" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="logo_label" min="-2" pref="126" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="nome_label" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="nome_text" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -125,7 +135,7 @@
                       <Component id="salvar_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="limpar_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="122" max="32767" attributes="0"/>
+                  <EmptySpace pref="87" max="32767" attributes="0"/>
                   <Component id="voltar_button" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               </Group>
@@ -278,6 +288,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registrar Cliente"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="logo_label">
         </Component>
       </SubComponents>
     </Container>

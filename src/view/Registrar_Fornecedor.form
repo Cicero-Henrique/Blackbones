@@ -46,81 +46,77 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
+                  <Component id="salvar_button" min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                  <Component id="limpar_button" min="-2" pref="94" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="voltar_button" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="cnpj_label" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tipo_label" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="telefone_label" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="email_label" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="nome_label" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="nome_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="email_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="telefone_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tipo_text" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cnpj_text" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="extipo_label" pref="390" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="endereco_label" min="-2" pref="109" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Component id="cidade_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="rua_text" max="32767" attributes="0"/>
-                                      <Component id="cidade_text" pref="263" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="bairro_label" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="estado_label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="estados_combo" min="-2" pref="179" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="bairro_text" min="-2" pref="237" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                          <Component id="numero_label" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cnpj_label" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tipo_label" alignment="0" max="32767" attributes="0"/>
+                              <Component id="telefone_label" alignment="0" max="32767" attributes="0"/>
+                              <Component id="email_label" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="nome_label" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="numero_text" min="-2" pref="52" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="nome_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="email_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="telefone_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tipo_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cnpj_text" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="extipo_label" pref="390" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="endereco_label" min="-2" pref="109" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="cidade_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="rua_text" max="32767" attributes="0"/>
+                              <Component id="cidade_text" pref="263" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="bairro_label" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="estado_label" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="estados_combo" min="-2" pref="179" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="bairro_text" min="-2" pref="237" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="numero_label" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="numero_text" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
-                          <Component id="salvar_button" min="-2" pref="93" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                          <Component id="limpar_button" min="-2" pref="94" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="titulo_label" min="-2" pref="288" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="titulo_label" min="-2" pref="288" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="logo_label" min="-2" pref="368" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="voltar_button" min="-2" pref="118" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -128,8 +124,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="titulo_label" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="titulo_label" min="-2" max="-2" attributes="0"/>
+                      <Component id="logo_label" min="-2" pref="126" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="nome_label" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="nome_text" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -180,9 +179,9 @@
                       <Component id="salvar_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="limpar_button" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="voltar_button" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -410,6 +409,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Adicionar Fornecedor"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="logo_label">
         </Component>
       </SubComponents>
     </Container>
