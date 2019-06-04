@@ -82,7 +82,7 @@ public class Registrar_Usuario extends javax.swing.JFrame {
 
         titulo_label.setBackground(new java.awt.Color(206, 206, 206));
         titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        titulo_label.setText("Registrar Usuário");
+        titulo_label.setText("Adicionar Usuário");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

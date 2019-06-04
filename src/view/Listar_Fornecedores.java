@@ -75,7 +75,7 @@ public class Listar_Fornecedores extends javax.swing.JFrame
         });
 
         titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        titulo_label.setText("Listar Clientes");
+        titulo_label.setText("Listar Fornecedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

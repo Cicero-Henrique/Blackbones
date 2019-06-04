@@ -51,6 +51,8 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
         nome_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_label.setText("Nome:");
 
@@ -145,7 +147,7 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         numero_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        titulo_label.setText("Registrar Fornecedor");
+        titulo_label.setText("Adicionar Fornecedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

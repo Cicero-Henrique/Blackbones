@@ -94,7 +94,7 @@ public class Registrar_Conta_Pagar extends javax.swing.JFrame {
         status_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "À pagar", "Pago" }));
 
         titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        titulo_label.setText("Registrar Conta a Pagar");
+        titulo_label.setText("Adicionar Conta a Pagar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

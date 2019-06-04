@@ -41,7 +41,7 @@ public class Remover_Cliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(206, 206, 206));
 
-        clientes_list.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        clientes_list.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         clientes_list.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }

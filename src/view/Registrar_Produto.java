@@ -121,7 +121,7 @@ public class Registrar_Produto extends javax.swing.JFrame {
         tamanho_ggg.setText("GGG");
 
         titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
-        titulo_label.setText("Registrar Produto");
+        titulo_label.setText("Adicionar Produto");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

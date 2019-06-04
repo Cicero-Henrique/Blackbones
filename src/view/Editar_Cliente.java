@@ -81,7 +81,7 @@ public class Editar_Cliente extends javax.swing.JFrame
             }
         });
 
-        jList1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jList1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {"Item1"};
             public int getSize() { return strings.length; }
