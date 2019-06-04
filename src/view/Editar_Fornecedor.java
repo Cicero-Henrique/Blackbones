@@ -66,16 +66,23 @@ public class Editar_Fornecedor extends javax.swing.JFrame
         estado_combo = new javax.swing.JComboBox<>();
         numero_label = new javax.swing.JLabel();
         numero_text = new javax.swing.JTextField();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
+        jList1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {"Item1"};
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.setSelectionBackground(new java.awt.Color(255, 51, 51));
         jScrollPane1.setViewportView(jList1);
 
+        selecionar_button.setBackground(new java.awt.Color(172, 172, 172));
+        selecionar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         selecionar_button.setText("Selecionar");
         selecionar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +90,8 @@ public class Editar_Fornecedor extends javax.swing.JFrame
             }
         });
 
+        salvar_button.setBackground(new java.awt.Color(172, 172, 172));
+        salvar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         salvar_button.setText("Salvar");
         salvar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +99,8 @@ public class Editar_Fornecedor extends javax.swing.JFrame
             }
         });
 
+        limpar_button.setBackground(new java.awt.Color(172, 172, 172));
+        limpar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         limpar_button.setText("Limpar");
         limpar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +108,8 @@ public class Editar_Fornecedor extends javax.swing.JFrame
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,43 +117,74 @@ public class Editar_Fornecedor extends javax.swing.JFrame
             }
         });
 
+        nome_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_label.setText("Nome:");
 
+        nome_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nome_textActionPerformed(evt);
             }
         });
 
+        email_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_label.setText("E-mail:");
 
+        email_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 email_textActionPerformed(evt);
             }
         });
 
+        telefone_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         telefone_label.setText("Telefone:");
 
+        telefone_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        tipo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tipo_label.setText("Tipo:");
 
+        tipo_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        cnpj_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cnpj_label.setText("CNPJ:");
 
+        cnpj_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        extipo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         extipo_label.setText("Ex: Matéria-prima, entregas, serviços");
 
         enderecoLabel.setText("Endereço");
 
+        cidade_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cidade_label.setText("Cidade:");
 
+        rua_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        rua_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         rua_label.setText("Rua:");
 
+        cidade_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        bairro_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         bairro_label.setText("Bairro:");
 
+        estado_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estado_label.setText("Estado:");
 
+        bairro_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        estado_combo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estado_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"}));
 
+        numero_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         numero_label.setText("Número: ");
+
+        numero_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Editar Fornecedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,41 +227,49 @@ public class Editar_Fornecedor extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(numero_text, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(130, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(selecionar_button)
-                        .addGap(98, 98, 98))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cnpj_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(telefone_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(email_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(nome_label, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nome_text)
-                            .addComponent(email_text)
-                            .addComponent(telefone_text)
-                            .addComponent(tipo_text)
-                            .addComponent(cnpj_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(extipo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(149, 149, 149))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(0, 108, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(selecionar_button)
+                                .addGap(98, 98, 98))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cnpj_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(telefone_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(email_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nome_label, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nome_text)
+                                    .addComponent(email_text)
+                                    .addComponent(telefone_text)
+                                    .addComponent(tipo_text)
+                                    .addComponent(cnpj_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(extipo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(149, 149, 149))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(voltar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addContainerGap()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
@@ -243,7 +295,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cnpj_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cnpj_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(enderecoLabel)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -416,6 +468,7 @@ public class Editar_Fornecedor extends javax.swing.JFrame
     private javax.swing.JTextField telefone_text;
     private javax.swing.JLabel tipo_label;
     private javax.swing.JTextField tipo_text;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
 

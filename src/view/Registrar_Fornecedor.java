@@ -35,7 +35,6 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         salvar_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
         voltar_button = new javax.swing.JButton();
-        registrar_label = new javax.swing.JLabel();
         extipo_label = new javax.swing.JLabel();
         endereco_label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -48,19 +47,26 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
         estados_combo = new javax.swing.JComboBox<>();
         numero_label = new javax.swing.JLabel();
         numero_text = new javax.swing.JTextField();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        nome_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_label.setText("Nome:");
 
+        email_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_label.setText("E-mail:");
 
+        telefone_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         telefone_label.setText("Telefone:");
 
+        tipo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tipo_label.setText("Tipo:");
 
+        cnpj_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cnpj_label.setText("CNPJ:");
 
+        nome_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nome_textActionPerformed(evt);
@@ -73,6 +79,14 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
             }
         });
 
+        telefone_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        tipo_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        cnpj_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        salvar_button.setBackground(new java.awt.Color(172, 172, 172));
+        salvar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         salvar_button.setText("Salvar");
         salvar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +94,8 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
             }
         });
 
+        limpar_button.setBackground(new java.awt.Color(172, 172, 172));
+        limpar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         limpar_button.setText("Limpar");
         limpar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +103,8 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,35 +112,45 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
             }
         });
 
-        registrar_label.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        registrar_label.setText("Registrar Fornecedor");
-
+        extipo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         extipo_label.setText("Ex: Matéria-prima, entregas, serviços");
 
+        endereco_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         endereco_label.setText("Endereço");
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Rua:");
 
+        rua_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        bairro_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         bairro_label.setText("Bairro:");
 
+        bairro_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        cidade_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cidade_label.setText("Cidade: ");
 
+        cidade_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        estado_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estado_label.setText("Estado: ");
 
+        estados_combo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         estados_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO" }));
 
+        numero_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         numero_label.setText("Número:");
+
+        numero_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Registrar Fornecedor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(279, 279, 279)
-                .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143)
-                .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +175,6 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
                                     .addComponent(cnpj_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(extipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))
-                            .addComponent(registrar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(endereco_label, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,13 +198,24 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(numero_text, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(37, 37, 37))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(143, 143, 143)
+                        .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(registrar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addContainerGap()
+                .addComponent(titulo_label)
+                .addGap(142, 142, 142)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nome_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -327,13 +365,13 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
     private javax.swing.JTextField nome_text;
     private javax.swing.JLabel numero_label;
     private javax.swing.JTextField numero_text;
-    private javax.swing.JLabel registrar_label;
     private javax.swing.JTextField rua_text;
     private javax.swing.JButton salvar_button;
     private javax.swing.JLabel telefone_label;
     private javax.swing.JTextField telefone_text;
     private javax.swing.JLabel tipo_label;
     private javax.swing.JTextField tipo_text;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     

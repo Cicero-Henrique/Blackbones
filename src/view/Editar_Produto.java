@@ -54,9 +54,14 @@ public class Editar_Produto extends javax.swing.JFrame
         tamanho_g = new javax.swing.JCheckBox();
         tamanho_gg = new javax.swing.JCheckBox();
         tamanho_ggg = new javax.swing.JCheckBox();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
+        salvar_button.setBackground(new java.awt.Color(172, 172, 172));
+        salvar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         salvar_button.setText("Salvar");
         salvar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +69,8 @@ public class Editar_Produto extends javax.swing.JFrame
             }
         });
 
+        limpar_button.setBackground(new java.awt.Color(172, 172, 172));
+        limpar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         limpar_button.setText("Limpar");
         limpar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +78,8 @@ public class Editar_Produto extends javax.swing.JFrame
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,6 +87,7 @@ public class Editar_Produto extends javax.swing.JFrame
             }
         });
 
+        jList1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -87,8 +97,11 @@ public class Editar_Produto extends javax.swing.JFrame
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }*/
         });
+        jList1.setSelectionBackground(new java.awt.Color(255, 51, 51));
         jScrollPane1.setViewportView(jList1);
 
+        selecionar_button.setBackground(new java.awt.Color(172, 172, 172));
+        selecionar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         selecionar_button.setText("Selecionar");
         selecionar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,29 +109,54 @@ public class Editar_Produto extends javax.swing.JFrame
             }
         });
 
+        nome_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_label.setText("Nome:");
 
+        nome_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        tipo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tipo_label.setText("Tipo:");
 
+        tipo_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        custo_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         custo_label.setText("Preço de Custo:");
 
+        custo_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        venda_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         venda_label.setText("Preço de Venda:");
 
+        venda_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        qtd_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         qtd_label.setText("Quantidade:");
 
+        qtd_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        tamanhos_lable.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanhos_lable.setText("Tamanhos:");
 
+        tamanho_pp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_pp.setText("PP");
 
+        tamanho_p.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_p.setText("P");
 
+        tamanho_m.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_m.setText("M");
 
+        tamanho_g.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_g.setText("G");
 
+        tamanho_gg.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_gg.setText("GG");
 
+        tamanho_ggg.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tamanho_ggg.setText("GGG");
+
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Editar Produto");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,49 +168,53 @@ public class Editar_Produto extends javax.swing.JFrame
                 .addGap(130, 130, 130))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(132, 132, 132)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(selecionar_button))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(301, 301, 301)
+                            .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(146, 146, 146)
+                            .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(214, 214, 214)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tamanhos_lable)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(custo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(venda_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(qtd_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(47, 47, 47)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(nome_text)
+                                        .addComponent(tipo_text)
+                                        .addComponent(custo_text)
+                                        .addComponent(venda_text)
+                                        .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(tamanho_pp)
+                            .addGap(18, 18, 18)
+                            .addComponent(tamanho_p)
+                            .addGap(18, 18, 18)
+                            .addComponent(tamanho_m)
+                            .addGap(18, 18, 18)
+                            .addComponent(tamanho_g)
+                            .addGap(18, 18, 18)
+                            .addComponent(tamanho_gg)
+                            .addGap(18, 18, 18)
+                            .addComponent(tamanho_ggg)
+                            .addGap(282, 282, 282)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(selecionar_button))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(301, 301, 301)
-                        .addComponent(salvar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146)
-                        .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tamanhos_lable)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(custo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tipo_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nome_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(venda_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(qtd_label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nome_text)
-                                    .addComponent(tipo_text)
-                                    .addComponent(custo_text)
-                                    .addComponent(venda_text)
-                                    .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tamanho_pp)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanho_p)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanho_m)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanho_g)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanho_gg)
-                        .addGap(18, 18, 18)
-                        .addComponent(tamanho_ggg)
-                        .addGap(282, 282, 282)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +225,9 @@ public class Editar_Produto extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
+                        .addContainerGap()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -210,7 +254,7 @@ public class Editar_Produto extends javax.swing.JFrame
                     .addComponent(qtd_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(tamanhos_lable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tamanho_ggg)
                     .addComponent(tamanho_gg)
@@ -337,6 +381,7 @@ public class Editar_Produto extends javax.swing.JFrame
     private javax.swing.JLabel tamanhos_lable;
     private javax.swing.JLabel tipo_label;
     private javax.swing.JTextField tipo_text;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JLabel venda_label;
     private javax.swing.JTextField venda_text;
     private javax.swing.JButton voltar_button;

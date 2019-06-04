@@ -32,13 +32,24 @@ public class Receita_Frame extends javax.swing.JFrame {
         voltar_button = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         receita = new javax.swing.JTextArea();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
+        data_inicial_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         data_inicial_label.setText("Data Inicial: ");
 
+        data_inicial_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        data_final_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         data_final_label.setText("Data Final: ");
 
+        data_final_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        confirmar_button.setBackground(new java.awt.Color(172, 172, 172));
+        confirmar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         confirmar_button.setText("Confirmar");
         confirmar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +57,8 @@ public class Receita_Frame extends javax.swing.JFrame {
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,8 +67,12 @@ public class Receita_Frame extends javax.swing.JFrame {
         });
 
         receita.setColumns(20);
+        receita.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         receita.setRows(5);
         jScrollPane2.setViewportView(receita);
+
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Receita");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,25 +83,32 @@ public class Receita_Frame extends javax.swing.JFrame {
                 .addComponent(voltar_button)
                 .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(data_inicial_label)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(data_inicial_text, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(data_final_label)
+                        .addGap(73, 73, 73)
+                        .addComponent(data_inicial_label)
                         .addGap(18, 18, 18)
-                        .addComponent(data_final_text, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(confirmar_button))
-                    .addComponent(jScrollPane2))
-                .addContainerGap(88, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(data_inicial_text, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(80, 80, 80)
+                                .addComponent(data_final_label)
+                                .addGap(18, 18, 18)
+                                .addComponent(data_final_text, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(confirmar_button))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addContainerGap()
+                .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(data_final_label)
@@ -151,6 +175,7 @@ public class Receita_Frame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea receita;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     

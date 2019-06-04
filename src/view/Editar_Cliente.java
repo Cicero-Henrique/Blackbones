@@ -81,12 +81,13 @@ public class Editar_Cliente extends javax.swing.JFrame
             }
         });
 
-        jList1.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        jList1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {"Item1"};
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.setSelectionBackground(new java.awt.Color(255, 51, 51));
         jScrollPane1.setViewportView(jList1);
 
         selecionar_button.setBackground(new java.awt.Color(172, 172, 172));

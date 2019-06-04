@@ -34,34 +34,54 @@ public class Registrar_Cliente extends javax.swing.JFrame
         salvar_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
         voltar_button = new javax.swing.JButton();
-        registrar_label = new javax.swing.JLabel();
+        titulo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(206, 206, 206));
+
+        nome_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_label.setText("Nome:");
 
+        email_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_label.setText("E-mail:");
 
+        endereco_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         endereco_label.setText("Endereço:");
 
+        telefone_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         telefone_label.setText("Telefone:");
 
+        indicacao_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         indicacao_label.setText("Indicação:");
 
+        cpf_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cpf_label.setText("CPF:");
 
+        nome_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nome_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nome_textActionPerformed(evt);
             }
         });
 
+        email_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 email_textActionPerformed(evt);
             }
         });
 
+        endereco_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        telefone_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        indicacao_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        cpf_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        salvar_button.setBackground(new java.awt.Color(172, 172, 172));
+        salvar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         salvar_button.setText("Salvar");
         salvar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +89,8 @@ public class Registrar_Cliente extends javax.swing.JFrame
             }
         });
 
+        limpar_button.setBackground(new java.awt.Color(172, 172, 172));
+        limpar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         limpar_button.setText("Limpar");
         limpar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +98,8 @@ public class Registrar_Cliente extends javax.swing.JFrame
             }
         });
 
+        voltar_button.setBackground(new java.awt.Color(172, 172, 172));
+        voltar_button.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         voltar_button.setText("Voltar");
         voltar_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,8 +107,8 @@ public class Registrar_Cliente extends javax.swing.JFrame
             }
         });
 
-        registrar_label.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        registrar_label.setText("Registrar Cliente");
+        titulo_label.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        titulo_label.setText("Registrar Cliente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,16 +143,16 @@ public class Registrar_Cliente extends javax.swing.JFrame
                         .addGap(182, 182, 182)
                         .addComponent(limpar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(registrar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(454, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(registrar_label, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addContainerGap()
+                .addComponent(titulo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome_label, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nome_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,10 +257,10 @@ public class Registrar_Cliente extends javax.swing.JFrame
     private javax.swing.JButton limpar_button;
     private javax.swing.JLabel nome_label;
     private javax.swing.JTextField nome_text;
-    private javax.swing.JLabel registrar_label;
     private javax.swing.JButton salvar_button;
     private javax.swing.JLabel telefone_label;
     private javax.swing.JTextField telefone_text;
+    private javax.swing.JLabel titulo_label;
     private javax.swing.JButton voltar_button;
     // End of variables declaration//GEN-END:variables
     public boolean Dados() 
