@@ -4,6 +4,7 @@ import controller.Banco_de_Dados;
 import controller.Operacoes_Contas;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import model.Conta;
 
 public class Remover_Conta_Receber extends javax.swing.JFrame 
 {
@@ -129,7 +130,10 @@ public class Remover_Conta_Receber extends javax.swing.JFrame
         if(!contas_list.isSelectionEmpty())
         {
             String item = contas_list.getSelectedValue();
-            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente deletar a conta " + item + "?");
+            Operacoes_Contas oc = new Operacoes_Contas();
+            Conta c = oc.gerarConta(item);
+            
+            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente deletar a conta " + c.getNome() + "?");
             
             if(x == 0)
                 Remover();

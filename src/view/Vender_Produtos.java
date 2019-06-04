@@ -201,7 +201,9 @@ public class Vender_Produtos extends javax.swing.JFrame
             else
             {
                 String item = produtos_list.getSelectedValue();
-                int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
+                Operacoes_Produtos op = new Operacoes_Produtos();
+                Produto p = op.gerarProduto(item);
+                int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + p.getNome() + "?");
 
                 if(x == 0)
                     Remover();

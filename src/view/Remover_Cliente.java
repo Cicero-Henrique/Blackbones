@@ -126,7 +126,10 @@ public class Remover_Cliente extends javax.swing.JFrame {
         if(!clientes_list.isSelectionEmpty())
         {
             String item = clientes_list.getSelectedValue();
-            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
+            Operacoes_Clientes oc = new Operacoes_Clientes();
+            Cliente c = oc.gerarCliente(item);
+            
+            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + c.getNome() + "?");
             
             if(x == 0)
                 Remover();

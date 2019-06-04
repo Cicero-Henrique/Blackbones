@@ -4,6 +4,7 @@ import controller.Banco_de_Dados;
 import controller.Operacoes_Fornecedores;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import model.Fornecedor;
 
 public class Remover_Fornecedor extends javax.swing.JFrame 
 {
@@ -125,7 +126,9 @@ public class Remover_Fornecedor extends javax.swing.JFrame
         if(!fornecedores_list.isSelectionEmpty())
         {
             String item = fornecedores_list.getSelectedValue();
-            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + item + "?");
+            Operacoes_Fornecedores of = new Operacoes_Fornecedores();
+            Fornecedor f = of.gerarFornecedor(item);
+            int x = JOptionPane.showConfirmDialog(null, "Deseja realmente remover " + f.getNome() + "?");
 
             if(x == 0)
                 Remover();
