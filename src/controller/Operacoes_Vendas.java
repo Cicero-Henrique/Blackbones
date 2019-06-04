@@ -6,7 +6,7 @@ public class Operacoes_Vendas
     {
         String linha[] = line.split("-");
         String numero[] = linha[0].split(":");
-        return Integer.parseInt(numero[1].trim());
+        return Integer.parseInt(numero[0].trim());
     }
     
     public String[] cortarString(String line)

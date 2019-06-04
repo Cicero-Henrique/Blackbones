@@ -1,10 +1,14 @@
 package view;
 
+import controller.Banco_de_Dados;
+import controller.Operacoes_Vendas;
 import model.Conta;
 import controller.Receita;
 import controller.Validator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import model.Produto;
 
 /**
  *
@@ -200,8 +204,22 @@ public class Receita_Frame extends javax.swing.JFrame {
         
         for(int i = 0; i <vendas.size(); i++)
         {
-            receita.append("Data: " + vendas.get(i).split("-")[1] + "\n");
-            receita.append("ID do Produto: " + vendas.get(i).split("-")[0] + "\n\n");
+            Operacoes_Vendas ov = new Operacoes_Vendas();
+            int idProduto = ov.pegarID(vendas.get(i));
+            Banco_de_Dados bd = new Banco_de_Dados();
+            bd.conectar("blackbones");
+            Produto p = bd.PesquisarIdProduto(idProduto);
+            bd.FecharBanco();
+            if(p.getQtd() == -1)
+            {
+                receita.append("Data: " + vendas.get(i).split("-")[1] + "\n");
+                receita.append("ID do Produto: " + vendas.get(i).split("-")[0] + "\n\n");
+            }
+            else
+            {
+                receita.append("Data: " + vendas.get(i).split("-")[1] + "\n");
+                receita.append("Produto: " + p.getNome() + "\n\n");
+            }
         }
         conta = r.pegarContasPagar(inicio, data_final);
         
