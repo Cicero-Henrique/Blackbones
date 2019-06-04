@@ -55,6 +55,7 @@ public class Vender_Produtos extends javax.swing.JFrame
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        produtos_list.setSelectionBackground(new java.awt.Color(255, 51, 51));
         jScrollPane1.setViewportView(produtos_list);
 
         vender_button.setBackground(new java.awt.Color(172, 172, 172));
@@ -91,6 +92,7 @@ public class Vender_Produtos extends javax.swing.JFrame
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        vender_list.setSelectionBackground(new java.awt.Color(255, 51, 51));
         jScrollPane3.setViewportView(vender_list);
 
         selecionar_button.setBackground(new java.awt.Color(172, 172, 172));
