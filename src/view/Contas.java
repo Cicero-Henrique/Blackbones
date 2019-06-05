@@ -17,6 +17,7 @@ public class Contas extends javax.swing.JFrame
     SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     public Contas() {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
         Listar_Pagar();
         Listar_Receber();

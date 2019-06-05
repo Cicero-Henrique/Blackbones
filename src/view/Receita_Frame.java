@@ -20,7 +20,9 @@ public class Receita_Frame extends javax.swing.JFrame {
     {
         initComponents();
         receita.setEditable(false);
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
     }
 
     @SuppressWarnings("unchecked")

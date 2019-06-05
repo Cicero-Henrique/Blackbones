@@ -13,7 +13,9 @@ public class Registrar_Conta_Pagar extends javax.swing.JFrame {
 
     public Registrar_Conta_Pagar() {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
     }
 
     @SuppressWarnings("unchecked")

@@ -15,7 +15,9 @@ public class Registrar_Fornecedor extends javax.swing.JFrame {
     public Registrar_Fornecedor() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

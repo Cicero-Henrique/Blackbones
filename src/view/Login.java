@@ -9,6 +9,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         logo_label.setIcon(new javax.swing.ImageIcon("logo_horizontal.jpeg"));
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

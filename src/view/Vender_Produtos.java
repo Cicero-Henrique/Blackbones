@@ -16,7 +16,9 @@ public class Vender_Produtos extends javax.swing.JFrame
     public Vender_Produtos() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("558x166.png"));
         
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");

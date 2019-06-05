@@ -22,7 +22,9 @@ public class Editar_Usuario extends javax.swing.JFrame {
     static String loginAntigo = null;
     public Editar_Usuario(String login) 
     {
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("368x212.png"));
         initComponents();
         loginAntigo = login;
     }

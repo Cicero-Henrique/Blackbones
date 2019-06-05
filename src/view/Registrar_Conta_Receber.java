@@ -24,7 +24,9 @@ public class Registrar_Conta_Receber extends javax.swing.JFrame
     public Registrar_Conta_Receber() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
         carregar_comboBox();
     }
      

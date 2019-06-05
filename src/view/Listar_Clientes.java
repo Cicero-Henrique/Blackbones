@@ -36,7 +36,9 @@ public class Listar_Clientes extends javax.swing.JFrame
     public Listar_Clientes() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
         JTextArea funcionarios_lista = new JTextArea();
         Listar();
         funcionarios_lista.setEditable(false);

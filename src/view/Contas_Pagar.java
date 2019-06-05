@@ -13,7 +13,9 @@ public class Contas_Pagar extends javax.swing.JFrame {
     public Contas_Pagar() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
         JTextArea contas_list = new JTextArea();
         Listar();
         contas_list.setEditable(false);

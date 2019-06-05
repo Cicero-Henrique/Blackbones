@@ -26,9 +26,10 @@ public class Estatisticas extends javax.swing.JFrame {
     public Estatisticas() 
     {
         initComponents();
-        setVisible(true);
         criarGrafico();
         grafico_label.setIcon(new javax.swing.ImageIcon("Grafico_Normal.png"));
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

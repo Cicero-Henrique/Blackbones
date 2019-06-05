@@ -7,7 +7,9 @@ public class Registrar_Usuario extends javax.swing.JFrame {
 
     public Registrar_Usuario() {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("532x182.png"));
     }
 
     @SuppressWarnings("unchecked")

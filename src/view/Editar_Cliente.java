@@ -14,7 +14,9 @@ public class Editar_Cliente extends javax.swing.JFrame
     public Editar_Cliente() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
         DefaultListModel listModel = new DefaultListModel();

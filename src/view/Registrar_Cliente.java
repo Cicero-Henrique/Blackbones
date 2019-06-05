@@ -11,7 +11,9 @@ public class Registrar_Cliente extends javax.swing.JFrame
     public Registrar_Cliente() 
     {        
         initComponents();
-        setVisible(true);        
+        setLocationRelativeTo(null);
+        setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));      
     }
 
     @SuppressWarnings("unchecked")

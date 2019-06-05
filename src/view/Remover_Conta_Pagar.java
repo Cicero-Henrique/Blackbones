@@ -14,7 +14,9 @@ public class Remover_Conta_Pagar extends javax.swing.JFrame
     public Remover_Conta_Pagar() 
     {
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        logo_label.setIcon(new javax.swing.ImageIcon("335x113.png"));
         
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
