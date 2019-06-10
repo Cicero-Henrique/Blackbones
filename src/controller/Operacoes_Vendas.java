@@ -15,7 +15,7 @@ public class Operacoes_Vendas
         return linha;   
     }
     
-    public String gerarVenda(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    public String gerarVenda(String s)                                   
     {
         String atributos[];
         
@@ -32,7 +32,7 @@ public class Operacoes_Vendas
         return venda; 
     }
     
-    public double gerarLucro(String s)                                   // Transform one line saved in a file in an Object of type Product 
+    public double gerarLucro(String s)                                  
     {
         String atributos[];
         

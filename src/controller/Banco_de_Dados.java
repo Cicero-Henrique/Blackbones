@@ -30,12 +30,12 @@ public class Banco_de_Dados
         String servidor = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
         String usuario = "root";
         String senha = "211170";
-        try {
-
-            // Class.forName("com.mysql.jdbc.Driver");
+        try 
+        {
             connection = DriverManager.getConnection(servidor, usuario, senha);
-
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             System.out.println("Erro = " + e);
         }
     }

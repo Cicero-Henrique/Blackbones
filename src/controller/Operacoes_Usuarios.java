@@ -23,7 +23,7 @@ public class Operacoes_Usuarios
     {
         Banco_de_Dados bd = new Banco_de_Dados();
         bd.conectar("blackbones");
-        Usuario u = new Usuario(login, senha, email);   //Cria um novo usuário com os novos dados
+        Usuario u = new Usuario(login, senha, email);
 
         bd.EditarUsuario(u, loginAntigo);
         bd.FecharBanco();
