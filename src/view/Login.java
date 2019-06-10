@@ -8,7 +8,7 @@ public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
-        logo_label.setIcon(new javax.swing.ImageIcon("logo_horizontal.jpeg"));
+        logo_label.setIcon(new javax.swing.ImageIcon("logo_horizontal.png"));
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -30,7 +30,6 @@ public class Login extends javax.swing.JFrame {
         logo_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(980, 670));
 
         jPanel1.setBackground(new java.awt.Color(206, 206, 206));
 
@@ -119,10 +118,12 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(senha_text)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addComponent(cadastrar_button, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(155, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 47, Short.MAX_VALUE)
+                .addComponent(logo_label, javax.swing.GroupLayout.PREFERRED_SIZE, 767, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
