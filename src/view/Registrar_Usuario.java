@@ -20,8 +20,8 @@ public class Registrar_Usuario extends javax.swing.JFrame {
         usuario_label = new javax.swing.JLabel();
         senha_label = new javax.swing.JLabel();
         email_label = new javax.swing.JLabel();
-        email_text = new javax.swing.JTextField();
         usuario_text = new javax.swing.JTextField();
+        email_text = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         salvar_button = new javax.swing.JButton();
         limpar_button = new javax.swing.JButton();
@@ -45,9 +45,9 @@ public class Registrar_Usuario extends javax.swing.JFrame {
         email_label.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         email_label.setText("E-Mail:");
 
-        email_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-
         usuario_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+
+        email_text.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Confirmar a senha:");
@@ -111,8 +111,8 @@ public class Registrar_Usuario extends javax.swing.JFrame {
                                     .addComponent(usuario_label, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usuario_text, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                            .addComponent(email_text)
+                            .addComponent(email_text, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                            .addComponent(usuario_text)
                             .addComponent(senha_text)
                             .addComponent(confirma_text))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -139,11 +139,11 @@ public class Registrar_Usuario extends javax.swing.JFrame {
                 .addGap(107, 107, 107)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usuario_label, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usuario_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(email_label, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usuario_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(senha_label, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,8 +185,8 @@ public class Registrar_Usuario extends javax.swing.JFrame {
         {
             Operacoes_Usuarios ou = new Operacoes_Usuarios();
             ou.adicionar(usuario, email, senha);
-            email_text.setText(" ");
             usuario_text.setText(" ");
+            email_text.setText(" ");
             senha_text.setText("");
             confirma_text.setText("");
             dispose();
@@ -196,8 +196,8 @@ public class Registrar_Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_salvar_buttonActionPerformed
 
     private void limpar_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar_buttonActionPerformed
-        email_text.setText(" ");
         usuario_text.setText(" ");
+        email_text.setText(" ");
         senha_text.setText("");
         confirma_text.setText("");
     }//GEN-LAST:event_limpar_buttonActionPerformed

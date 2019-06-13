@@ -71,8 +71,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="usuario_text" pref="385" max="32767" attributes="0"/>
-                              <Component id="email_text" alignment="0" max="32767" attributes="0"/>
+                              <Component id="email_text" pref="385" max="32767" attributes="0"/>
+                              <Component id="usuario_text" alignment="0" max="32767" attributes="0"/>
                               <Component id="senha_text" alignment="0" max="32767" attributes="0"/>
                               <Component id="confirma_text" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -109,12 +109,12 @@
                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="usuario_label" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="email_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="usuario_text" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="email_label" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="usuario_text" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="email_text" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -163,14 +163,14 @@
             <Property name="text" type="java.lang.String" value="E-Mail:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="email_text">
+        <Component class="javax.swing.JTextField" name="usuario_text">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="usuario_text">
+        <Component class="javax.swing.JTextField" name="email_text">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
